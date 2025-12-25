@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harsh Patel - Shopify Expert</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --text-primary: #0a0a0a;
+        --text-secondary: #525252;
+        --text-tertiary: #737373;
+        --bg-primary: #ffffff;
+        --bg-secondary: #fafafa;
+        --border: #e5e5e5;
+        --accent: #0a0a0a;
+        --accent-hover: #262626;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      nav {
+        padding: 32px 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 80px;
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+
+      .nav-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 15px;
+        transition: color 0.2s;
+      }
+
+      .nav-link:hover {
+        color: var(--text-primary);
+      }
+
+      .hero {
+        margin-bottom: 100px;
+      }
+
+      .greeting {
+        font-size: 16px;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        font-weight: 400;
+      }
+
+      h1 {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+      }
+
+      .tagline {
+        font-size: 20px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 40px;
+        max-width: 700px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        background-color: var(--accent);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-1px);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      section {
+        margin-bottom: 100px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 32px;
+      }
+
+      h2 {
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--text-primary);
+        letter-spacing: -0.01em;
+      }
+
+      .content-text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-primary);
+        max-width: 700px;
+      }
+
+      .content-text p {
+        margin-bottom: 24px;
+      }
+
+      .content-text p:last-child {
+        margin-bottom: 0;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 32px;
+      }
+
+      .service-item {
+        padding: 24px;
+        background-color: var(--bg-secondary);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        transition: all 0.2s;
+      }
+
+      .service-item:hover {
+        border-color: var(--text-primary);
+        transform: translateY(-2px);
+      }
+
+      .service-item h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--text-primary);
+      }
+
+      .service-item p {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .pricing-box {
+        background-color: var(--bg-secondary);
+        padding: 32px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        max-width: 600px;
+      }
+
+      .pricing-text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-primary);
+      }
+
+      .pricing-highlight {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 60px 0;
+        background-color: var(--bg-secondary);
+        border-radius: 16px;
+        margin: 100px 0;
+      }
+
+      .cta-section h2 {
+        margin-bottom: 16px;
+      }
+
+      .cta-section p {
+        font-size: 18px;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+      }
+
+      footer {
+        padding: 60px 0 40px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        color: var(--text-tertiary);
+        font-size: 14px;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          padding: 0 40px;
+        }
+
+        h1 {
+          font-size: 64px;
+        }
+
+        .tagline {
+          font-size: 22px;
+        }
+
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        nav {
+          padding: 40px 0;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .services-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="#" class="logo">Harsh Patel</a>
+        <a href="mailto:harsh@harshspatel.com" class="nav-link">Get in touch</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <section class="hero">
+        <div class="greeting">Hi there,</div>
+        <h1>I'm Harsh Patel</h1>
+        <p class="tagline">
+          I help Shopify merchants fix operational bottlenecks by building
+          focused, custom solutions — when off-the-shelf apps aren’t enough.
+        </p>
+        <a href="mailto:harsh@harshspatel.com" class="btn">Email me</a>
+      </section>
+
+      <section>
+        <h2>What I do</h2>
+        <div class="content-text">
+          <p>
+            I work with Shopify merchants who’ve outgrown standard apps and
+            manual workflows.
+          </p>
+          <p>
+            When operations become messy — inventory issues, order edge cases,
+            manual checks, or disconnected tools — I step in to design and build
+            custom solutions that fit how your business actually runs.
+          </p>
+          <p>
+            No bloated apps. No unnecessary features. Just clear logic, reliable
+            automation, and tools your team can depend on every day.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-header">
+          <h2>Problems I usually solve</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-item">
+            <h3>Custom workflows</h3>
+            <p>
+              Custom order, fulfillment, and inventory workflows designed around
+              your real operational edge cases.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3>Automation tools</h3>
+            <p>
+              Automation that removes repetitive checks, manual updates, and
+              human error from daily operations.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3>System integrations</h3>
+            <p>
+              Reliable integrations between Shopify and your internal tools,
+              marketing platforms, or third-party services.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3>Inventory solutions</h3>
+            <p>
+              Advanced inventory logic for complex catalogs, bundles, or
+              availability rules beyond native Shopify limits.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3>Admin tools</h3>
+            <p>
+              Internal dashboards and admin tools that give teams clarity,
+              control, and confidence.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3>API customizations</h3>
+            <p>
+              Custom Shopify API solutions built for performance, reliability,
+              and long-term maintainability.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section>
+        <h2>Pricing</h2>
+        <div class="pricing-box">
+          <p class="pricing-text">
+            My rate is <span class="pricing-highlight">$60/hour</span>.
+            <br />
+            I provide clear estimates upfront and track time transparently.
+          </p>
+        </div>
+      </section> -->
+
+      <section class="cta-section">
+        <h2>Let's work together</h2>
+        <p>
+          If something in your Shopify setup feels inefficient, fragile, or
+          harder than it should be — let’s fix it.
+        </p>
+
+        <a href="mailto:harsh@harshspatel.com" class="btn">Email me</a>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Building practical Shopify solutions • © 2024 Harsh Patel</p>
+      </div>
+    </footer>
+  </body>
+</html>
