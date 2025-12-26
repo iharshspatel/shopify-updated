@@ -120,6 +120,36 @@
         transform: translateY(0);
       }
 
+      .btn-secondary {
+        display: inline-block;
+        padding: 14px 28px;
+        background-color: transparent;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.2s;
+        border: 1px solid var(--border);
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--bg-secondary);
+        border-color: var(--text-primary);
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary:active {
+        transform: translateY(0);
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
       section {
         margin-bottom: 100px;
       }
@@ -274,9 +304,18 @@
         <h1>I'm Harsh Patel</h1>
         <p class="tagline">
           I help Shopify merchants fix operational bottlenecks by building
-          focused, custom solutions — when off-the-shelf apps aren’t enough.
+          focused, custom solutions — when off-the-shelf apps aren't enough.
         </p>
-        <a href="mailto:harsh@adsentry.app" class="btn">Email me</a>
+        <div class="btn-group">
+          <a href="mailto:harsh@adsentry.app" class="btn">Email me</a>
+          <a
+            href="https://calendly.com/harsh-1722-patel/new-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+            >Schedule meeting</a
+          >
+        </div>
       </section>
 
       <section>
@@ -363,10 +402,19 @@
         <h2>Let's work together</h2>
         <p>
           If something in your Shopify setup feels inefficient, fragile, or
-          harder than it should be — let’s fix it.
+          harder than it should be — let's fix it.
         </p>
 
-        <a href="mailto:harsh@adsentry.app" class="btn">Email me</a>
+        <div class="btn-group" style="justify-content: center">
+          <a href="mailto:harsh@adsentry.app" class="btn">Email me</a>
+          <a
+            href="https://calendly.com/harsh-1722-patel/new-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+            >Schedule meeting</a
+          >
+        </div>
       </section>
     </div>
 
