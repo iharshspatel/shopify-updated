@@ -1073,7 +1073,7 @@
         <p>Tell me about your store — I'll give you an honest, no-obligation assessment of where you stand and what the realistic lawsuit exposure looks like for your category and location.</p>
         <div class="contact-detail">
           <span class="contact-detail-label">Email</span>
-          <span class="contact-detail-value">iharshpatel@gmail.com</span>
+          <span class="contact-detail-value">iharshspatel@gmail.com</span>
         </div>
         <div class="contact-detail">
           <span class="contact-detail-label">Response</span>
@@ -1093,21 +1093,21 @@
           <div class="form-row">
             <div class="form-field">
               <label>Your Name</label>
-              <input type="text" placeholder="Jane Smith" required/>
+              <input type="text" name="name" placeholder="Jane Smith" required/>
             </div>
             <div class="form-field">
               <label>Store URL</label>
-              <input type="url" placeholder="https://yourstore.com" required/>
+              <input type="url" name="store_url" placeholder="https://yourstore.com" required/>
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
               <label>Email</label>
-              <input type="email" placeholder="jane@yourstore.com" required/>
+              <input type="email" name="email" placeholder="jane@yourstore.com" required/>
             </div>
             <div class="form-field">
               <label>Situation</label>
-              <select>
+              <select name="situation" required>
                 <option value="">Select...</option>
                 <option>Received a demand letter</option>
                 <option>Currently being sued</option>
@@ -1118,7 +1118,7 @@
           </div>
           <div class="form-field">
             <label>Tell me about your store</label>
-            <textarea placeholder="Shopify theme, key apps installed, product category, and where your customers are located..."></textarea>
+            <textarea name="message" placeholder="Shopify theme, key apps installed, product category, and where your customers are located..." required></textarea>
           </div>
           <button type="submit" class="form-submit">Send — Get Free Risk Assessment</button>
         </form>
@@ -1180,12 +1180,54 @@
     statNums.forEach(el => statsObserver.observe(el));
 
     // FORM SUBMIT
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.textContent = '✓ Received — I\'ll be in touch within 24hrs';
-      btn.style.background = '#2d6a4f';
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      const originalText = btn.textContent;
+      
+      btn.textContent = 'Sending...';
       btn.disabled = true;
+
+      const formData = new FormData(form);
+      formData.append("_captcha", "false"); // Disable the recaptcha wrapper
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/iharshspatel@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success === "true") {
+          btn.textContent = '✓ Received — I\'ll be in touch within 24hrs';
+          btn.style.background = '#2d6a4f';
+          form.reset();
+        } else {
+          // If the form needs activation, FormSubmit returns an error on the first run.
+          console.warn("FormSubmit response:", data);
+          btn.style.background = '#c0392b';
+          btn.textContent = 'Sent! Note: Check email to activate form if it\'s the first time.';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 4500);
+        }
+      } catch (error) {
+        console.error(error);
+        btn.style.background = '#c0392b';
+        btn.textContent = 'Error sending message. Please try again.';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      }
     }
 
     // SMOOTH NAV SCROLL
