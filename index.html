@@ -1,427 +1,1201 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harsh Patel - Shopify Expert</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harsh Patel — Shopify ADA & WCAG Compliance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      :root {
-        --text-primary: #0a0a0a;
-        --text-secondary: #525252;
-        --text-tertiary: #737373;
-        --bg-primary: #ffffff;
-        --bg-secondary: #fafafa;
-        --border: #e5e5e5;
-        --accent: #0a0a0a;
-        --accent-hover: #262626;
-      }
+    :root {
+      --black: #0a0a0a;
+      --offblack: #111111;
+      --darkgray: #1a1a1a;
+      --midgray: #2a2a2a;
+      --border: #2e2e2e;
+      --muted: #555;
+      --text: #c8c2b8;
+      --light: #e8e2d8;
+      --white: #f5f0e8;
+      --red: #c0392b;
+      --red-bright: #e74c3c;
+      --red-glow: rgba(192, 57, 43, 0.15);
+      --amber: #d4a853;
+      --amber-dim: rgba(212, 168, 83, 0.12);
+    }
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-        line-height: 1.6;
-        font-size: 16px;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+    html { scroll-behavior: smooth; }
 
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+      cursor: default;
+    }
 
-      nav {
-        padding: 32px 0;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 80px;
-      }
+    /* NOISE TEXTURE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
 
-      nav .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+    /* TICKER */
+    .ticker-wrap {
+      background: var(--red);
+      overflow: hidden;
+      padding: 9px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .ticker {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker 35s linear infinite;
+    }
+    .ticker span {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: #fff;
+      padding-right: 80px;
+      text-transform: uppercase;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
-      .logo {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--text-primary);
-        text-decoration: none;
-      }
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 10px 22px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s !important;
+      font-family: 'DM Mono', monospace !important;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav-cta:hover { background: var(--red-bright) !important; color: #fff !important; }
 
-      .nav-link {
-        color: var(--text-secondary);
-        text-decoration: none;
-        font-size: 15px;
-        transition: color 0.2s;
-      }
+    /* HERO */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      padding: 80px 60px 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--red);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 5vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--red);
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text);
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      padding: 16px 36px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--red-bright); transform: translateY(-1px); }
+    .btn-ghost {
+      color: var(--text);
+      padding: 16px 36px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--text); color: var(--white); }
 
-      .nav-link:hover {
-        color: var(--text-primary);
-      }
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+      background: var(--offblack);
+    }
+    .lawsuit-card {
+      background: var(--darkgray);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      padding: 36px;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+      animation: cardFloat 6s ease-in-out infinite;
+    }
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .card-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .card-sub {
+      font-size: 13px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 24px;
+    }
+    .card-stat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-box {
+      background: var(--midgray);
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--red-bright);
+      display: block;
+    }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .card-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .card-footer strong { color: var(--amber); font-style: normal; }
 
-      .hero {
-        margin-bottom: 100px;
-      }
+    /* FEAR STRIP */
+    .fear-strip {
+      background: var(--red-glow);
+      border-top: 1px solid rgba(192,57,43,0.3);
+      border-bottom: 1px solid rgba(192,57,43,0.3);
+      padding: 40px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background-color: var(--border);
+    }
+    .fear-item {
+      background: var(--black);
+      padding: 32px 36px;
+      text-align: center;
+    }
+    .fear-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fear-label {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-      .greeting {
-        font-size: 16px;
-        color: var(--text-secondary);
-        margin-bottom: 12px;
-        font-weight: 400;
-      }
+    /* SECTION SHARED */
+    section { padding: 100px 60px; }
+    .section-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-tag::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--red);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: italic; color: var(--red); }
+    .section-body {
+      font-size: 16px;
+      color: var(--text);
+      max-width: 560px;
+      line-height: 1.85;
+    }
 
-      h1 {
-        font-size: 48px;
-        font-weight: 700;
-        line-height: 1.2;
-        margin-bottom: 24px;
-        color: var(--text-primary);
-        letter-spacing: -0.02em;
-      }
+    /* WHAT CAN GO WRONG */
+    .danger-section {
+      background: var(--offblack);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .danger-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-top: 60px;
+    }
+    .danger-list { list-style: none; }
+    .danger-list li {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .danger-list li:last-child { border-bottom: none; }
+    .danger-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--red);
+      padding-top: 4px;
+      min-width: 28px;
+    }
+    .danger-content h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .danger-content p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .verdict-box {
+      background: var(--darkgray);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--amber);
+      padding: 40px;
+      position: sticky;
+      top: 80px;
+    }
+    .verdict-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+    .verdict-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .verdict-detail { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+    .verdict-warning {
+      background: var(--red-glow);
+      border: 1px solid rgba(192,57,43,0.4);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--red-bright);
+      font-family: 'DM Mono', monospace;
+      line-height: 1.6;
+    }
 
-      .tagline {
-        font-size: 20px;
-        color: var(--text-secondary);
-        line-height: 1.6;
-        margin-bottom: 40px;
-        max-width: 700px;
-      }
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 60px;
+    }
+    .service-card {
+      background: var(--black);
+      padding: 40px 36px;
+      transition: background 0.25s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover { background: var(--offblack); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .service-desc { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+    .service-price {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+    }
+    .service-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--red);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
 
-      .btn {
-        display: inline-block;
-        padding: 14px 28px;
-        background-color: var(--accent);
-        color: #ffffff;
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 500;
-        transition: all 0.2s;
-        border: none;
-        cursor: pointer;
-      }
+    /* PROCESS */
+    .process-section { background: var(--offblack); border-top: 1px solid var(--border); }
+    .process-steps {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+    .step {
+      background: var(--offblack);
+      padding: 40px 32px;
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--darkgray);
+      line-height: 1;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .step-num::after {
+      content: attr(data-num);
+      position: absolute;
+      top: 4px; left: 4px;
+      color: var(--red);
+      opacity: 0.6;
+    }
+    .step h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .step p { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
-      .btn:hover {
-        background-color: var(--accent-hover);
-        transform: translateY(-1px);
-      }
+    /* URGENCY BANNER */
+    .urgency {
+      background: var(--red);
+      padding: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .urgency::before {
+      content: 'LEGAL RISK';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 200px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .urgency h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .urgency p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+      position: relative;
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--red);
+      padding: 18px 44px;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.15s, background 0.2s;
+      position: relative;
+    }
+    .btn-white:hover { transform: translateY(-2px); background: #f5f0e8; }
 
-      .btn:active {
-        transform: translateY(0);
-      }
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+      height: 480px;
+      background: var(--darkgray);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .about-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(192,57,43,0.1) 0%, transparent 70%);
+    }
+    .about-monogram {
+      font-family: 'Playfair Display', serif;
+      font-size: 160px;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      user-select: none;
+      position: relative;
+      z-index: 1;
+    }
+    .about-tag-overlay {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      right: 28px;
+      background: var(--black);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      padding: 20px 24px;
+    }
+    .about-tag-overlay strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .about-tag-overlay span {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .about-content .section-body { margin-bottom: 32px; max-width: 100%; }
+    .credential-list { list-style: none; }
+    .credential-list li {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text);
+      align-items: center;
+    }
+    .credential-list li::before {
+      content: '✓';
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 700;
+      min-width: 16px;
+    }
 
-      .btn-secondary {
-        display: inline-block;
-        padding: 14px 28px;
-        background-color: transparent;
-        color: var(--text-primary);
-        text-decoration: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 500;
-        transition: all 0.2s;
-        border: 1px solid var(--border);
-        cursor: pointer;
-      }
+    /* CONTACT */
+    .contact-section {
+      background: var(--offblack);
+      border-top: 1px solid var(--border);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 60px;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .contact-info p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+    .contact-detail {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-detail-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 80px;
+    }
+    .contact-detail-value { font-size: 14px; color: var(--light); }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 8px; }
+    .form-field label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      background: var(--darkgray);
+      border: 1px solid var(--border);
+      color: var(--light);
+      padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: var(--red); }
+    .form-field textarea { resize: vertical; min-height: 100px; }
+    .form-field select option { background: var(--darkgray); }
+    .form-submit {
+      background: var(--red);
+      color: #fff;
+      padding: 16px 32px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--red-bright); }
 
-      .btn-secondary:hover {
-        background-color: var(--bg-secondary);
-        border-color: var(--text-primary);
-        transform: translateY(-1px);
-      }
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--white);
+      font-weight: 700;
+    }
+    .footer-logo span { color: var(--red); }
+    .footer-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
 
-      .btn-secondary:active {
-        transform: translateY(0);
-      }
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-      .btn-group {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      section { padding: 60px 24px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-right { padding: 40px 24px; }
+      .fear-strip { grid-template-columns: 1fr 1fr; padding: 0; }
+      .danger-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { height: 280px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+      .urgency { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
 
-      section {
-        margin-bottom: 100px;
-      }
-
-      .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 32px;
-      }
-
-      h2 {
-        font-size: 28px;
-        font-weight: 600;
-        color: var(--text-primary);
-        letter-spacing: -0.01em;
-      }
-
-      .content-text {
-        font-size: 18px;
-        line-height: 1.8;
-        color: var(--text-primary);
-        max-width: 700px;
-      }
-
-      .content-text p {
-        margin-bottom: 24px;
-      }
-
-      .content-text p:last-child {
-        margin-bottom: 0;
-      }
-
-      .services-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin-top: 32px;
-      }
-
-      .service-item {
-        padding: 24px;
-        background-color: var(--bg-secondary);
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        transition: all 0.2s;
-      }
-
-      .service-item:hover {
-        border-color: var(--text-primary);
-        transform: translateY(-2px);
-      }
-
-      .service-item h3 {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        color: var(--text-primary);
-      }
-
-      .service-item p {
-        font-size: 15px;
-        color: var(--text-secondary);
-        line-height: 1.6;
-      }
-
-      .pricing-box {
-        background-color: var(--bg-secondary);
-        padding: 32px;
-        border-radius: 12px;
-        border: 1px solid var(--border);
-        max-width: 600px;
-      }
-
-      .pricing-text {
-        font-size: 18px;
-        line-height: 1.8;
-        color: var(--text-primary);
-      }
-
-      .pricing-highlight {
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-
-      .cta-section {
-        text-align: center;
-        padding: 60px 0;
-        background-color: var(--bg-secondary);
-        border-radius: 16px;
-        margin: 100px 0;
-      }
-
-      .cta-section h2 {
-        margin-bottom: 16px;
-      }
-
-      .cta-section p {
-        font-size: 18px;
-        color: var(--text-secondary);
-        margin-bottom: 32px;
-      }
-
-      footer {
-        padding: 60px 0 40px;
-        border-top: 1px solid var(--border);
-        text-align: center;
-        color: var(--text-tertiary);
-        font-size: 14px;
-      }
-
-      @media (min-width: 768px) {
-        .container {
-          padding: 0 40px;
-        }
-
-        h1 {
-          font-size: 64px;
-        }
-
-        .tagline {
-          font-size: 22px;
-        }
-
-        .services-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        nav {
-          padding: 40px 0;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .services-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav>
-      <div class="container">
-        <a href="#" class="logo">Harsh Patel</a>
-        <a href="mailto:harsh@adsentry.app" class="nav-link">Get in touch</a>
-      </div>
-    </nav>
-
-    <div class="container">
-      <section class="hero">
-        <div class="greeting">Hi there,</div>
-        <h1>I'm Harsh Patel</h1>
-        <p class="tagline">
-          I help Shopify merchants fix operational bottlenecks by building
-          focused, custom solutions — when off-the-shelf apps aren't enough.
-        </p>
-        <div class="btn-group">
-          <a href="mailto:harsh@adsentry.app" class="btn">Email me</a>
-          <a
-            href="https://calendly.com/harsh-1722-patel/new-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-secondary"
-            >Schedule meeting</a
-          >
-        </div>
-      </section>
-
-      <section>
-        <h2>What I do</h2>
-        <div class="content-text">
-          <p>
-            I work with Shopify merchants who’ve outgrown standard apps and
-            manual workflows.
-          </p>
-          <p>
-            When operations become messy — inventory issues, order edge cases,
-            manual checks, or disconnected tools — I step in to design and build
-            custom solutions that fit how your business actually runs.
-          </p>
-          <p>
-            No bloated apps. No unnecessary features. Just clear logic, reliable
-            automation, and tools your team can depend on every day.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <div class="section-header">
-          <h2>Problems I usually solve</h2>
-        </div>
-        <div class="services-grid">
-          <div class="service-item">
-            <h3>Custom workflows</h3>
-            <p>
-              Custom order, fulfillment, and inventory workflows designed around
-              your real operational edge cases.
-            </p>
-          </div>
-          <div class="service-item">
-            <h3>Automation tools</h3>
-            <p>
-              Automation that removes repetitive checks, manual updates, and
-              human error from daily operations.
-            </p>
-          </div>
-          <div class="service-item">
-            <h3>System integrations</h3>
-            <p>
-              Reliable integrations between Shopify and your internal tools,
-              marketing platforms, or third-party services.
-            </p>
-          </div>
-          <div class="service-item">
-            <h3>Inventory solutions</h3>
-            <p>
-              Advanced inventory logic for complex catalogs, bundles, or
-              availability rules beyond native Shopify limits.
-            </p>
-          </div>
-          <div class="service-item">
-            <h3>Admin tools</h3>
-            <p>
-              Internal dashboards and admin tools that give teams clarity,
-              control, and confidence.
-            </p>
-          </div>
-          <div class="service-item">
-            <h3>API customizations</h3>
-            <p>
-              Custom Shopify API solutions built for performance, reliability,
-              and long-term maintainability.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- <section>
-        <h2>Pricing</h2>
-        <div class="pricing-box">
-          <p class="pricing-text">
-            My rate is <span class="pricing-highlight">$60/hour</span>.
-            <br />
-            I provide clear estimates upfront and track time transparently.
-          </p>
-        </div>
-      </section> -->
-
-      <section class="cta-section">
-        <h2>Let's work together</h2>
-        <p>
-          If something in your Shopify setup feels inefficient, fragile, or
-          harder than it should be — let's fix it.
-        </p>
-
-        <div class="btn-group" style="justify-content: center">
-          <a href="mailto:harsh@adsentry.app" class="btn">Email me</a>
-          <a
-            href="https://calendly.com/harsh-1722-patel/new-meeting"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-secondary"
-            >Schedule meeting</a
-          >
-        </div>
-      </section>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>⚖ 2,014 ADA lawsuits filed in first half of 2025 alone &nbsp;·&nbsp; 77% target eCommerce stores &nbsp;·&nbsp; Settlements from $5,000–$75,000 &nbsp;·&nbsp; Lawsuits up 37% from 2024 &nbsp;·&nbsp; Shopify stores are primary targets &nbsp;·&nbsp; Widgets DO NOT protect you — 456 lawsuits hit widget users &nbsp;·&nbsp; Code-level remediation is the only defence &nbsp;·&nbsp;</span>
+      <span>⚖ 2,014 ADA lawsuits filed in first half of 2025 alone &nbsp;·&nbsp; 77% target eCommerce stores &nbsp;·&nbsp; Settlements from $5,000–$75,000 &nbsp;·&nbsp; Lawsuits up 37% from 2024 &nbsp;·&nbsp; Shopify stores are primary targets &nbsp;·&nbsp; Widgets DO NOT protect you — 456 lawsuits hit widget users &nbsp;·&nbsp; Code-level remediation is the only defence &nbsp;·&nbsp;</span>
     </div>
+  </div>
 
-    <footer>
-      <div class="container">
-        <p>Building practical Shopify solutions • © 2024 Harsh Patel</p>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Harsh<span>.</span>Patel</div>
+    <ul class="nav-links">
+      <li><a href="#risk">The Risk</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get Audit</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-left">
+      <div class="hero-eyebrow">ADA &amp; WCAG Compliance for Shopify</div>
+      <h1>Your store is<br/><em>one lawsuit</em><br/>away from disaster.</h1>
+      <p class="hero-sub">
+        Over 4,000 eCommerce brands were sued for ADA violations in 2024.
+        Most had no idea they were at risk — until the demand letter arrived.
+        I do code-level Shopify audits that actually hold up when a lawyer comes knocking.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get a Free Risk Assessment</a>
+        <a href="#risk" class="btn-ghost">See the Risk →</a>
       </div>
-    </footer>
-  </body>
+    </div>
+    <div class="hero-right">
+      <div class="lawsuit-card">
+        <div class="card-tag"><div class="pulse"></div> Live Lawsuit Data — 2025</div>
+        <div class="card-title">ADA Website Litigation Is Accelerating</div>
+        <div class="card-sub">First half of 2025 · U.S. Federal Courts</div>
+        <div class="card-stat">
+          <div class="stat-box">
+            <span class="stat-num">2,014</span>
+            <span class="stat-label">Lawsuits Filed</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">37%</span>
+            <span class="stat-label">YoY Increase</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">77%</span>
+            <span class="stat-label">Hit eCommerce</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">$75K</span>
+            <span class="stat-label">Max Settlement</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <strong>Shopify, WooCommerce, Magento</strong> — all platforms named in 2025 filings. No store is immune.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEAR STRIP -->
+  <div class="fear-strip" id="risk">
+    <div class="fear-item reveal">
+      <div class="fear-number">98%</div>
+      <div class="fear-label">of websites fail basic WCAG compliance standards</div>
+    </div>
+    <div class="fear-item reveal">
+      <div class="fear-number">30%</div>
+      <div class="fear-label">of issues found by automated tools — you need human eyes</div>
+    </div>
+    <div class="fear-item reveal">
+      <div class="fear-number">48%</div>
+      <div class="fear-label">of sued brands had already been sued before — repeat targeting</div>
+    </div>
+    <div class="fear-item reveal">
+      <div class="fear-number">$0</div>
+      <div class="fear-label">protection from accessibility widgets — 456 lawsuits proved it</div>
+    </div>
+  </div>
+
+  <!-- WHAT CAN GO WRONG -->
+  <section class="danger-section" style="padding: 100px 60px;">
+    <div class="section-tag">Why This Matters</div>
+    <h2 class="section-title">What happens when<br/><em>they come for you</em></h2>
+    <div class="danger-grid">
+      <ul class="danger-list reveal">
+        <li>
+          <span class="danger-num">01.</span>
+          <div class="danger-content">
+            <h4>You Receive a Demand Letter</h4>
+            <p>A law firm identifies your store has WCAG violations. You get a letter demanding settlement before they file. Most brands panic and pay — $5,000 to $20,000 — just to make it go away.</p>
+          </div>
+        </li>
+        <li>
+          <span class="danger-num">02.</span>
+          <div class="danger-content">
+            <h4>You Get Served</h4>
+            <p>If you don't respond or dispute, they file in federal court. New York, Florida, and California are the most active jurisdictions. Illinois saw a 745% spike in 2025.</p>
+          </div>
+        </li>
+        <li>
+          <span class="danger-num">03.</span>
+          <div class="danger-content">
+            <h4>Legal Fees Stack Up</h4>
+            <p>Even winning costs money. Defense attorney fees, court costs, and lost time responding to discovery requests add up fast — often exceeding the settlement they originally demanded.</p>
+          </div>
+        </li>
+        <li>
+          <span class="danger-num">04.</span>
+          <div class="danger-content">
+            <h4>You Get Targeted Again</h4>
+            <p>Serial plaintiff firms track prior defendants. If you settled once without fixing the underlying code, you're on a list. Nearly half of 2024 defendants had been sued before.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="verdict-box reveal">
+        <div class="verdict-label">⚠ The Hard Truth</div>
+        <div class="verdict-quote">"Installing a widget doesn't make you compliant. It makes you a better target."</div>
+        <p class="verdict-detail">
+          In 2024, the FTC fined accessiBe $1M for false advertising. Their widget — and dozens like it — promised compliance but delivered lawsuits instead. 456 brands with widgets installed were still sued in the first half of 2025 alone.
+          <br/><br/>
+          The only defence that holds up in court is <strong style="color:var(--light);">code-level remediation</strong> — fixing the actual HTML, ARIA attributes, keyboard navigation, and color contrast at the source.
+        </p>
+        <div class="verdict-warning">
+          ⚑ &nbsp;Apparel and restaurant brands make up 60% of all filings. If that's your category — you're the primary target.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag">What I Offer</div>
+    <h2 class="section-title">Shopify-specific compliance.<br/><em>No shortcuts.</em></h2>
+    <p class="section-body">Every audit is done manually — by someone who knows Shopify's liquid templates, Ajax cart behavior, and how third-party apps inject broken HTML into your store.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <span class="service-icon">🔍</span>
+        <div class="service-name">Risk Assessment</div>
+        <p class="service-desc">A focused review of your store's highest-risk areas — checkout, navigation, product pages, and installed apps. You get a prioritized issue list with lawsuit exposure rating.</p>
+        <div class="service-price">From $97 &nbsp;·&nbsp; Delivered in 48hrs</div>
+      </div>
+      <div class="service-card">
+        <div class="service-badge">Most Popular</div>
+        <span class="service-icon">📋</span>
+        <div class="service-name">Full WCAG Audit</div>
+        <p class="service-desc">Comprehensive manual audit against WCAG 2.1 AA standards. Every page type, every interaction, every third-party app. Includes a remediation roadmap with code-level instructions.</p>
+        <div class="service-price">From $500 &nbsp;·&nbsp; Full report + roadmap</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛠</span>
+        <div class="service-name">Audit + Remediation</div>
+        <p class="service-desc">We audit and fix. Direct code changes to your Shopify theme — alt text, ARIA labels, keyboard navigation, color contrast, form accessibility, and app-injected content.</p>
+        <div class="service-price">From $1,500 &nbsp;·&nbsp; Done-for-you</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔒</span>
+        <div class="service-name">Compliance Retainer</div>
+        <p class="service-desc">Monthly monitoring to catch new violations introduced by theme updates, app changes, or new content. Includes quarterly re-audit and a compliance certificate you can show legal counsel.</p>
+        <div class="service-price">$199–$399/mo &nbsp;·&nbsp; Ongoing protection</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <div class="service-name">Emergency Response</div>
+        <p class="service-desc">Just received a demand letter? I prioritize your store immediately. Rapid audit, documented remediation, and a compliance report to present to your attorney within 72 hours.</p>
+        <div class="service-price">Priority pricing &nbsp;·&nbsp; 72hr turnaround</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤝</span>
+        <div class="service-name">Agency White-Label</div>
+        <p class="service-desc">Shopify agencies can offer compliance audits to their clients under their own brand. I do the work, you deliver the value. Flat-rate wholesale pricing available.</p>
+        <div class="service-price">Wholesale rates &nbsp;·&nbsp; Agency partners</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section" id="process">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">From exposed to<br/><em>protected</em> in 4 steps.</h2>
+    <div class="process-steps reveal">
+      <div class="step">
+        <div class="step-num" data-num="01">01</div>
+        <h4>Share Your Store</h4>
+        <p>Send me your Shopify store URL and a brief note about your tech stack — theme, key apps, and any known accessibility concerns.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" data-num="02">02</div>
+        <h4>Manual Code Audit</h4>
+        <p>I go through your store page by page — not with an automated scanner, but with real developer eyes and assistive technology testing tools.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" data-num="03">03</div>
+        <h4>Detailed Report</h4>
+        <p>You receive a prioritized findings report with WCAG criterion, severity level, screenshot evidence, and exact code-level fix instructions.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" data-num="04">04</div>
+        <h4>Remediation &amp; Monitor</h4>
+        <p>I fix the issues directly in your theme code. Ongoing retainer clients get monthly checks and a compliance certificate updated quarterly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENCY BANNER -->
+  <div class="urgency">
+    <h2>The DOJ deadline is April 2026.<br/>Is your store ready?</h2>
+    <p>The Department of Justice's ADA Title II final rule requires WCAG 2.1 AA compliance. Lawsuits are already accelerating ahead of the deadline. Don't wait for a demand letter to take this seriously.</p>
+    <a href="#contact" class="btn-white">Get Your Free Risk Assessment</a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-monogram">HP</div>
+        <div class="about-tag-overlay">
+          <strong>Harsh Patel</strong>
+          <span>Shopify Developer &amp; ADA Compliance Specialist</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-tag">About</div>
+        <h2 class="section-title">The person<br/>behind the audit.</h2>
+        <p class="section-body">
+          I'm a Shopify developer who got tired of watching store owners get blindsided by ADA lawsuits for problems they didn't know existed — and that generic accessibility widgets made worse, not better.
+          <br/><br/>
+          I combine deep Shopify technical knowledge with WCAG compliance expertise to deliver audits that actually mean something — not just a list of automated tool outputs, but real code-level findings with real fixes.
+        </p>
+        <ul class="credential-list">
+          <li>Shopify theme development — Liquid, Dawn, custom storefronts</li>
+          <li>WCAG 2.1 &amp; 2.2 Level AA compliance auditing</li>
+          <li>Manual testing with NVDA, VoiceOver, and keyboard-only navigation</li>
+          <li>Third-party Shopify app accessibility assessment</li>
+          <li>ADA litigation landscape — know what courts look for</li>
+          <li>Compliance documentation for legal counsel review</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-title">Let's assess your<br/><em>exposure today.</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Start with a free risk conversation.</h3>
+        <p>Tell me about your store — I'll give you an honest, no-obligation assessment of where you stand and what the realistic lawsuit exposure looks like for your category and location.</p>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <span class="contact-detail-value">harsh@harshspatel.com</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Response</span>
+          <span class="contact-detail-value">Within 24 hours on business days</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Emergency</span>
+          <span class="contact-detail-value">72hr turnaround for demand letter recipients</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Platforms</span>
+          <span class="contact-detail-value">Shopify, Shopify Plus, Headless Shopify</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Your Name</label>
+              <input type="text" placeholder="Jane Smith" required/>
+            </div>
+            <div class="form-field">
+              <label>Store URL</label>
+              <input type="url" placeholder="https://yourstore.com" required/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Email</label>
+              <input type="email" placeholder="jane@yourstore.com" required/>
+            </div>
+            <div class="form-field">
+              <label>Situation</label>
+              <select>
+                <option value="">Select...</option>
+                <option>Received a demand letter</option>
+                <option>Currently being sued</option>
+                <option>Proactive — want to protect my store</option>
+                <option>Agency looking to white-label</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Tell me about your store</label>
+            <textarea placeholder="Shopify theme, key apps installed, product category, and where your customers are located..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send — Get Free Risk Assessment</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Harsh<span>.</span>Patel</div>
+    <div class="footer-note">© 2025 Harsh Patel · ADA &amp; WCAG Compliance for Shopify</div>
+    <ul class="footer-links">
+      <li><a href="#risk">Risk</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // SCROLL REVEAL
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // COUNTER ANIMATION
+    function animateCounter(el, target, suffix = '') {
+      let current = 0;
+      const duration = 1800;
+      const step = target / (duration / 16);
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = Math.floor(current).toLocaleString() + suffix;
+      }, 16);
+    }
+
+    const statNums = document.querySelectorAll('.stat-num');
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const text = el.textContent;
+          if (text.includes('2,014')) animateCounter(el, 2014);
+          else if (text.includes('37')) animateCounter(el, 37, '%');
+          else if (text.includes('77')) animateCounter(el, 77, '%');
+          statsObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => statsObserver.observe(el));
+
+    // FORM SUBMIT
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Received — I\'ll be in touch within 24hrs';
+      btn.style.background = '#2d6a4f';
+      btn.disabled = true;
+    }
+
+    // SMOOTH NAV SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</body>
 </html>
