@@ -1,20 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-KTK1PL4F76");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -32,11 +18,11 @@
     />
     <meta name="author" content="Harsh Patel" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://harshspatel.com/" />
+    <link rel="canonical" href="{{SITE_ORIGIN}}/" />
 
     <!-- ── OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ── -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://harshspatel.com/" />
+    <meta property="og:url" content="{{SITE_ORIGIN}}/" />
     <meta
       property="og:title"
       content="Slow stores lose sales. I fix slow Shopify stores. — Harsh Patel"
@@ -45,13 +31,13 @@
       property="og:description"
       content="I've audited 47+ Shopify stores. Every 1s delay costs up to 7% revenue. I fix your speed in 7 days — personally, zero downtime, guaranteed improvement."
     />
-    <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta property="og:image" content="{{SITE_ORIGIN}}/og-image.jpg" />
     <meta property="og:site_name" content="GetFastStore" />
     <meta property="og:locale" content="en_US" />
 
     <!-- ── TWITTER CARD ── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://harshspatel.com/" />
+    <meta name="twitter:url" content="{{SITE_ORIGIN}}/" />
     <meta
       name="twitter:title"
       content="Slow stores lose sales. I fix slow Shopify stores."
@@ -60,7 +46,7 @@
       name="twitter:description"
       content="I've audited 47+ Shopify stores. App bloat, slow themes, bad Core Web Vitals — I find it and fix it in 7 days. Book a free audit."
     />
-    <meta name="twitter:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta name="twitter:image" content="{{SITE_ORIGIN}}/og-image.jpg" />
     <meta name="twitter:creator" content="@iharshspatel" />
 
     <!-- ── JSON-LD SCHEMA ── -->
@@ -70,9 +56,9 @@
         "@graph": [
           {
             "@type": "Person",
-            "@id": "https://harshspatel.com/#harsh",
+            "@id": "{{SITE_ORIGIN}}/#harsh",
             "name": "Harsh Patel",
-            "url": "https://harshspatel.com",
+            "url": "{{SITE_ORIGIN}}",
             "jobTitle": "Shopify Performance Engineer",
             "description": "Shopify speed optimization specialist helping solo merchants fix slow stores in 7 days.",
             "sameAs": [
@@ -82,11 +68,11 @@
           },
           {
             "@type": "ProfessionalService",
-            "@id": "https://harshspatel.com/#service",
+            "@id": "{{SITE_ORIGIN}}/#service",
             "name": "GetFastStore — Shopify Speed Optimization",
-            "url": "https://harshspatel.com",
+            "url": "{{SITE_ORIGIN}}",
             "description": "Shopify speed optimization service for solo merchants. App audit, image optimization, Core Web Vitals fix, zero downtime. 7-day delivery.",
-            "provider": { "@id": "https://harshspatel.com/#harsh" },
+            "provider": { "@id": "{{SITE_ORIGIN}}/#harsh" },
             "areaServed": "Worldwide",
             "serviceType": "Shopify Speed Optimization",
             "offers": [
@@ -152,10 +138,19 @@
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="css/shared.css" />
     <link rel="stylesheet" href="css/home.css" />
   </head>
@@ -904,7 +899,7 @@
           just the truth about your store.
         </p>
         <a
-          href="https://calendly.com/harsh-1722-patel/new-meeting"
+          href="{{CAL_BOOKING_URL}}"
           class="btn-cta-white"
           target="_blank"
           rel="noopener noreferrer"
@@ -1136,7 +1131,7 @@
     <a href="#book">Contact</a>
   </div>
   <div class="footer-copy">
-    © 2026 Harsh Patel · harshspatel.com · Shopify Partner
+    © 2026 Harsh Patel · {{SITE_HOST}} · Shopify Partner
   </div>
 </footer>
     <script>
@@ -1165,6 +1160,29 @@
   document
     .querySelectorAll(".fade-up")
     .forEach((el) => observer.observe(el));
+</script>
+    <script>
+  (function () {
+    function boot() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-KTK1PL4F76");
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76";
+      document.head.appendChild(s);
+    }
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(boot, { timeout: 4000 });
+    } else {
+      window.addEventListener("load", function () {
+        setTimeout(boot, 0);
+      });
+    }
+  })();
 </script>
   </body>
 </html>

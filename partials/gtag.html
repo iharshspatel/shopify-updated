@@ -1,14 +1,23 @@
-<!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76"
-    ></script>
-    <script>
+<script>
+  (function () {
+    function boot() {
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-KTK1PL4F76");
-    </script>
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76";
+      document.head.appendChild(s);
+    }
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(boot, { timeout: 4000 });
+    } else {
+      window.addEventListener("load", function () {
+        setTimeout(boot, 0);
+      });
+    }
+  })();
+</script>

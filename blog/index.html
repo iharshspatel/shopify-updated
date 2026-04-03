@@ -1,20 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-KTK1PL4F76");
-    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog — Shopify Speed & Performance | GetFastStore</title>
@@ -23,23 +9,32 @@
       content="Practical guides on Shopify speed, Core Web Vitals, app bloat, and storefront performance — written by a Shopify Partner who has optimized 47+ stores."
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://harshspatel.com/blog/" />
+    <link rel="canonical" href="{{SITE_ORIGIN}}/blog/" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://harshspatel.com/blog/" />
+    <meta property="og:url" content="{{SITE_ORIGIN}}/blog/" />
     <meta property="og:title" content="Blog — Shopify Speed & Performance" />
     <meta
       property="og:description"
       content="Free articles on fixing slow Shopify stores, app audits, and Core Web Vitals."
     />
-    <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta property="og:image" content="{{SITE_ORIGIN}}/og-image.jpg" />
     <meta property="og:site_name" content="GetFastStore" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="../css/shared.css" />
   </head>
   <body class="page-blog">
@@ -110,7 +105,30 @@
 
     <footer>
   <div class="footer-brand">GetFast<span>Store</span></div>
-  <div class="footer-copy">© 2026 Harsh Patel · Shopify Partner · harshspatel.com</div>
+  <div class="footer-copy">© 2026 Harsh Patel · Shopify Partner · {{SITE_HOST}}</div>
 </footer>
+    <script>
+  (function () {
+    function boot() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-KTK1PL4F76");
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76";
+      document.head.appendChild(s);
+    }
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(boot, { timeout: 4000 });
+    } else {
+      window.addEventListener("load", function () {
+        setTimeout(boot, 0);
+      });
+    }
+  })();
+</script>
   </body>
 </html>
