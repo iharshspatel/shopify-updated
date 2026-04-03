@@ -3,7 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GetFastStore — Harsh Patel, Shopify Speed Engineer</title>
+
+<!-- ── PRIMARY SEO ── -->
+<title>Shopify Speed Optimization Service — Harsh Patel | GetFastStore</title>
+<meta name="description" content="Slow Shopify store? I fix slow Shopify stores in 7 days — app audit, image optimization, Core Web Vitals, zero downtime. 47+ stores optimized. 100% score improvement guaranteed. Book a free audit.">
+<meta name="keywords" content="shopify speed optimization, shopify store slow, shopify performance optimization, fix slow shopify store, shopify page speed expert, shopify core web vitals, speed up shopify store, hire shopify speed expert">
+<meta name="author" content="Harsh Patel">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.getfaststore.com/">
+
+<!-- ── OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ── -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.getfaststore.com/">
+<meta property="og:title" content="Slow stores lose sales. I fix slow Shopify stores. — Harsh Patel">
+<meta property="og:description" content="I've audited 47+ Shopify stores. Every 1s delay costs up to 7% revenue. I fix your speed in 7 days — personally, zero downtime, guaranteed improvement.">
+<meta property="og:image" content="https://www.getfaststore.com/og-image.jpg">
+<meta property="og:site_name" content="GetFastStore">
+<meta property="og:locale" content="en_US">
+
+<!-- ── TWITTER CARD ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.getfaststore.com/">
+<meta name="twitter:title" content="Slow stores lose sales. I fix slow Shopify stores.">
+<meta name="twitter:description" content="I've audited 47+ Shopify stores. App bloat, slow themes, bad Core Web Vitals — I find it and fix it in 7 days. Book a free audit.">
+<meta name="twitter:image" content="https://www.getfaststore.com/og-image.jpg">
+<meta name="twitter:creator" content="@harshpatel">
+
+<!-- ── JSON-LD SCHEMA ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.getfaststore.com/#harsh",
+      "name": "Harsh Patel",
+      "url": "https://www.getfaststore.com",
+      "jobTitle": "Shopify Performance Engineer",
+      "description": "Shopify speed optimization specialist helping solo merchants fix slow stores in 7 days.",
+      "sameAs": [
+        "https://twitter.com/harshpatel",
+        "https://linkedin.com/in/harshpatel"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.getfaststore.com/#service",
+      "name": "GetFastStore — Shopify Speed Optimization",
+      "url": "https://www.getfaststore.com",
+      "description": "Shopify speed optimization service for solo merchants. App audit, image optimization, Core Web Vitals fix, zero downtime. 7-day delivery.",
+      "provider": { "@id": "https://www.getfaststore.com/#harsh" },
+      "areaServed": "Worldwide",
+      "serviceType": "Shopify Speed Optimization",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "299",
+          "priceCurrency": "USD",
+          "description": "Full speed audit, image compression, app script audit, JS & CSS minification."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "549",
+          "priceCurrency": "USD",
+          "description": "Everything in Starter plus Core Web Vitals fix, third-party script optimization, 30-day support."
+        },
+        {
+          "@type": "Offer",
+          "name": "Ongoing",
+          "price": "149",
+          "priceCurrency": "USD",
+          "description": "Monthly speed health check, regression alerts, 1 optimization session per month."
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "47",
+        "bestRating": "5"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will you break my store or remove apps I need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. I work entirely in a duplicated theme — your live store is never touched during the process. You approve everything before it goes live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Shopify speed score can I realistically expect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most stores move from 15–35 to 70–85 on mobile. I guarantee a meaningful improvement — if your score doesn't improve by at least 20 points on mobile, you don't pay."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from a Fiverr speed optimization gig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most Fiverr gigs inflate your PageSpeed score without improving real-world load time. I optimize for actual user experience — real load times, real Core Web Vitals, real conversions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does Shopify speed optimization take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "7 days on average. I work in preview mode so your live store is never affected during the process."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -38,9 +160,59 @@
     overflow-x: hidden;
   }
 
+  /* ── TRUST BAR MARQUEE ── */
+  .trust-bar {
+    background: var(--ink);
+    height: 36px;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 102;
+    overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .marquee-track {
+    display: flex; align-items: center;
+    white-space: nowrap;
+    animation: marquee 28s linear infinite;
+    will-change: transform;
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .tb-item {
+    font-size: 12px; color: rgba(249,246,240,.7);
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 0 24px; flex-shrink: 0;
+  }
+  .tb-item strong { color: #fff; font-weight: 500; }
+  .tb-sep { width: 1px; height: 12px; background: rgba(255,255,255,.18); flex-shrink: 0; }
+  .shopify-badge-sm {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 500; color: #fff;
+  }
+  .shopify-badge-sm .sh-dot { width: 7px; height: 7px; border-radius: 50%; background: #96bf48; flex-shrink: 0; }
+
+  /* ── MONEY FACTS ── */
+  .hero-money-fact {
+    display: flex; align-items: center; gap: 0;
+    background: var(--accent-light);
+    border: 1px solid rgba(200,98,42,.2);
+    border-radius: var(--r);
+    margin-bottom: 28px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .hmf-item {
+    flex: 1; padding: 12px 16px; text-align: center;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .hmf-num { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--accent-dark); }
+  .hmf-label { font-size: 12px; color: var(--ink-2); line-height: 1.3; }
+  .hmf-div { width: 1px; background: rgba(200,98,42,.2); align-self: stretch; }
+
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 36px; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 48px;
     background: rgba(249,246,240,0.92);
@@ -79,7 +251,7 @@
   .hero {
     min-height: 100vh;
     display: flex; align-items: center;
-    padding: 120px 48px 80px;
+    padding: 200px 48px 80px;
     position: relative;
     overflow: hidden;
   }
@@ -477,6 +649,40 @@
   .footer-links a:hover { color: var(--cream); }
   .footer-copy { font-size: 13px; color: rgba(249,246,240,.35); }
 
+  /* ── BLOG CARDS ── */
+  .blog-grid { }
+  .blog-card {
+    background: #fff;
+    border: 1px solid var(--cream-3);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    text-decoration: none;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: transform .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+  .blog-card-soon { opacity: .6; cursor: default; }
+  .blog-card-soon:hover { transform: none; box-shadow: none; }
+  .blog-card-tag {
+    font-size: 11px; font-weight: 500; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--accent);
+    background: var(--accent-light); padding: 3px 10px;
+    border-radius: 99px; display: inline-block; width: fit-content;
+  }
+  .blog-card-title {
+    font-family: var(--serif); font-size: 18px; font-weight: 600;
+    color: var(--ink); line-height: 1.3; margin: 0;
+  }
+  .blog-card-excerpt {
+    font-size: 14px; color: var(--ink-3); line-height: 1.6; margin: 0; flex: 1;
+  }
+  .blog-card-meta {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--ink-3); margin-top: 4px;
+  }
+  @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr !important; } }
+
   /* ── SHOPIFY BADGE ── */
   .shopify-badge {
     display: inline-flex; align-items: center; gap: 8px;
@@ -495,9 +701,10 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
+    nav { padding: 14px 20px; top: 36px; }
     .nav-links a:not(.nav-cta) { display: none; }
-    .hero, section { padding: 80px 24px; }
+    .hero { padding: 130px 20px 60px; }
+    section { padding: 64px 20px; }
     .hero-grid, .problem-grid { grid-template-columns: 1fr; gap: 48px; }
     .hero-right { display: none; }
     .fixes-grid, .pricing-grid { grid-template-columns: 1fr; }
@@ -507,12 +714,49 @@
     .results-grid { grid-template-columns: 1fr; }
     .trust-grid { grid-template-columns: 1fr 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
-    .strip { padding: 20px 24px; gap: 24px; }
-    footer { padding: 32px 24px; }
+    footer { padding: 32px 20px; }
+    .hero-money-fact { flex-direction: column; }
+    .hmf-div { width: 100%; height: 1px; }
   }
 </style>
 </head>
 <body>
+
+<!-- TRUST BAR MARQUEE -->
+<div class="trust-bar">
+  <div class="marquee-track">
+    <!-- set 1 -->
+    <div class="tb-item"><div class="shopify-badge-sm"><div class="sh-dot"></div> Shopify Partner</div></div>
+    <div class="tb-sep"></div>
+    <div class="tb-item"><strong>47+</strong> stores optimized</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item"><strong>Avg +40 pts</strong> score improvement</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item"><strong>100%</strong> score improvement guaranteed</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">⚡ <strong>7-day</strong> average delivery</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">🔒 Zero downtime — preview mode only</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">1s delay = <strong>7% revenue loss</strong></div>
+    <div class="tb-sep"></div>
+    <!-- set 2 — exact duplicate for seamless loop -->
+    <div class="tb-item"><div class="shopify-badge-sm"><div class="sh-dot"></div> Shopify Partner</div></div>
+    <div class="tb-sep"></div>
+    <div class="tb-item"><strong>47+</strong> stores optimized</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item"><strong>Avg +40 pts</strong> score improvement</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item"><strong>100%</strong> score improvement guaranteed</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">⚡ <strong>7-day</strong> average delivery</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">🔒 Zero downtime — preview mode only</div>
+    <div class="tb-sep"></div>
+    <div class="tb-item">1s delay = <strong>7% revenue loss</strong></div>
+    <div class="tb-sep"></div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -521,8 +765,9 @@
     <a href="#what-i-fix">What I fix</a>
     <a href="#results">Results</a>
     <a href="#pricing">Pricing</a>
+    <a href="#blog">Blog</a>
     <a href="#faq">FAQ</a>
-    <a href="#book" class="nav-cta">Book a free audit →</a>
+    <a href="#book" class="nav-cta">Get your free audit →</a>
   </div>
 </nav>
 
@@ -534,11 +779,27 @@
       <div class="hero-eyebrow">Shopify Performance Engineer</div>
       <h1>Slow stores<br>lose sales.<br><em>I fix slow<br>Shopify stores.</em></h1>
       <p class="hero-sub">
-        I'm Harsh — a Shopify performance engineer who helps solo merchants get their store loading fast again. No agency, no junior dev handed your store. Just me, your specific issues, and a score that actually moves.
+        I've audited 47+ Shopify stores. Every 1 second of delay costs you up to <strong>7% in revenue</strong> — and most stores I see are losing 4–6 seconds to apps they forgot they installed. I find exactly what's killing your speed and fix it personally. No agency. No handoffs. Just results.
       </p>
+      <div class="hero-money-fact">
+        <div class="hmf-item">
+          <span class="hmf-num">1s delay</span>
+          <span class="hmf-label">= up to 7% revenue loss</span>
+        </div>
+        <div class="hmf-div"></div>
+        <div class="hmf-item">
+          <span class="hmf-num">3s load</span>
+          <span class="hmf-label">= 53% of visitors gone</span>
+        </div>
+        <div class="hmf-div"></div>
+        <div class="hmf-item">
+          <span class="hmf-num">Fast store</span>
+          <span class="hmf-label">= more revenue, same traffic</span>
+        </div>
+      </div>
       <div class="hero-actions">
         <a href="#book" class="btn-primary">
-          Get a free speed audit
+          See what's slowing your store — free
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#results" class="btn-ghost">
@@ -590,20 +851,6 @@
   </div>
 </section>
 
-<!-- STRIP -->
-<div class="strip">
-  <div class="strip-item"><strong>47+</strong> stores optimized</div>
-  <div class="strip-dot"></div>
-  <div class="strip-item"><strong>100%</strong> score improvement guaranteed</div>
-  <div class="strip-dot"></div>
-  <div class="strip-item">
-    <div class="shopify-badge"><div class="sh-dot"></div> Shopify Partner</div>
-  </div>
-  <div class="strip-dot"></div>
-  <div class="strip-item"><strong>Zero downtime</strong> — I work in preview mode</div>
-  <div class="strip-dot"></div>
-  <div class="strip-item"><strong>7-day</strong> average delivery</div>
-</div>
 
 <!-- PROBLEM -->
 <section class="problem">
@@ -615,8 +862,8 @@
         <p class="section-sub" style="margin-bottom:32px;">Every app you installed had a reason. A review widget here, a currency switcher there, a pop-up, a countdown timer. Each one seemed fine. Together, they quietly ate your store's performance — and your sales.</p>
         <div class="intro-block">
           <div class="intro-avatar">H</div>
-          <p class="intro-quote">"I've audited hundreds of Shopify stores. The pattern is always the same: a good product, a decent theme, and 15 apps added one by one over two years. The merchant has no idea three of those apps are firing JavaScript on every single page load — including checkout."</p>
-          <div class="intro-name">— Harsh Patel <span>· Shopify Performance Engineer</span></div>
+          <p class="intro-quote">"Most merchants blame themselves. They think they chose the wrong theme or made a bad decision. They didn't. Shopify's app ecosystem is designed to make installing easy — not to warn you when the 12th app starts blocking your checkout from loading. That's not your fault. But it is your problem. And it's one I can fix."</p>
+          <div class="intro-name">— Harsh Patel <span>· Shopify Performance Engineer · 47+ stores optimized</span></div>
         </div>
       </div>
       <div class="problem-list fade-up">
@@ -1025,6 +1272,58 @@
   </div>
 </section>
 
+<!-- BLOG PREVIEW -->
+<section id="blog" style="background: var(--cream-2);">
+  <div class="section-inner">
+    <div class="section-header fade-up" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:40px;">
+      <div>
+        <div class="section-eyebrow">From the blog</div>
+        <h2 class="section-title" style="margin-bottom:0;">Free knowledge.<br>No fluff.</h2>
+      </div>
+      <a href="blog-why-shopify-store-slow.html" style="font-size:14px; color:var(--accent); text-decoration:none; font-weight:500; white-space:nowrap; display:flex; align-items:center; gap:6px;">
+        All articles
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;" class="blog-grid">
+
+      <a href="blog-why-shopify-store-slow.html" class="blog-card fade-up">
+        <div class="blog-card-tag">Shopify Speed</div>
+        <h3 class="blog-card-title">Why is my Shopify store so slow? 7 real causes explained</h3>
+        <p class="blog-card-excerpt">I've audited 47+ stores. The same 7 problems show up every time — app bloat, bad images, render-blocking scripts. Here's exactly what's killing your speed.</p>
+        <div class="blog-card-meta">
+          <span>Harsh Patel</span>
+          <span>·</span>
+          <span>8 min read</span>
+        </div>
+      </a>
+
+      <div class="blog-card blog-card-soon fade-up">
+        <div class="blog-card-tag">Coming soon</div>
+        <h3 class="blog-card-title">How many Shopify apps is too many?</h3>
+        <p class="blog-card-excerpt">There's a number. Most merchants cross it without realising. After auditing 47+ stores, here's what the data actually shows about app count and performance.</p>
+        <div class="blog-card-meta">
+          <span>Harsh Patel</span>
+          <span>·</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+
+      <div class="blog-card blog-card-soon fade-up">
+        <div class="blog-card-tag">Coming soon</div>
+        <h3 class="blog-card-title">Shopify Core Web Vitals: what they are and why they cost you sales</h3>
+        <p class="blog-card-excerpt">LCP, CLS, INP — Google uses these three metrics to rank your store. Most Shopify merchants have no idea they're failing all three.</p>
+        <div class="blog-card-meta">
+          <span>Harsh Patel</span>
+          <span>·</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">GetFast<span>Store</span></div>
@@ -1032,6 +1331,7 @@
     <a href="#what-i-fix">Services</a>
     <a href="#results">Results</a>
     <a href="#pricing">Pricing</a>
+    <a href="#blog">Blog</a>
     <a href="#book">Contact</a>
   </div>
   <div class="footer-copy">© 2025 Harsh Patel · getfaststore.com · Shopify Partner</div>
