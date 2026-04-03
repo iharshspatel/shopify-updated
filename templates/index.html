@@ -18,11 +18,11 @@
     />
     <meta name="author" content="Harsh Patel" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://harshspatel.com/" />
+    <link rel="canonical" href="{{SITE_ORIGIN}}/" />
 
     <!-- ── OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ── -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://harshspatel.com/" />
+    <meta property="og:url" content="{{SITE_ORIGIN}}/" />
     <meta
       property="og:title"
       content="Slow stores lose sales. I fix slow Shopify stores. — Harsh Patel"
@@ -31,13 +31,13 @@
       property="og:description"
       content="I've audited 47+ Shopify stores. Every 1s delay costs up to 7% revenue. I fix your speed in 7 days — personally, zero downtime, guaranteed improvement."
     />
-    <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta property="og:image" content="{{SITE_ORIGIN}}/og-image.jpg" />
     <meta property="og:site_name" content="GetFastStore" />
     <meta property="og:locale" content="en_US" />
 
     <!-- ── TWITTER CARD ── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://harshspatel.com/" />
+    <meta name="twitter:url" content="{{SITE_ORIGIN}}/" />
     <meta
       name="twitter:title"
       content="Slow stores lose sales. I fix slow Shopify stores."
@@ -46,7 +46,7 @@
       name="twitter:description"
       content="I've audited 47+ Shopify stores. App bloat, slow themes, bad Core Web Vitals — I find it and fix it in 7 days. Book a free audit."
     />
-    <meta name="twitter:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta name="twitter:image" content="{{SITE_ORIGIN}}/og-image.jpg" />
     <meta name="twitter:creator" content="@iharshspatel" />
 
     <!-- ── JSON-LD SCHEMA ── -->
@@ -56,9 +56,9 @@
         "@graph": [
           {
             "@type": "Person",
-            "@id": "https://harshspatel.com/#harsh",
+            "@id": "{{SITE_ORIGIN}}/#harsh",
             "name": "Harsh Patel",
-            "url": "https://harshspatel.com",
+            "url": "{{SITE_ORIGIN}}",
             "jobTitle": "Shopify Performance Engineer",
             "description": "Shopify speed optimization specialist helping solo merchants fix slow stores in 7 days.",
             "sameAs": [
@@ -68,11 +68,11 @@
           },
           {
             "@type": "ProfessionalService",
-            "@id": "https://harshspatel.com/#service",
+            "@id": "{{SITE_ORIGIN}}/#service",
             "name": "GetFastStore — Shopify Speed Optimization",
-            "url": "https://harshspatel.com",
+            "url": "{{SITE_ORIGIN}}",
             "description": "Shopify speed optimization service for solo merchants. App audit, image optimization, Core Web Vitals fix, zero downtime. 7-day delivery.",
-            "provider": { "@id": "https://harshspatel.com/#harsh" },
+            "provider": { "@id": "{{SITE_ORIGIN}}/#harsh" },
             "areaServed": "Worldwide",
             "serviceType": "Shopify Speed Optimization",
             "offers": [
@@ -155,71 +155,8 @@
     <link rel="stylesheet" href="css/home.css" />
   </head>
   <body id="top" class="page-home">
-    <!-- TRUST BAR MARQUEE -->
-<div class="trust-bar">
-  <div class="marquee-track">
-    <!-- set 1 -->
-    <div class="tb-item">
-      <div class="shopify-badge-sm">
-        <div class="sh-dot"></div>
-        Shopify Partner
-      </div>
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-item"><strong>47+</strong> stores optimized</div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">
-      <strong>Avg +40 pts</strong> score improvement
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">
-      <strong>100%</strong> score improvement guaranteed
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">⚡ <strong>7-day</strong> average delivery</div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">🔒 Zero downtime — preview mode only</div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">1s delay = <strong>7% revenue loss</strong></div>
-    <div class="tb-sep"></div>
-    <!-- set 2 — exact duplicate for seamless loop -->
-    <div class="tb-item">
-      <div class="shopify-badge-sm">
-        <div class="sh-dot"></div>
-        Shopify Partner
-      </div>
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-item"><strong>47+</strong> stores optimized</div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">
-      <strong>Avg +40 pts</strong> score improvement
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">
-      <strong>100%</strong> score improvement guaranteed
-    </div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">⚡ <strong>7-day</strong> average delivery</div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">🔒 Zero downtime — preview mode only</div>
-    <div class="tb-sep"></div>
-    <div class="tb-item">1s delay = <strong>7% revenue loss</strong></div>
-    <div class="tb-sep"></div>
-  </div>
-</div>
-    <!-- NAV -->
-<nav class="site-nav site-nav--home">
-  <a href="index.html" class="nav-logo">GetFast<span>Store</span></a>
-  <div class="nav-links">
-    <a href="#what-i-fix">What I fix</a>
-    <a href="#results">Results</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#blog">Blog</a>
-    <a href="#faq">FAQ</a>
-    <a href="#book" class="nav-cta">Get your free audit →</a>
-  </div>
-</nav>
+    <!-- @include partials/trust-bar.html -->
+    <!-- @include partials/nav-home.html -->
 
     <!-- HERO -->
     <section class="hero">
@@ -919,7 +856,7 @@
           just the truth about your store.
         </p>
         <a
-          href="https://calendly.com/harsh-1722-patel/new-meeting"
+          href="{{CAL_BOOKING_URL}}"
           class="btn-cta-white"
           target="_blank"
           rel="noopener noreferrer"
@@ -1150,46 +1087,7 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
-<footer>
-  <div class="footer-brand">GetFast<span>Store</span></div>
-  <div class="footer-links">
-    <a href="#what-i-fix">Services</a>
-    <a href="#results">Results</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#blog">Blog</a>
-    <a href="#book">Contact</a>
-  </div>
-  <div class="footer-copy">
-    © 2026 Harsh Patel · harshspatel.com · Shopify Partner
-  </div>
-</footer>
-    <script>
-  // FAQ toggle
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const isOpen = item.classList.contains("open");
-    document
-      .querySelectorAll(".faq-item.open")
-      .forEach((el) => el.classList.remove("open"));
-    if (!isOpen) item.classList.add("open");
-  }
-
-  // Scroll fade-up
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add("visible"), i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
-  document
-    .querySelectorAll(".fade-up")
-    .forEach((el) => observer.observe(el));
-</script>
+    <!-- @include partials/footer-home.html -->
+    <!-- @include partials/scripts-home.html -->
   </body>
 </html>
