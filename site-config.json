@@ -1,5 +1,0 @@
-{
-  "_comment": "Edit site chrome in partials/ and page markup in templates/ (not root HTML). Run npm run build to expand @include into index.html and blog/**, then sync placeholders from siteOrigin/calBookingUrl. Commit generated root HTML after build+sync for GitHub Pages (workflow A). llms.txt, robots.txt, sitemap.xml: run npm run sync after editing placeholders there. Global CSS: css/shared.css (blog + tokens); css/home.css (landing only).",
-  "siteOrigin": "https://harshspatel.com",
-  "calBookingUrl": "https://calendly.com/harsh-1722-patel/new-meeting"
-}
