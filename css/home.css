@@ -369,7 +369,7 @@
 
   /* ── PRICING ── */
   .pricing { background: var(--cream-2); }
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
   .pricing-card {
     background: #fff;
     border: 1px solid var(--cream-3);
@@ -392,6 +392,23 @@
   .pricing-name { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin-bottom: 8px; }
   .pricing-price { font-family: var(--serif); font-size: 40px; font-weight: 600; color: var(--ink); line-height: 1; }
   .pricing-price sup { font-size: 20px; vertical-align: super; }
+  .pricing-price-suffix {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-3);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+  .pricing-callout {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
   .pricing-desc { font-size: 13px; color: var(--ink-3); margin: 8px 0 24px; }
   .pricing-divider { border: none; border-top: 1px solid var(--cream-3); margin-bottom: 20px; }
   .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
