@@ -1,4 +1,4 @@
-/* Homepage-only (GetFastStore landing) — load after shared.css */
+/* Homepage-only (GetFastStore landing) - load after shared.css */
 .page-home {
   overflow-x: hidden;
 }
@@ -415,7 +415,7 @@
   .pricing-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink-2); }
   .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
   .pricing-features li.no { color: var(--ink-3); }
-  .pricing-features li.no::before { content: '—'; color: var(--cream-3); }
+  .pricing-features li.no::before { content: '-'; color: var(--cream-3); }
   .btn-pricing {
     display: block; width: 100%; text-align: center;
     padding: 14px; border-radius: 99px;

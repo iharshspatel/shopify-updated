@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
 
     <!-- ── PRIMARY SEO ── -->
     <title>
@@ -78,7 +79,7 @@
                 "name": "Why is my Shopify store so slow?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The most common reasons a Shopify store is slow are: too many installed apps firing JavaScript on every page, large uncompressed images, render-blocking scripts from third-party tools, a poorly coded theme, and failing Core Web Vitals. Most slow stores have 10–20+ apps installed over time without ever auditing their combined performance impact."
+                  "text": "The most common reasons a Shopify store is slow are: too many installed apps firing JavaScript on every page, large uncompressed images, render-blocking scripts from third-party tools, a poorly coded theme, and failing Core Web Vitals. Most slow stores have 10-20+ apps installed over time without ever auditing their combined performance impact."
                 }
               },
               {
@@ -86,7 +87,7 @@
                 "name": "How many apps is too many on Shopify?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "There is no hard number, but in practice stores with more than 12–15 active apps almost always score below 40 on mobile PageSpeed. Each app adds JavaScript and CSS that loads on every page. Even apps you rarely use continue to fire scripts unless explicitly configured otherwise."
+                  "text": "There is no hard number, but in practice stores with more than 12-15 active apps almost always score below 40 on mobile PageSpeed. Each app adds JavaScript and CSS that loads on every page. Even apps you rarely use continue to fire scripts unless explicitly configured otherwise."
                 }
               },
               {
@@ -102,7 +103,7 @@
                 "name": "Do Shopify apps slow down your store?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes. Every Shopify app you install adds JavaScript and sometimes CSS to your storefront. Many apps load their scripts on every page — including pages where the app has no function. This is the single most common cause of slow Shopify stores."
+                  "text": "Yes. Every Shopify app you install adds JavaScript and sometimes CSS to your storefront. Many apps load their scripts on every page, including pages where the app has no function. This is the single most common cause of slow Shopify stores."
                 }
               },
               {
@@ -110,7 +111,7 @@
                 "name": "How do I speed up my Shopify store?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "To speed up a Shopify store: audit and remove unused apps, compress and convert images to WebP, implement lazy loading, minify JavaScript and CSS, fix Core Web Vitals (LCP, CLS, INP), and defer third-party scripts like chat widgets and review apps. For most stores, fixing app scripts alone improves mobile scores by 20–30 points."
+                  "text": "To speed up a Shopify store: audit and remove unused apps, compress and convert images to WebP, implement lazy loading, minify JavaScript and CSS, fix Core Web Vitals (LCP, CLS, INP), and defer third-party scripts like chat widgets and review apps. For most stores, fixing app scripts alone improves mobile scores by 20-30 points."
                 }
               }
             ]
@@ -124,7 +125,7 @@
                 "@type": "HowToStep",
                 "position": 1,
                 "name": "Run a speed audit",
-                "text": "Run your store URL through Google PageSpeed Insights and GTmetrix. Note your mobile score, LCP, CLS, and INP. Screenshot it — this is your baseline."
+                "text": "Run your store URL through Google PageSpeed Insights and GTmetrix. Note your mobile score, LCP, CLS, and INP. Screenshot it. That is your baseline."
               },
               {
                 "@type": "HowToStep",
@@ -136,7 +137,7 @@
                 "@type": "HowToStep",
                 "position": 3,
                 "name": "Optimise your images",
-                "text": "Compress all images and convert to WebP format. Add lazy loading so images below the fold only load when scrolled to. This alone can cut 30–50% of your page weight."
+                "text": "Compress all images and convert to WebP format. Add lazy loading so images below the fold only load when scrolled to. This alone can cut 30-50% of your page weight."
               },
               {
                 "@type": "HowToStep",
@@ -176,7 +177,12 @@
     <nav class="site-nav site-nav--inner">
   <a href="../../index.html" class="nav-logo">GetFast<span>Store</span></a>
   <a href="../index.html" class="nav-back"> All articles </a>
-  <a href="../../index.html#book" class="nav-cta">Free audit</a>
+  <a
+    href="../../index.html#book"
+    class="nav-cta"
+    data-gfs-audit-placement="nav"
+    >Free audit</a
+  >
 </nav>
 
     <div class="page-wrap">
@@ -203,7 +209,7 @@
         <div class="article-summary">
           <p>
             <strong>Short answer:</strong> Your Shopify store is slow because of
-            one or more of these seven problems — app bloat, unoptimised images,
+            one or more of these seven problems: app bloat, unoptimised images,
             render-blocking scripts, a heavy theme, poor font loading,
             third-party tracking scripts, or failing Core Web Vitals. I've
             personally audited 47+ Shopify stores and the same patterns show up
@@ -216,7 +222,7 @@
           <p>
             You opened Google PageSpeed Insights, ran your store URL, and felt
             your stomach drop. A score of 22 on mobile. Maybe 34. You've got a
-            good product, decent traffic, a theme you paid for — and Google is
+            good product, decent traffic, a theme you paid for, and Google is
             telling you your store is basically unusable on mobile.
           </p>
 
@@ -224,8 +230,8 @@
             Here's the thing:
             <strong>it's almost never the theme's fault.</strong> And it's
             almost never something you did wrong on purpose. It's the slow
-            accumulation of small decisions that made total sense at the time —
-            installing an app here, adding a chat widget there — that together
+            accumulation of small decisions that made total sense at the time:
+            installing an app here, adding a chat widget there. Together, they
             quietly buried your performance.
           </p>
 
@@ -256,18 +262,18 @@
             </thead>
             <tbody>
               <tr>
-                <td class="score-bad">0 – 49</td>
-                <td>Poor — most visitors experience slow loads</td>
+                <td class="score-bad">0-49</td>
+                <td>Poor: most visitors experience slow loads</td>
                 <td>Significant daily revenue loss</td>
               </tr>
               <tr>
-                <td class="score-ok">50 – 69</td>
-                <td>Needs improvement — noticeable lag on mobile</td>
+                <td class="score-ok">50-69</td>
+                <td>Needs improvement: noticeable lag on mobile</td>
                 <td>Moderate impact on conversions</td>
               </tr>
               <tr>
-                <td class="score-good">70 – 100</td>
-                <td>Good — fast experience for most users</td>
+                <td class="score-good">70-100</td>
+                <td>Good: fast experience for most users</td>
                 <td>Optimised for conversions</td>
               </tr>
             </tbody>
@@ -279,33 +285,33 @@
 
           <div class="cause-card">
             <div class="cause-num">Cause #1</div>
-            <h3>App script bloat — the #1 reason Shopify stores are slow</h3>
+            <h3>App script bloat: the #1 reason Shopify stores are slow</h3>
             <p>
               Every app you install adds JavaScript to your store. That
-              JavaScript loads on every single page — your homepage, your
-              product pages, your checkout — even when the app has no function
+              JavaScript loads on every single page: your homepage, your
+              product pages, your checkout, even when the app has no function
               on that page whatsoever.
             </p>
             <p>
               A review app fires on your homepage even though there are no
               reviews there. A currency switcher loads on your blog. A loyalty
               points widget loads on your 404 page. None of this is visible to
-              you. All of it is visible to Google — and to your customers'
+              you. All of it is visible to Google and to your customers'
               browsers.
             </p>
             <p>
-              In practice, stores with more than 12–15 active apps almost always
+              In practice, stores with more than 12-15 active apps almost always
               score below 40 on mobile PageSpeed. I've seen stores with 23 apps
               scoring 14 on mobile. Not because any one app was catastrophically
-              bad — but because 23 small problems add up to one very large one.
+              bad, but because 23 small problems add up to one very large one.
             </p>
             <div class="cause-fix">
               <strong>How to fix it</strong>
               Go through every app in your Shopify admin. For each one, ask
               honestly: do I use this at least once a week? Is it generating
               revenue I can measure? If not, remove it. Then check if any
-              remaining apps have settings to limit which pages they load on —
-              many do, they just don't enable it by default.
+              remaining apps have settings to limit which pages they load on.
+              Many do; they just don't enable it by default.
             </div>
           </div>
 
@@ -315,8 +321,8 @@
             <div class="cause-num">Cause #2</div>
             <h3>Images that are too large are the easiest win</h3>
             <p>
-              Images are typically 50–80% of a page's total weight. A single
-              hero image uploaded at 4MB can add 2–3 seconds to your load time
+              Images are typically 50-80% of a page's total weight. A single
+              hero image uploaded at 4MB can add 2-3 seconds to your load time
               on its own. Most merchants upload images straight from their
               camera or a designer without ever compressing them.
             </p>
@@ -327,8 +333,8 @@
             </p>
             <div class="cause-fix">
               <strong>How to fix it</strong>
-              Compress all images before uploading — tools like Squoosh or
-              TinyPNG are free. Convert to WebP format (30–50% smaller than JPEG
+              Compress all images before uploading. Tools like Squoosh or
+              TinyPNG are free. Convert to WebP format (30-50% smaller than JPEG
               at the same quality). Implement lazy loading so images below the
               fold only load when the customer scrolls to them. This one change
               alone can cut your page weight by 40%.
@@ -341,7 +347,7 @@
             <div class="cause-num">Cause #3</div>
             <h3>Scripts that stop your page from loading until they finish</h3>
             <p>
-              Some scripts load synchronously — meaning your browser stops
+              Some scripts load synchronously, meaning your browser stops
               everything and waits for that script to fully download and execute
               before rendering any more of the page. This is called
               render-blocking, and it's invisible to you but devastating to your
@@ -366,11 +372,14 @@
             <div class="inline-cta-text">
               <h4>Not sure what's slowing your store?</h4>
               <p>
-                I'll audit your store before we even speak — free, no
+                I'll audit your store before we even speak: free, no
                 obligation.
               </p>
             </div>
-            <a href="../../index.html#book" class="inline-cta-btn"
+            <a
+              href="../../index.html#book"
+              class="inline-cta-btn"
+              data-gfs-audit-placement="inline"
               >Get a free speed audit →</a
             >
           </div>
@@ -381,8 +390,8 @@
             <div class="cause-num">Cause #4</div>
             <h3>Your theme may be loading features you're not using</h3>
             <p>
-              Many premium Shopify themes come packed with features — sliders,
-              animations, video backgrounds, parallax effects — all of which
+              Many premium Shopify themes come packed with features: sliders,
+              animations, video backgrounds, parallax effects, all of which
               load their JavaScript and CSS regardless of whether you've enabled
               those features. A theme you bought for $180 can be loading 800KB
               of unused code on every page.
@@ -397,7 +406,7 @@
               If you're on a premium theme, audit which features you're actually
               using. Unused Liquid sections and JavaScript modules can often be
               removed from the theme code without affecting your live design. If
-              you're building a new store, start with Dawn — it's fast by
+              you're building a new store, start with Dawn. It's fast by
               default.
             </div>
           </div>
@@ -415,7 +424,7 @@
             </p>
             <p>
               This shows up in Core Web Vitals as a high LCP (Largest Contentful
-              Paint) score — meaning the main content of your page takes too
+              Paint) score, meaning the main content of your page takes too
               long to become visible.
             </p>
             <div class="cause-fix">
@@ -436,7 +445,7 @@
             <p>
               Every marketing channel you've tried has probably left a script
               behind. Facebook Pixel, Google Analytics, TikTok Pixel, Pinterest
-              Tag, Klaviyo, Hotjar, Lucky Orange — each one adds weight. And
+              Tag, Klaviyo, Hotjar, Lucky Orange: each one adds weight. And
               unlike apps, these scripts are often forgotten when you stop using
               a channel.
             </p>
@@ -449,7 +458,7 @@
               Audit your theme's <code>&lt;head&gt;</code> section and Google
               Tag Manager container. Remove any scripts for channels you're no
               longer actively using. Consolidate remaining scripts into Google
-              Tag Manager if you haven't already — it loads asynchronously and
+              Tag Manager if you haven't already. It loads asynchronously and
               is significantly cleaner than individually pasted scripts.
             </div>
           </div>
@@ -463,24 +472,24 @@
             </h3>
             <p>
               Core Web Vitals are Google's official measurements of user
-              experience — and since 2021, they're a direct Google ranking
+              experience, and since 2021, they're a direct Google ranking
               factor. A failing score here means your store is being actively
               penalised in search results, even if your content and products are
               excellent.
             </p>
             <p>
               The three metrics are: <strong>LCP</strong> (Largest Contentful
-              Paint — how long until the main content loads),
-              <strong>CLS</strong> (Cumulative Layout Shift — how much the page
+              Paint: how long until the main content loads),
+              <strong>CLS</strong> (Cumulative Layout Shift: how much the page
               jumps around while loading), and <strong>INP</strong> (Interaction
-              to Next Paint — how quickly your page responds to clicks and
+              to Next Paint: how quickly your page responds to clicks and
               taps).
             </p>
             <div class="cause-fix">
               <strong>How to fix it</strong>
               Target LCP under 2.5 seconds (optimise your hero image, preload
               critical assets). Fix CLS by setting explicit width and height on
-              all images and embeds — this prevents layout jumping. Fix INP by
+              all images and embeds. This prevents layout jumping. Fix INP by
               reducing the amount of JavaScript executing on user interaction.
             </div>
           </div>
@@ -490,7 +499,7 @@
             <div class="key-fact-text">
               <strong>The honest truth about Shopify speed scores</strong>
               A PageSpeed score of 100 is not realistic for a Shopify store with
-              real functionality. A score of 70–85 on mobile is excellent and is
+              real functionality. A score of 70-85 on mobile is excellent and is
               what most professionally optimised stores achieve. Anyone
               promising you a score of 95+ on a fully functional Shopify store
               is likely gaming the score, not improving real-world performance.
@@ -500,31 +509,31 @@
           <h2>How long does it take to fix a slow Shopify store?</h2>
 
           <p>
-            For most stores, a proper speed optimization takes 5–7 working days.
+            For most stores, a proper speed optimization takes 5-7 working days.
             This includes a full audit, making all changes in preview mode (so
             your live store is never affected), and delivering a before/after
             report with every change documented.
           </p>
 
           <p>
-            The work itself — once you know what needs fixing — is systematic.
+            The work itself, once you know what needs fixing, is systematic.
             App audit, image compression, script cleanup, Core Web Vitals fixes.
-            Done properly, most stores move from a mobile score of 20–40 to
-            70–85 within that window.
+            Done properly, most stores move from a mobile score of 20-40 to
+            70-85 within that window.
           </p>
 
           <h2>Can I fix my Shopify store speed myself?</h2>
 
           <p>
-            Yes — for some of it. Removing unused apps, compressing images
+            Yes, for some of it. Removing unused apps, compressing images
             before upload, and deleting dead tracking scripts are all things you
             can do yourself without touching any code. These changes alone can
-            move a score by 15–20 points in some cases.
+            move a score by 15-20 points in some cases.
           </p>
 
           <p>
-            The harder parts — JavaScript deferral, Core Web Vitals fixes, theme
-            code cleanup, lazy loading implementation — require code access and
+            The harder parts (JavaScript deferral, Core Web Vitals fixes, theme
+            code cleanup, lazy loading implementation) require code access and
             Shopify Liquid knowledge. If you're not comfortable in your theme
             code, those are the parts worth getting help with.
           </p>
@@ -538,8 +547,8 @@
               target="_blank"
               rel="noopener noreferrer"
               >Google PageSpeed Insights</a
-            >. Look at your mobile score. Look at the "Opportunities" section —
-            it will tell you the biggest wins in order of impact.
+            >. Look at your mobile score. Look at the "Opportunities" section.
+            It will tell you the biggest wins in order of impact.
           </p>
 
           <p>
@@ -549,21 +558,24 @@
           </p>
 
           <p>
-            If you want someone to do this for you — thoroughly, with zero risk
-            to your live store — that's exactly what I do. I personally audit
+            If you want someone to do this for you, thoroughly and with zero risk
+            to your live store, that's exactly what I do. I personally audit
             every store before our first call so I can tell you exactly what's
             wrong before you commit to anything.
           </p>
 
           <div class="inline-cta">
             <div class="inline-cta-text">
-              <h4>Get your store audited — free</h4>
+              <h4>Get your store audited (free)</h4>
               <p>
                 20-minute call. I review your store first. You get the truth
                 about your speed before spending a penny.
               </p>
             </div>
-            <a href="../../index.html#book" class="inline-cta-btn"
+            <a
+              href="../../index.html#book"
+              class="inline-cta-btn"
+              data-gfs-audit-placement="inline"
               >Book free audit →</a
             >
           </div>
@@ -617,7 +629,12 @@
   <div class="sidebar-avatar">H</div>
   <h4>Harsh Patel</h4>
   <p>Shopify performance engineer. 47+ stores optimized. Average +40 pts mobile score improvement. Shopify Partner.</p>
-  <a href="../../index.html#book" class="sidebar-cta">Get a free audit →</a>
+  <a
+    href="../../index.html#book"
+    class="sidebar-cta"
+    data-gfs-audit-placement="sidebar"
+    >Get a free audit →</a
+  >
 </div>
 
         <div class="sidebar-card">
@@ -652,6 +669,7 @@
   <div class="footer-brand">GetFast<span>Store</span></div>
   <div class="footer-copy">© 2026 Harsh Patel · Shopify Partner · harshspatel.com</div>
 </footer>
+    <script src="../../js/analytics.js"></script>
     <script>
   (function () {
     function boot() {

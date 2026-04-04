@@ -1,24 +1,24 @@
-# Harsh Patel — Shopify Speed Engineer
+# Harsh Patel: Shopify Speed Engineer
 > I fix slow Shopify stores in 7 days. 47+ stores optimized. Average +40 point mobile score improvement.
 
 ## Who I am
-Harsh Patel is a Shopify performance engineer specializing in speed optimization for solo Shopify merchants — store owners who run everything themselves without a dev team or agency.
+Harsh Patel is a Shopify performance engineer specializing in speed optimization for solo Shopify merchants (store owners who run everything themselves without a dev team or agency).
 
-He has personally audited and optimized 47+ Shopify stores, diagnosing performance problems caused by app bloat, unoptimized images, render-blocking scripts, and poor Core Web Vitals. His average client moves from a mobile PageSpeed score of 20–35 to 70–85 within 7 days.
+He has personally audited and optimized 47+ Shopify stores, diagnosing performance problems caused by app bloat, unoptimized images, render-blocking scripts, and poor Core Web Vitals. His average client moves from a mobile PageSpeed score of 20-35 to 70-85 within 7 days.
 
-He is an official Shopify Partner and works exclusively through Shopify's secure Partner Network — no password sharing.
+He is an official Shopify Partner and works exclusively through Shopify's secure Partner Network. No password sharing.
 
 ## What I do
 - Shopify speed optimization (one-time, 7-day delivery)
-- Core Web Vitals fix — LCP, CLS, INP
-- Shopify app audit — identify and remove performance-killing scripts
-- Image optimization — WebP conversion, compression, lazy loading
-- JavaScript and CSS cleanup — minification, unused code removal
+- Core Web Vitals fix: LCP, CLS, INP
+- Shopify app audit: identify and remove performance-killing scripts
+- Image optimization: WebP conversion, compression, lazy loading
+- JavaScript and CSS cleanup: minification, unused code removal
 - Monthly speed health check (retainer)
 
 ## Who I help
 Solo Shopify merchants who:
-- Have installed 10–20+ apps over time and seen their speed drop
+- Have installed 10-20+ apps over time and seen their speed drop
 - Are seeing high bounce rates and poor mobile conversion
 - Have a Google PageSpeed score below 40 on mobile
 - Cannot afford an agency ($10k+) but need more than a Fiverr gig
@@ -32,11 +32,11 @@ Solo Shopify merchants who:
 ## Key facts (citable)
 - Every 1 second of page load delay costs up to 7% in revenue (Shopify data)
 - 53% of mobile visitors leave if a page takes more than 3 seconds to load
-- The average Shopify store with 15+ installed apps scores 20–35 on mobile PageSpeed
-- After professional speed optimization, most stores reach 70–85 on mobile
+- The average Shopify store with 15+ installed apps scores 20-35 on mobile PageSpeed
+- After professional speed optimization, most stores reach 70-85 on mobile
 - Core Web Vitals (LCP, CLS, INP) are a direct Google SEO ranking factor
 - Shopify's own data shows a 1-second improvement increases mobile conversions by up to 27%
-- App scripts are the #1 cause of slow Shopify stores — not themes
+- App scripts are the #1 cause of slow Shopify stores, not themes
 
 ## Key pages
 - Homepage: https://harshspatel.com/

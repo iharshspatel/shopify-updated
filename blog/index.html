@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog — Shopify Speed & Performance | GetFastStore</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <title>Blog: Shopify Speed & Performance | GetFastStore</title>
     <meta
       name="description"
-      content="Practical guides on Shopify speed, Core Web Vitals, app bloat, and storefront performance — written by a Shopify Partner who has optimized 47+ stores."
+      content="Practical guides on Shopify speed, Core Web Vitals, app bloat, and storefront performance. Written by a Shopify Partner who has optimized 47+ stores."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://harshspatel.com/blog/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://harshspatel.com/blog/" />
-    <meta property="og:title" content="Blog — Shopify Speed & Performance" />
+    <meta property="og:title" content="Blog: Shopify Speed & Performance" />
     <meta
       property="og:description"
       content="Free articles on fixing slow Shopify stores, app audits, and Core Web Vitals."
@@ -41,25 +42,31 @@
     <nav class="site-nav site-nav--inner">
   <a href="../index.html" class="nav-logo">GetFast<span>Store</span></a>
   <a href="../index.html" class="nav-back">← Home</a>
-  <a href="../index.html#book" class="nav-cta">Free audit →</a>
+  <a href="../index.html#book" class="nav-cta" data-gfs-audit-placement="blog_nav"
+    >Free audit →</a
+  >
 </nav>
 
     <div class="blog-page-inner">
       <div class="section-eyebrow">From the blog</div>
       <h1>Free knowledge. No fluff.</h1>
       <p class="lead">
-        Practical articles on Shopify speed, apps, and Core Web Vitals — the
+        Practical articles on Shopify speed, apps, and Core Web Vitals: the
         same patterns I see across 47+ store audits.
       </p>
 
       <div class="blog-grid">
-        <a href="why-is-my-shopify-store-slow/" class="blog-card">
+        <a
+          href="why-is-my-shopify-store-slow/"
+          class="blog-card"
+          data-gfs-blog-dest="article_why_slow"
+        >
           <div class="blog-card-tag">Shopify Speed</div>
           <h2 class="blog-card-title">
             Why is my Shopify store so slow? 7 real causes explained
           </h2>
           <p class="blog-card-excerpt">
-            I've audited 47+ stores. The same 7 problems show up every time —
+            I've audited 47+ stores. The same 7 problems show up every time:
             app bloat, bad images, render-blocking scripts. Here's exactly
             what's killing your speed.
           </p>
@@ -91,7 +98,7 @@
             Shopify Core Web Vitals: what they are and why they cost you sales
           </h2>
           <p class="blog-card-excerpt">
-            LCP, CLS, INP — Google uses these three metrics to rank your store.
+            Google uses LCP, CLS, and INP to rank your store.
             Most Shopify merchants have no idea they're failing all three.
           </p>
           <div class="blog-card-meta">
@@ -107,6 +114,7 @@
   <div class="footer-brand">GetFast<span>Store</span></div>
   <div class="footer-copy">© 2026 Harsh Patel · Shopify Partner · harshspatel.com</div>
 </footer>
+    <script src="../js/analytics.js"></script>
     <script>
   (function () {
     function boot() {
