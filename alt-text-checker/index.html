@@ -1,0 +1,1549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>
+      Free Shopify Alt Text Checker — Find & Fix Missing Alt Tags | Altify
+    </title>
+    <meta
+      name="description"
+      content="Free alt text checker for Shopify. Paste any URL and instantly see which images are missing alt text. Then fix them all in one click with Altify — our Shopify app that auto-generates SEO-friendly alt text."
+    />
+    <meta
+      name="keywords"
+      content="alt text checker, image alt text checker, missing alt text, alt tag checker, free alt text tool, shopify alt text, seo image alt text, check alt attributes, image accessibility checker, alt text scanner"
+    />
+    <meta name="author" content="Harsh Patel" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://harshspatel.com/alt-text-checker/"
+    />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://harshspatel.com/alt-text-checker/"
+    />
+    <meta
+      property="og:title"
+      content="Free Shopify Alt Text Checker — Find & Fix Missing Alt Tags"
+    />
+    <meta
+      property="og:description"
+      content="Paste any URL. See every image missing alt text. Then auto-fix them with Altify, our Shopify app."
+    />
+    <meta
+      property="og:image"
+      content="https://harshspatel.com/og-image.jpg"
+    />
+    <meta property="og:site_name" content="GetFastStore" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ── TWITTER CARD ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://harshspatel.com/alt-text-checker/"
+    />
+    <meta
+      name="twitter:title"
+      content="Free Shopify Alt Text Checker — Find & Fix Missing Alt Tags"
+    />
+    <meta
+      name="twitter:description"
+      content="Paste any URL. See every image missing alt text. Auto-fix with Altify."
+    />
+    <meta
+      name="twitter:image"
+      content="https://harshspatel.com/og-image.jpg"
+    />
+    <meta name="twitter:creator" content="@iharshspatel" />
+
+    <!-- ── JSON-LD SCHEMA ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://harshspatel.com/alt-text-checker/#app",
+            "name": "Altify Alt Text Checker",
+            "url": "https://harshspatel.com/alt-text-checker/",
+            "applicationCategory": "SEOApplication",
+            "operatingSystem": "Any",
+            "description": "Free tool that scans any public web page and reports which images are missing alt text. Companion to Altify, a Shopify app that auto-generates SEO-friendly alt text for product images.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "creator": {
+              "@type": "Person",
+              "name": "Harsh Patel",
+              "url": "https://harshspatel.com/"
+            },
+            "isRelatedTo": {
+              "@type": "SoftwareApplication",
+              "name": "Altify",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Shopify",
+              "url": "https://apps.shopify.com/altify-1"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is alt text and why does it matter?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Alt text is the written description of an image, set with the HTML alt attribute. It helps screen readers describe images to visually impaired users, gives search engines context to rank your images, and shows in place of the image if it fails to load. Missing alt text hurts both accessibility and SEO."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does this alt text checker work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Paste any public URL. The tool fetches the page, scans every <img> tag, and reports how many images have alt text, how many are missing it, and how many use empty alt (alt=\"\") which is valid for decorative images only."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it work on Shopify stores?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. It works on Shopify product pages, collection pages, and any public storefront URL. Note that images loaded after page load via JavaScript (some lazy-loaded carousels, app widgets) may not be detected because the tool reads the initial server-rendered HTML."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is empty alt text (alt=\"\") bad?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Not always. Empty alt is the correct choice for purely decorative images (e.g., background patterns, divider lines) because it tells screen readers to skip them. It is wrong for product images, logos, and informative graphics, which need real descriptions."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why do I see fewer images than I expected?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Some sites render images entirely in JavaScript (React/Vue SPAs, lazy carousels, app widgets). The tool reads the initial HTML the server returned, so client-rendered images are not counted. For a fully accurate count of every image a real user sees, a paid audit using a headless browser is needed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I add alt text to all images on my Shopify store?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Manually, you can add alt text per image in Shopify admin (Products → image → Image alt text). For bulk or automatic alt text, install Altify from the Shopify App Store. Altify scans your entire store and auto-generates SEO-friendly alt text for every product image in minutes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is Altify?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Altify is a Shopify app that automatically generates SEO-friendly alt text for every image in your store. It complements this checker: the checker tells you what is missing, Altify fixes it in bulk and keeps new product images covered as you add them. Available on the Shopify App Store at apps.shopify.com/altify-1."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="../store-performance/css/shared.css" />
+
+    <style>
+      /* Page layout */
+      body.page-tool {
+        background: var(--cream);
+      }
+
+      .tool-hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 64px 48px 32px;
+        text-align: center;
+      }
+      .tool-hero .section-eyebrow {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
+      }
+      .tool-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(30px, 4.4vw, 46px);
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin-bottom: 16px;
+      }
+      .tool-hero h1 em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .tool-hero .lead {
+        font-size: 17px;
+        color: var(--ink-2);
+        max-width: 620px;
+        margin: 0 auto 32px;
+        line-height: 1.6;
+      }
+
+      /* Tool card */
+      .tool-card {
+        max-width: 760px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid var(--cream-3);
+        border-radius: var(--r-lg);
+        padding: 28px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+      }
+      .tool-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .tool-form label {
+        flex: 1 1 100%;
+        font-size: 13px;
+        color: var(--ink-2);
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+      .tool-input {
+        flex: 1 1 320px;
+        font-family: var(--font);
+        font-size: 15px;
+        padding: 13px 16px;
+        border: 1px solid var(--cream-3);
+        border-radius: 10px;
+        color: var(--ink);
+        background: var(--cream);
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .tool-input:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-light);
+      }
+      .tool-submit {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 13px 24px;
+        border-radius: 10px;
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+        white-space: nowrap;
+      }
+      .tool-submit:hover {
+        background: var(--accent-dark);
+      }
+      .tool-submit:active {
+        transform: translateY(1px);
+      }
+      .tool-submit:disabled {
+        background: var(--ink-3);
+        cursor: not-allowed;
+      }
+      .tool-hint {
+        font-size: 12px;
+        color: var(--ink-3);
+        margin-top: 12px;
+        text-align: left;
+      }
+
+      /* Status / error */
+      .tool-status {
+        margin-top: 18px;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+        display: none;
+      }
+      .tool-status.is-loading {
+        background: var(--accent-light);
+        color: var(--accent-dark);
+        display: block;
+      }
+      .tool-status.is-error {
+        background: #fee2e2;
+        color: #991b1b;
+        display: block;
+      }
+
+      /* Spinner */
+      .spinner {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        vertical-align: -2px;
+        margin-right: 8px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Results */
+      .results {
+        max-width: 1100px;
+        margin: 48px auto 0;
+        padding: 0 48px;
+        display: none;
+      }
+      .results.is-visible {
+        display: block;
+      }
+      .results-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--cream-3);
+      }
+      .results-header h2 {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.3;
+        margin: 0;
+      }
+      .results-url {
+        font-size: 13px;
+        color: var(--ink-3);
+        word-break: break-all;
+        max-width: 100%;
+      }
+      .results-url strong {
+        color: var(--ink-2);
+        font-weight: 500;
+      }
+
+      /* Stats grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+      .stat-card {
+        background: #fff;
+        border: 1px solid var(--cream-3);
+        border-radius: 14px;
+        padding: 22px;
+      }
+      .stat-card.stat-ok {
+        border-color: #c6e8d8;
+        background: var(--green-light);
+      }
+      .stat-card.stat-bad {
+        border-color: #fecaca;
+        background: #fef2f2;
+      }
+      .stat-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--ink-3);
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      .stat-card.stat-ok .stat-label {
+        color: var(--green);
+      }
+      .stat-card.stat-bad .stat-label {
+        color: #b91c1c;
+      }
+      .stat-value {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1;
+      }
+      .stat-card.stat-ok .stat-value {
+        color: var(--green);
+      }
+      .stat-card.stat-bad .stat-value {
+        color: #b91c1c;
+      }
+      .stat-sub {
+        font-size: 13px;
+        color: var(--ink-3);
+        margin-top: 6px;
+      }
+
+      /* Score bar */
+      .score-bar {
+        background: #fff;
+        border: 1px solid var(--cream-3);
+        border-radius: 14px;
+        padding: 20px 24px;
+        margin-bottom: 32px;
+      }
+      .score-bar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+      .score-bar-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink-2);
+      }
+      .score-bar-pct {
+        font-family: var(--serif);
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .score-bar-track {
+        height: 12px;
+        background: var(--cream-2);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .score-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--green));
+        border-radius: 99px;
+        transition: width 0.5s ease;
+      }
+      .score-bar-verdict {
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--ink-3);
+      }
+
+      /* Image table */
+      .img-section {
+        margin-bottom: 40px;
+      }
+      .img-section-title {
+        font-family: var(--serif);
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 14px;
+      }
+      .img-section-title .count {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-3);
+        margin-left: 6px;
+      }
+      .img-list {
+        background: #fff;
+        border: 1px solid var(--cream-3);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      .img-row {
+        display: grid;
+        grid-template-columns: 72px 1fr auto;
+        gap: 16px;
+        align-items: center;
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--cream-3);
+      }
+      .img-row:last-child {
+        border-bottom: none;
+      }
+      .img-thumb {
+        width: 56px;
+        height: 56px;
+        background: var(--cream-2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-size: 18px;
+        color: var(--ink-3);
+      }
+      .img-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .img-meta {
+        min-width: 0;
+      }
+      .img-src {
+        font-size: 13px;
+        color: var(--ink-2);
+        word-break: break-all;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .img-alt {
+        font-size: 13px;
+        color: var(--ink-3);
+        margin-top: 4px;
+      }
+      .img-alt strong {
+        color: var(--ink-2);
+        font-weight: 500;
+      }
+      .img-badge {
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 4px 10px;
+        border-radius: 99px;
+        white-space: nowrap;
+      }
+      .img-badge.b-ok {
+        background: var(--green-light);
+        color: var(--green);
+      }
+      .img-badge.b-empty {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .img-badge.b-missing {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      .img-empty-state {
+        padding: 28px;
+        text-align: center;
+        font-size: 14px;
+        color: var(--ink-3);
+      }
+      .img-empty-state.is-good {
+        color: var(--green);
+      }
+
+      .show-more {
+        display: block;
+        margin: 14px auto 0;
+        background: none;
+        border: none;
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: var(--font);
+        padding: 8px 16px;
+        border-radius: 99px;
+      }
+      .show-more:hover {
+        background: var(--accent-light);
+      }
+
+      /* CTA */
+      .tool-cta {
+        background: var(--ink);
+        border-radius: 18px;
+        padding: 36px 40px;
+        margin: 48px auto 0;
+        max-width: 1004px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+      }
+      .tool-cta::before {
+        content: "";
+        position: absolute;
+        inset: -40% -10% auto auto;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 128, 96, 0.35),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .tool-cta-inner {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 380px;
+      }
+      .tool-cta h3 {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 600;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .tool-cta p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+        max-width: 560px;
+      }
+      .tool-cta-btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 14px 26px;
+        border-radius: 99px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.2s, transform 0.1s;
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        z-index: 1;
+      }
+      .tool-cta-btn:hover {
+        background: var(--accent-dark);
+      }
+      .tool-cta-btn:active {
+        transform: translateY(1px);
+      }
+      .shopify-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 10px;
+      }
+      .shopify-mark .sh-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #96bf48;
+      }
+
+      /* Altify feature strip (under tool card, pre-results) */
+      .altify-strip {
+        max-width: 760px;
+        margin: 18px auto 0;
+        background: linear-gradient(
+          135deg,
+          var(--accent-light),
+          #ffffff 90%
+        );
+        border: 1px solid #cfe5dd;
+        border-radius: 14px;
+        padding: 18px 22px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .altify-strip-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .altify-strip-text {
+        flex: 1;
+        min-width: 220px;
+        font-size: 14px;
+        color: var(--ink-2);
+        line-height: 1.5;
+      }
+      .altify-strip-text strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .altify-strip-btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 9px 18px;
+        border-radius: 99px;
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+      .altify-strip-btn:hover {
+        background: var(--accent-dark);
+      }
+
+      /* Why section */
+      .why-section {
+        max-width: 1004px;
+        margin: 64px auto 0;
+        padding: 0 48px;
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 28px;
+      }
+      .why-card {
+        background: #fff;
+        border: 1px solid var(--cream-3);
+        border-radius: 14px;
+        padding: 24px;
+      }
+      .why-icon {
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+      .why-card h4 {
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .why-card p {
+        font-size: 14px;
+        color: var(--ink-3);
+        line-height: 1.6;
+      }
+
+      /* FAQ */
+      .faq-section {
+        max-width: 760px;
+        margin: 64px auto 0;
+        padding: 0 48px;
+      }
+      .faq-section h2 {
+        font-family: var(--serif);
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .faq-item {
+        background: #fff;
+        border: 1px solid var(--cream-3);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .faq-q {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 18px 22px;
+        text-align: left;
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--ink);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .faq-chevron {
+        font-size: 20px;
+        color: var(--ink-3);
+        transition: transform 0.2s;
+      }
+      .faq-item.open .faq-chevron {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        padding: 0 22px;
+        max-height: 0;
+        overflow: hidden;
+        font-size: 14px;
+        color: var(--ink-2);
+        line-height: 1.7;
+        transition: max-height 0.25s ease, padding 0.25s ease;
+      }
+      .faq-item.open .faq-a {
+        padding: 0 22px 18px;
+        max-height: 400px;
+      }
+
+      /* Section header for the in-page sections */
+      .sh-block {
+        text-align: center;
+      }
+      .sh-block .section-eyebrow {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+      .sh-block h2 {
+        font-family: var(--serif);
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.25;
+        margin-bottom: 8px;
+      }
+      .sh-block p {
+        font-size: 15px;
+        color: var(--ink-3);
+        max-width: 560px;
+        margin: 0 auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .tool-hero {
+          padding: 40px 20px 24px;
+        }
+        .tool-card {
+          padding: 22px;
+        }
+        .results {
+          padding: 0 20px;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why-section,
+        .faq-section {
+          padding: 0 20px;
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .tool-cta {
+          padding: 28px 24px;
+          margin: 48px 20px 0;
+        }
+        .img-row {
+          grid-template-columns: 48px 1fr;
+        }
+        .img-row .img-badge {
+          grid-column: 2;
+          justify-self: start;
+          margin-top: 4px;
+        }
+        .img-thumb {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    </style>
+  </head>
+  <body class="page-tool">
+    <nav class="site-nav site-nav--inner">
+      <a href="../store-performance/index.html" class="nav-logo">GetFast<span>Store</span></a>
+      <a href="../store-performance/index.html" class="nav-back">← Home</a>
+      <a
+        href="https://apps.shopify.com/altify-1"
+        class="nav-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-altify-placement="tool_nav"
+        >Install free app →</a
+      >
+    </nav>
+
+    <section class="tool-hero">
+      <div class="section-eyebrow">Free SEO Tool · Powered by Altify</div>
+      <h1>
+        Find every image <br />
+        <em>missing alt text.</em>
+      </h1>
+      <p class="lead">
+        Paste your store URL. See exactly which images are missing alt text
+        — then fix them all in one click with
+        <strong>Altify</strong>, our Shopify app that auto-generates
+        SEO-friendly alt text.
+      </p>
+
+      <div class="tool-card">
+        <form id="alt-form" class="tool-form" autocomplete="off">
+          <label for="url-input">Website URL</label>
+          <input
+            id="url-input"
+            class="tool-input"
+            type="url"
+            inputmode="url"
+            placeholder="https://yourstore.com"
+            required
+            aria-label="Website URL to check"
+          />
+          <button id="submit-btn" class="tool-submit" type="submit">
+            Check alt text
+          </button>
+        </form>
+        <div class="tool-hint">
+          Works on any public page: Shopify product page, blog post, landing
+          page. Reads the initial server-rendered HTML.
+        </div>
+        <div id="status" class="tool-status" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="altify-strip">
+        <div class="altify-strip-icon" aria-hidden="true">⚡</div>
+        <div class="altify-strip-text">
+          <strong>On Shopify?</strong> Skip the checker and install Altify —
+          it scans your store and auto-fills every missing alt tag in
+          minutes.
+        </div>
+        <a
+          href="https://apps.shopify.com/altify-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="altify-strip-btn"
+          data-altify-placement="hero_strip"
+          >Install on Shopify →</a
+        >
+      </div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite">
+      <div class="results-header">
+        <h2>Results</h2>
+        <div class="results-url">
+          <strong>Scanned:</strong> <span id="results-url-text"></span>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total images</div>
+          <div class="stat-value" id="stat-total">0</div>
+          <div class="stat-sub">&lt;img&gt; tags found</div>
+        </div>
+        <div class="stat-card stat-ok">
+          <div class="stat-label">With alt text</div>
+          <div class="stat-value" id="stat-ok">0</div>
+          <div class="stat-sub">Descriptive alt set</div>
+        </div>
+        <div class="stat-card stat-bad">
+          <div class="stat-label">Missing alt</div>
+          <div class="stat-value" id="stat-missing">0</div>
+          <div class="stat-sub">No alt attribute</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Empty alt</div>
+          <div class="stat-value" id="stat-empty">0</div>
+          <div class="stat-sub">alt="" (decorative)</div>
+        </div>
+      </div>
+
+      <div class="score-bar">
+        <div class="score-bar-header">
+          <div class="score-bar-title">Alt text coverage</div>
+          <div class="score-bar-pct" id="score-pct">0%</div>
+        </div>
+        <div class="score-bar-track">
+          <div class="score-bar-fill" id="score-fill" style="width: 0%"></div>
+        </div>
+        <div class="score-bar-verdict" id="score-verdict"></div>
+      </div>
+
+      <div class="img-section">
+        <h3 class="img-section-title">
+          Images missing alt text
+          <span class="count" id="missing-count"></span>
+        </h3>
+        <div id="missing-list" class="img-list"></div>
+        <button
+          type="button"
+          class="show-more"
+          id="missing-show-more"
+          style="display: none"
+        >
+          Show all
+        </button>
+      </div>
+
+      <div class="img-section">
+        <h3 class="img-section-title">
+          Images with alt text
+          <span class="count" id="ok-count"></span>
+        </h3>
+        <div id="ok-list" class="img-list"></div>
+        <button
+          type="button"
+          class="show-more"
+          id="ok-show-more"
+          style="display: none"
+        >
+          Show all
+        </button>
+      </div>
+
+      <div class="tool-cta">
+        <div class="tool-cta-inner">
+          <div class="shopify-mark">
+            <span class="sh-dot"></span> Shopify app
+          </div>
+          <h3 id="cta-headline">Fix every missing alt tag in one click.</h3>
+          <p id="cta-sub">
+            Editing alt text by hand across dozens of products is brutal.
+            <strong style="color:#fff;font-weight:500;">Altify</strong> scans
+            your entire Shopify store and auto-generates SEO-friendly alt
+            text for every image — bulk, automatic, undoable.
+          </p>
+        </div>
+        <a
+          href="https://apps.shopify.com/altify-1"
+          class="tool-cta-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-altify-placement="results_cta"
+          >Install Altify — Free
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="sh-block">
+        <div class="section-eyebrow">Why this matters</div>
+        <h2>Alt text isn't just an SEO checkbox.</h2>
+        <p>
+          It's how Google understands your images, how screen readers
+          describe them, and how shoppers see your products when an image
+          fails to load.
+        </p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🔍</div>
+          <h4>Image SEO &amp; Google rankings</h4>
+          <p>
+            Google reads alt text to understand and rank your images in
+            Google Images and product searches. Missing alt = missing
+            traffic.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">♿</div>
+          <h4>Accessibility (WCAG, ADA)</h4>
+          <p>
+            Screen readers rely on alt text to describe images to visually
+            impaired users. Missing alt is a documented accessibility
+            failure.
+          </p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🛒</div>
+          <h4>Shopify product discovery</h4>
+          <p>
+            Product alt text shows up in Google Shopping, social previews,
+            and broken-image fallbacks. It directly affects clicks and
+            conversions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>Common questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button" onclick="toggleFaq(this)">
+            What counts as "missing alt text"?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-a">
+            An image is counted as missing alt when the <code>&lt;img&gt;</code>
+            tag has no <code>alt</code> attribute at all. Empty alt
+            (<code>alt=""</code>) is reported separately because it is the
+            correct choice for purely decorative images, but wrong for
+            informative ones.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" onclick="toggleFaq(this)">
+            Why does the tool show fewer images than I see on my site?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-a">
+            The tool reads the initial server-rendered HTML. Images injected
+            later by JavaScript (some React/Vue components, lazy carousels,
+            third-party app widgets) are not included. Most Shopify themes
+            ship images in the initial HTML, so the count is usually
+            accurate for storefronts.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" onclick="toggleFaq(this)">
+            Can I check pages behind a login?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-a">
+            No. The tool only fetches public URLs. Pages requiring auth,
+            password-protected stores, and dev preview URLs cannot be
+            scanned.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" onclick="toggleFaq(this)">
+            Is this tool free? Will I get spammed?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-a">
+            Yes, completely free. No sign-up, no email required, no spam.
+            The page does run anonymous analytics so I can see how many
+            people use the tool.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" onclick="toggleFaq(this)">
+            How do I fix missing alt text on Shopify?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-a">
+            <strong>Manually:</strong> Shopify admin → Products → click
+            product → click image → fill the "Image alt text" field. Repeat
+            for theme images (theme editor) and blog/page images. This
+            works, but takes hours if you have more than a handful of
+            products.
+            <br /><br />
+            <strong>Automatically:</strong>
+            <a
+              href="https://apps.shopify.com/altify-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-altify-placement="faq_how_to_fix"
+              >install Altify from the Shopify App Store</a
+            >. It scans your whole store and auto-generates SEO-friendly
+            alt text for every product image in minutes. Free to install.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" onclick="toggleFaq(this)">
+            What is Altify and how is it different from this checker?
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-a">
+            This page is the <em>checker</em> — it tells you which images
+            are missing alt text on any URL. <strong>Altify</strong> is the
+            <em>fixer</em> — a Shopify app that installs on your store and
+            automatically writes alt text for every product image. Use the
+            checker to see the problem; install Altify to fix it without
+            manual work.
+            <a
+              href="https://apps.shopify.com/altify-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-altify-placement="faq_what_is"
+              >See Altify on the Shopify App Store →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-brand">GetFast<span>Store</span></div>
+      <div class="footer-copy">
+        © 2026 Harsh Patel · Shopify Partner · harshspatel.com
+      </div>
+    </footer>
+
+    <script src="../store-performance/js/analytics.js"></script>
+    <script>
+      function toggleFaq(btn) {
+        const item = btn.parentElement;
+        item.classList.toggle("open");
+      }
+
+      document.addEventListener("click", function (e) {
+        const a = e.target.closest("a[data-altify-placement]");
+        if (!a) return;
+        const placement = a.getAttribute("data-altify-placement") || "unknown";
+        if (typeof window.gfsTrack === "function") {
+          window.gfsTrack("altify_install_click", { placement: placement });
+        }
+      });
+
+      (function () {
+        const form = document.getElementById("alt-form");
+        const input = document.getElementById("url-input");
+        const submitBtn = document.getElementById("submit-btn");
+        const statusEl = document.getElementById("status");
+        const resultsEl = document.getElementById("results");
+        const PREVIEW_COUNT = 10;
+
+        function setStatus(state, html) {
+          statusEl.className = "tool-status" + (state ? " is-" + state : "");
+          statusEl.innerHTML = html || "";
+        }
+
+        function normalizeUrl(raw) {
+          let url = raw.trim();
+          if (!url) return null;
+          if (!/^https?:\/\//i.test(url)) {
+            url = "https://" + url;
+          }
+          try {
+            return new URL(url).toString();
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function absUrl(src, base) {
+          if (!src) return "";
+          try {
+            return new URL(src, base).toString();
+          } catch (e) {
+            return src;
+          }
+        }
+
+        function analyze(html, baseUrl) {
+          const doc = new DOMParser().parseFromString(html, "text/html");
+          const imgs = Array.from(doc.querySelectorAll("img"));
+          const ok = [];
+          const missing = [];
+          const empty = [];
+
+          imgs.forEach(function (img) {
+            const hasAttr = img.hasAttribute("alt");
+            const altVal = hasAttr ? img.getAttribute("alt") : null;
+            const src =
+              img.getAttribute("src") ||
+              img.getAttribute("data-src") ||
+              img.getAttribute("data-srcset") ||
+              "";
+            const item = {
+              src: absUrl(src, baseUrl),
+              rawSrc: src,
+              alt: altVal,
+              width: img.getAttribute("width") || "",
+              height: img.getAttribute("height") || "",
+            };
+            if (!hasAttr) {
+              missing.push(item);
+            } else if (!altVal || !altVal.trim()) {
+              empty.push(item);
+            } else {
+              ok.push(item);
+            }
+          });
+
+          return { total: imgs.length, ok: ok, missing: missing, empty: empty };
+        }
+
+        function escapeHtml(s) {
+          return String(s || "").replace(/[&<>"']/g, function (c) {
+            return {
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            }[c];
+          });
+        }
+
+        function renderRow(item, badge) {
+          const showThumb = /^https?:\/\//i.test(item.src);
+          const thumbHtml = showThumb
+            ? '<img src="' +
+              escapeHtml(item.src) +
+              '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML=\'🖼️\'">'
+            : "🖼️";
+          const altLine =
+            item.alt === null
+              ? '<div class="img-alt"><strong>alt:</strong> <em>(no alt attribute)</em></div>'
+              : item.alt.trim() === ""
+                ? '<div class="img-alt"><strong>alt:</strong> <em>(empty)</em></div>'
+                : '<div class="img-alt"><strong>alt:</strong> ' +
+                  escapeHtml(item.alt) +
+                  "</div>";
+          return (
+            '<div class="img-row">' +
+            '<div class="img-thumb">' +
+            thumbHtml +
+            "</div>" +
+            '<div class="img-meta">' +
+            '<div class="img-src">' +
+            escapeHtml(item.src || "(no src)") +
+            "</div>" +
+            altLine +
+            "</div>" +
+            badge +
+            "</div>"
+          );
+        }
+
+        function renderList(containerId, btnId, items, badgeHtml, emptyMsg, emptyGood) {
+          const container = document.getElementById(containerId);
+          const btn = document.getElementById(btnId);
+          if (!items.length) {
+            container.innerHTML =
+              '<div class="img-empty-state' +
+              (emptyGood ? " is-good" : "") +
+              '">' +
+              emptyMsg +
+              "</div>";
+            btn.style.display = "none";
+            return;
+          }
+          const initial = items.slice(0, PREVIEW_COUNT);
+          container.innerHTML = initial
+            .map(function (it) {
+              return renderRow(it, badgeHtml);
+            })
+            .join("");
+          if (items.length > PREVIEW_COUNT) {
+            btn.style.display = "block";
+            btn.textContent = "Show all " + items.length + " →";
+            btn.onclick = function () {
+              container.innerHTML = items
+                .map(function (it) {
+                  return renderRow(it, badgeHtml);
+                })
+                .join("");
+              btn.style.display = "none";
+            };
+          } else {
+            btn.style.display = "none";
+          }
+        }
+
+        function renderResults(data, scannedUrl) {
+          document.getElementById("results-url-text").textContent = scannedUrl;
+          document.getElementById("stat-total").textContent = data.total;
+          document.getElementById("stat-ok").textContent = data.ok.length;
+          document.getElementById("stat-missing").textContent =
+            data.missing.length;
+          document.getElementById("stat-empty").textContent =
+            data.empty.length;
+
+          const pct = data.total === 0
+            ? 0
+            : Math.round((data.ok.length / data.total) * 100);
+          document.getElementById("score-pct").textContent = pct + "%";
+          document.getElementById("score-fill").style.width = pct + "%";
+
+          let verdict;
+          if (data.total === 0) {
+            verdict =
+              "No <img> tags found in the initial HTML. The site may render images in JavaScript.";
+          } else if (pct === 100) {
+            verdict =
+              "Every image has alt text. Excellent for SEO and accessibility.";
+          } else if (pct >= 80) {
+            verdict =
+              "Mostly good. A handful of images are missing alt text — fix those for full coverage.";
+          } else if (pct >= 50) {
+            verdict =
+              "Coverage is uneven. Worth a pass through your theme and product images.";
+          } else {
+            verdict =
+              "Most images are missing alt text. This is hurting your image SEO and accessibility.";
+          }
+          document.getElementById("score-verdict").innerHTML = verdict;
+
+          const missingCount = data.missing.length + data.empty.length;
+          const ctaHeadline = document.getElementById("cta-headline");
+          const ctaSub = document.getElementById("cta-sub");
+          if (ctaHeadline && ctaSub) {
+            if (missingCount === 0 && data.total > 0) {
+              ctaHeadline.textContent =
+                "Keep it that way — automatically.";
+              ctaSub.innerHTML =
+                'Every new product you add risks missing alt text. <strong style="color:#fff;font-weight:500;">Altify</strong> watches your Shopify store and fills alt text for new images as you add them. Set it once.';
+            } else if (missingCount > 0) {
+              ctaHeadline.textContent =
+                "Fix all " + missingCount + " in one click.";
+              ctaSub.innerHTML =
+                'Editing alt text for ' +
+                missingCount +
+                ' images by hand is brutal. <strong style="color:#fff;font-weight:500;">Altify</strong> scans your Shopify store and auto-generates SEO-friendly alt text for every image — bulk, automatic, undoable.';
+            }
+          }
+
+          renderList(
+            "missing-list",
+            "missing-show-more",
+            data.missing.concat(data.empty),
+            '<span class="img-badge b-missing">Missing</span>',
+            data.total === 0
+              ? "No images detected on this page."
+              : "Nothing missing — all images have an alt attribute.",
+            true
+          );
+          document.getElementById("missing-count").textContent =
+            "(" + (data.missing.length + data.empty.length) + ")";
+
+          renderList(
+            "ok-list",
+            "ok-show-more",
+            data.ok,
+            '<span class="img-badge b-ok">OK</span>',
+            "No images with descriptive alt text yet.",
+            false
+          );
+          document.getElementById("ok-count").textContent =
+            "(" + data.ok.length + ")";
+
+          resultsEl.classList.add("is-visible");
+        }
+
+        async function check(url) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Checking…";
+          setStatus(
+            "loading",
+            '<span class="spinner"></span> Fetching ' +
+              escapeHtml(url) +
+              " — this can take 5–15 seconds."
+          );
+          resultsEl.classList.remove("is-visible");
+
+          const proxy =
+            "https://api.allorigins.win/raw?url=" + encodeURIComponent(url);
+
+          try {
+            const res = await fetch(proxy, { method: "GET" });
+            if (!res.ok) {
+              throw new Error("HTTP " + res.status);
+            }
+            const html = await res.text();
+            if (!html || html.length < 50) {
+              throw new Error("Empty response from the URL.");
+            }
+            const data = analyze(html, url);
+            renderResults(data, url);
+            setStatus(null, "");
+            if (typeof window.gfsTrack === "function") {
+              window.gfsTrack("alt_check_complete", {
+                total: data.total,
+                with_alt: data.ok.length,
+                missing_alt: data.missing.length,
+                empty_alt: data.empty.length,
+              });
+            }
+            resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          } catch (err) {
+            setStatus(
+              "error",
+              "Couldn't fetch that URL. The site may be blocking automated requests, behind login, or temporarily unavailable. Try a different URL or try again in a minute."
+            );
+            if (typeof window.gfsTrack === "function") {
+              window.gfsTrack("alt_check_error", {
+                error: String(err && err.message ? err.message : err),
+              });
+            }
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Check alt text";
+          }
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const url = normalizeUrl(input.value);
+          if (!url) {
+            setStatus("error", "Please enter a valid URL.");
+            return;
+          }
+          input.value = url;
+          if (typeof window.gfsTrack === "function") {
+            window.gfsTrack("alt_check_submit", { url: url });
+          }
+          check(url);
+        });
+      })();
+    </script>
+
+    <script>
+      (function () {
+        function boot() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-KTK1PL4F76");
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76";
+          document.head.appendChild(s);
+        }
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(boot, { timeout: 4000 });
+        } else {
+          window.addEventListener("load", function () {
+            setTimeout(boot, 0);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

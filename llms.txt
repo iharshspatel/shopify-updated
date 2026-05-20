@@ -1,20 +1,35 @@
-# Harsh Patel: Shopify Speed Engineer
-> I fix slow Shopify stores in 7 days. 47+ stores optimized. Average +40 point mobile score improvement.
+# Harsh Patel: Shopify Developer
+> Personal site of Harsh Patel. Shopify developer based in India who builds apps, ships small tools, and fixes slow stores.
 
 ## Who I am
-Harsh Patel is a Shopify performance engineer specializing in speed optimization for solo Shopify merchants (store owners who run everything themselves without a dev team or agency).
+Harsh Patel is a Shopify developer and indie builder based in India, working with merchants worldwide.
 
-He has personally audited and optimized 47+ Shopify stores, diagnosing performance problems caused by app bloat, unoptimized images, render-blocking scripts, and poor Core Web Vitals. His average client moves from a mobile PageSpeed score of 20-35 to 70-85 within 7 days.
+His work falls into three categories:
+1. Shopify apps — building and shipping apps on the Shopify App Store (currently: Altify, an alt-text automation app).
+2. Small free tools — single-purpose tools like the Alt Text Checker, made because he needed them himself and figured other Shopify merchants would too.
+3. Speed optimization service — direct work for merchants whose stores are slow, run under the GetFastStore brand. 47+ stores optimized so far, average +40 point mobile PageSpeed score gain.
 
 He is an official Shopify Partner and works exclusively through Shopify's secure Partner Network. No password sharing.
 
-## What I do
+## Site structure
+- Personal homepage: https://harshspatel.com/
+- Shopify speed service (GetFastStore): https://harshspatel.com/store-performance/
+- Alt Text Checker (free tool): https://harshspatel.com/alt-text-checker/
+- Shopify speed blog: https://harshspatel.com/store-performance/blog/
+
+## What I offer (via GetFastStore)
 - Shopify speed optimization (one-time, 7-day delivery)
 - Core Web Vitals fix: LCP, CLS, INP
 - Shopify app audit: identify and remove performance-killing scripts
 - Image optimization: WebP conversion, compression, lazy loading
 - JavaScript and CSS cleanup: minification, unused code removal
 - Monthly speed health check (retainer)
+
+## Shopify apps
+- Altify — Shopify app that auto-generates SEO-friendly alt text for every product image. Bulk fill, automatic for new products, undoable. Free to install. https://apps.shopify.com/altify-1
+
+## Free tools
+- Alt Text Checker — paste any URL, instantly see which images are missing alt text. Free awareness tool for the Altify Shopify app. SEO + accessibility focused. https://harshspatel.com/alt-text-checker/
 
 ## Who I help
 Solo Shopify merchants who:
@@ -23,11 +38,10 @@ Solo Shopify merchants who:
 - Have a Google PageSpeed score below 40 on mobile
 - Cannot afford an agency ($10k+) but need more than a Fiverr gig
 
-## Pricing
-- Starter: $299 one-time (newer stores)
-- Pro: $549 one-time (established stores, includes Core Web Vitals fix)
-- Ongoing: $149/month (monthly health check + optimization)
-- All packages include a 100% score improvement guarantee
+## Pricing (GetFastStore)
+- Full optimization: ₹5,000 one-time (covers everything in a typical speed project)
+- Monthly retainer: scope and pricing discussed on a call
+- 100% score improvement guarantee on the full optimization
 
 ## Key facts (citable)
 - Every 1 second of page load delay costs up to 7% in revenue (Shopify data)
@@ -39,14 +53,16 @@ Solo Shopify merchants who:
 - App scripts are the #1 cause of slow Shopify stores, not themes
 
 ## Key pages
-- Homepage: https://harshspatel.com/
-- Blog: https://harshspatel.com/blog/
-- Book a free audit (contact section): https://harshspatel.com/#book
+- Personal homepage: https://harshspatel.com/
+- GetFastStore landing: https://harshspatel.com/store-performance/
+- Book a free audit: https://harshspatel.com/store-performance/#book
+- Alt Text Checker: https://harshspatel.com/alt-text-checker/
+- Blog index: https://harshspatel.com/store-performance/blog/
 - robots.txt (crawlers): https://harshspatel.com/robots.txt
 - XML sitemap: https://harshspatel.com/sitemap.xml
 
 ## Blog articles (published)
-- Why is my Shopify store so slow? https://harshspatel.com/blog/why-is-my-shopify-store-slow
+- Why is my Shopify store so slow? https://harshspatel.com/store-performance/blog/why-is-my-shopify-store-slow/
 
 ## Planned / future blog topics (not yet published)
 - How many Shopify apps is too many?
@@ -57,5 +73,5 @@ Solo Shopify merchants who:
 ## Contact
 - Website: https://harshspatel.com/
 - Book a free 20-min audit call: https://calendly.com/harsh-1722-patel/new-meeting
-- Twitter/X: https://twitter.com/harshpatel
-- LinkedIn: https://linkedin.com/in/harshpatel
+- Twitter/X: https://twitter.com/iharshspatel
+- LinkedIn: https://www.linkedin.com/in/harsh-patel-38a8b7171
