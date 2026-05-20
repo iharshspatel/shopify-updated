@@ -1455,6 +1455,55 @@
           resultsEl.classList.add("is-visible");
         }
 
+        const PROXIES = [
+          function (u) {
+            return "https://corsproxy.io/?url=" + encodeURIComponent(u);
+          },
+          function (u) {
+            return "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(u);
+          },
+          function (u) {
+            return "https://api.allorigins.win/raw?url=" + encodeURIComponent(u);
+          },
+          function (u) {
+            return "https://thingproxy.freeboard.io/fetch/" + u;
+          },
+        ];
+
+        function fetchWithTimeout(resource, ms) {
+          const controller = new AbortController();
+          const id = setTimeout(function () {
+            controller.abort();
+          }, ms);
+          return fetch(resource, { method: "GET", signal: controller.signal })
+            .finally(function () {
+              clearTimeout(id);
+            });
+        }
+
+        async function fetchViaProxies(url) {
+          let lastErr = null;
+          for (let i = 0; i < PROXIES.length; i++) {
+            const proxyUrl = PROXIES[i](url);
+            try {
+              const res = await fetchWithTimeout(proxyUrl, 12000);
+              if (!res.ok) {
+                lastErr = new Error("HTTP " + res.status);
+                continue;
+              }
+              const html = await res.text();
+              if (!html || html.length < 50) {
+                lastErr = new Error("Empty response");
+                continue;
+              }
+              return { html: html, proxyIndex: i };
+            } catch (err) {
+              lastErr = err;
+            }
+          }
+          throw lastErr || new Error("All proxies failed");
+        }
+
         async function check(url) {
           submitBtn.disabled = true;
           submitBtn.textContent = "Checking…";
@@ -1466,19 +1515,9 @@
           );
           resultsEl.classList.remove("is-visible");
 
-          const proxy =
-            "https://api.allorigins.win/raw?url=" + encodeURIComponent(url);
-
           try {
-            const res = await fetch(proxy, { method: "GET" });
-            if (!res.ok) {
-              throw new Error("HTTP " + res.status);
-            }
-            const html = await res.text();
-            if (!html || html.length < 50) {
-              throw new Error("Empty response from the URL.");
-            }
-            const data = analyze(html, url);
+            const result = await fetchViaProxies(url);
+            const data = analyze(result.html, url);
             renderResults(data, url);
             setStatus(null, "");
             if (typeof window.gfsTrack === "function") {
@@ -1487,6 +1526,7 @@
                 with_alt: data.ok.length,
                 missing_alt: data.missing.length,
                 empty_alt: data.empty.length,
+                proxy: result.proxyIndex,
               });
             }
             resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
