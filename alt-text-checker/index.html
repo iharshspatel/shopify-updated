@@ -19,10 +19,7 @@
     />
     <meta name="author" content="Harsh Patel" />
     <meta name="robots" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://harshspatel.com/alt-text-checker/"
-    />
+    <link rel="canonical" href="https://harshspatel.com/alt-text-checker/" />
 
     <!-- ── OPEN GRAPH ── -->
     <meta property="og:type" content="website" />
@@ -38,10 +35,7 @@
       property="og:description"
       content="Paste any URL. See every image missing alt text. Then auto-fix them with Altify, our Shopify app."
     />
-    <meta
-      property="og:image"
-      content="https://harshspatel.com/og-image.jpg"
-    />
+    <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
     <meta property="og:site_name" content="GetFastStore" />
     <meta property="og:locale" content="en_US" />
 
@@ -59,10 +53,7 @@
       name="twitter:description"
       content="Paste any URL. See every image missing alt text. Auto-fix with Altify."
     />
-    <meta
-      name="twitter:image"
-      content="https://harshspatel.com/og-image.jpg"
-    />
+    <meta name="twitter:image" content="https://harshspatel.com/og-image.jpg" />
     <meta name="twitter:creator" content="@iharshspatel" />
 
     <!-- ── JSON-LD SCHEMA ── -->
@@ -93,7 +84,7 @@
               "name": "Altify",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Shopify",
-              "url": "https://apps.shopify.com/altify-1"
+              "url": "https://apps.shopify.com/alt-text-optimizer"
             }
           },
           {
@@ -167,7 +158,10 @@
       rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript>
       <link
@@ -250,7 +244,9 @@
         color: var(--ink);
         background: var(--cream);
         outline: none;
-        transition: border-color 0.2s, box-shadow 0.2s;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
       }
       .tool-input:focus {
         border-color: var(--accent);
@@ -266,7 +262,9 @@
         font-size: 15px;
         font-weight: 500;
         cursor: pointer;
-        transition: background 0.2s, transform 0.1s;
+        transition:
+          background 0.2s,
+          transform 0.1s;
         white-space: nowrap;
       }
       .tool-submit:hover {
@@ -638,7 +636,9 @@
         font-weight: 600;
         text-decoration: none;
         white-space: nowrap;
-        transition: background 0.2s, transform 0.1s;
+        transition:
+          background 0.2s,
+          transform 0.1s;
         flex-shrink: 0;
         display: inline-flex;
         align-items: center;
@@ -672,11 +672,7 @@
       .altify-strip {
         max-width: 760px;
         margin: 18px auto 0;
-        background: linear-gradient(
-          135deg,
-          var(--accent-light),
-          #ffffff 90%
-        );
+        background: linear-gradient(135deg, var(--accent-light), #ffffff 90%);
         border: 1px solid #cfe5dd;
         border-radius: 14px;
         padding: 18px 22px;
@@ -814,7 +810,9 @@
         font-size: 14px;
         color: var(--ink-2);
         line-height: 1.7;
-        transition: max-height 0.25s ease, padding 0.25s ease;
+        transition:
+          max-height 0.25s ease,
+          padding 0.25s ease;
       }
       .faq-item.open .faq-a {
         padding: 0 22px 18px;
@@ -890,10 +888,12 @@
   </head>
   <body class="page-tool">
     <nav class="site-nav site-nav--inner">
-      <a href="../store-performance/index.html" class="nav-logo">GetFast<span>Store</span></a>
+      <a href="../store-performance/index.html" class="nav-logo"
+        >GetFast<span>Store</span></a
+      >
       <a href="../store-performance/index.html" class="nav-back">← Home</a>
       <a
-        href="https://apps.shopify.com/altify-1"
+        href="https://apps.shopify.com/alt-text-optimizer"
         class="nav-cta"
         target="_blank"
         rel="noopener noreferrer"
@@ -909,8 +909,8 @@
         <em>missing alt text.</em>
       </h1>
       <p class="lead">
-        Paste your store URL. See exactly which images are missing alt text
-        — then fix them all in one click with
+        Paste your store URL. See exactly which images are missing alt text —
+        then fix them all in one click with
         <strong>Altify</strong>, our Shopify app that auto-generates
         SEO-friendly alt text.
       </p>
@@ -935,18 +935,22 @@
           Works on any public page: Shopify product page, blog post, landing
           page. Reads the initial server-rendered HTML.
         </div>
-        <div id="status" class="tool-status" role="status" aria-live="polite"></div>
+        <div
+          id="status"
+          class="tool-status"
+          role="status"
+          aria-live="polite"
+        ></div>
       </div>
 
       <div class="altify-strip">
         <div class="altify-strip-icon" aria-hidden="true">⚡</div>
         <div class="altify-strip-text">
-          <strong>On Shopify?</strong> Skip the checker and install Altify —
-          it scans your store and auto-fills every missing alt tag in
-          minutes.
+          <strong>On Shopify?</strong> Skip the checker and install Altify — it
+          scans your store and auto-fills every missing alt tag in minutes.
         </div>
         <a
-          href="https://apps.shopify.com/altify-1"
+          href="https://apps.shopify.com/alt-text-optimizer"
           target="_blank"
           rel="noopener noreferrer"
           class="altify-strip-btn"
@@ -1038,13 +1042,13 @@
           <h3 id="cta-headline">Fix every missing alt tag in one click.</h3>
           <p id="cta-sub">
             Editing alt text by hand across dozens of products is brutal.
-            <strong style="color:#fff;font-weight:500;">Altify</strong> scans
-            your entire Shopify store and auto-generates SEO-friendly alt
-            text for every image — bulk, automatic, undoable.
+            <strong style="color: #fff; font-weight: 500">Altify</strong> scans
+            your entire Shopify store and auto-generates SEO-friendly alt text
+            for every image — bulk, automatic, undoable.
           </p>
         </div>
         <a
-          href="https://apps.shopify.com/altify-1"
+          href="https://apps.shopify.com/alt-text-optimizer"
           class="tool-cta-btn"
           target="_blank"
           rel="noopener noreferrer"
@@ -1071,9 +1075,8 @@
         <div class="section-eyebrow">Why this matters</div>
         <h2>Alt text isn't just an SEO checkbox.</h2>
         <p>
-          It's how Google understands your images, how screen readers
-          describe them, and how shoppers see your products when an image
-          fails to load.
+          It's how Google understands your images, how screen readers describe
+          them, and how shoppers see your products when an image fails to load.
         </p>
       </div>
       <div class="why-grid">
@@ -1081,9 +1084,8 @@
           <div class="why-icon">🔍</div>
           <h4>Image SEO &amp; Google rankings</h4>
           <p>
-            Google reads alt text to understand and rank your images in
-            Google Images and product searches. Missing alt = missing
-            traffic.
+            Google reads alt text to understand and rank your images in Google
+            Images and product searches. Missing alt = missing traffic.
           </p>
         </div>
         <div class="why-card">
@@ -1091,17 +1093,15 @@
           <h4>Accessibility (WCAG, ADA)</h4>
           <p>
             Screen readers rely on alt text to describe images to visually
-            impaired users. Missing alt is a documented accessibility
-            failure.
+            impaired users. Missing alt is a documented accessibility failure.
           </p>
         </div>
         <div class="why-card">
           <div class="why-icon">🛒</div>
           <h4>Shopify product discovery</h4>
           <p>
-            Product alt text shows up in Google Shopping, social previews,
-            and broken-image fallbacks. It directly affects clicks and
-            conversions.
+            Product alt text shows up in Google Shopping, social previews, and
+            broken-image fallbacks. It directly affects clicks and conversions.
           </p>
         </div>
       </div>
@@ -1116,10 +1116,10 @@
             <span class="faq-chevron">+</span>
           </button>
           <div class="faq-a">
-            An image is counted as missing alt when the <code>&lt;img&gt;</code>
-            tag has no <code>alt</code> attribute at all. Empty alt
-            (<code>alt=""</code>) is reported separately because it is the
-            correct choice for purely decorative images, but wrong for
+            An image is counted as missing alt when the
+            <code>&lt;img&gt;</code> tag has no <code>alt</code> attribute at
+            all. Empty alt (<code>alt=""</code>) is reported separately because
+            it is the correct choice for purely decorative images, but wrong for
             informative ones.
           </div>
         </div>
@@ -1131,9 +1131,9 @@
           <div class="faq-a">
             The tool reads the initial server-rendered HTML. Images injected
             later by JavaScript (some React/Vue components, lazy carousels,
-            third-party app widgets) are not included. Most Shopify themes
-            ship images in the initial HTML, so the count is usually
-            accurate for storefronts.
+            third-party app widgets) are not included. Most Shopify themes ship
+            images in the initial HTML, so the count is usually accurate for
+            storefronts.
           </div>
         </div>
         <div class="faq-item">
@@ -1143,8 +1143,7 @@
           </button>
           <div class="faq-a">
             No. The tool only fetches public URLs. Pages requiring auth,
-            password-protected stores, and dev preview URLs cannot be
-            scanned.
+            password-protected stores, and dev preview URLs cannot be scanned.
           </div>
         </div>
         <div class="faq-item">
@@ -1153,9 +1152,9 @@
             <span class="faq-chevron">+</span>
           </button>
           <div class="faq-a">
-            Yes, completely free. No sign-up, no email required, no spam.
-            The page does run anonymous analytics so I can see how many
-            people use the tool.
+            Yes, completely free. No sign-up, no email required, no spam. The
+            page does run anonymous analytics so I can see how many people use
+            the tool.
           </div>
         </div>
         <div class="faq-item">
@@ -1164,21 +1163,19 @@
             <span class="faq-chevron">+</span>
           </button>
           <div class="faq-a">
-            <strong>Manually:</strong> Shopify admin → Products → click
-            product → click image → fill the "Image alt text" field. Repeat
-            for theme images (theme editor) and blog/page images. This
-            works, but takes hours if you have more than a handful of
-            products.
-            <br /><br />
+            <strong>Manually:</strong> Shopify admin → Products → click product
+            → click image → fill the "Image alt text" field. Repeat for theme
+            images (theme editor) and blog/page images. This works, but takes
+            hours if you have more than a handful of products. <br /><br />
             <strong>Automatically:</strong>
             <a
-              href="https://apps.shopify.com/altify-1"
+              href="https://apps.shopify.com/alt-text-optimizer"
               target="_blank"
               rel="noopener noreferrer"
               data-altify-placement="faq_how_to_fix"
               >install Altify from the Shopify App Store</a
-            >. It scans your whole store and auto-generates SEO-friendly
-            alt text for every product image in minutes. Free to install.
+            >. It scans your whole store and auto-generates SEO-friendly alt
+            text for every product image in minutes. Free to install.
           </div>
         </div>
         <div class="faq-item">
@@ -1187,14 +1184,14 @@
             <span class="faq-chevron">+</span>
           </button>
           <div class="faq-a">
-            This page is the <em>checker</em> — it tells you which images
-            are missing alt text on any URL. <strong>Altify</strong> is the
+            This page is the <em>checker</em> — it tells you which images are
+            missing alt text on any URL. <strong>Altify</strong> is the
             <em>fixer</em> — a Shopify app that installs on your store and
             automatically writes alt text for every product image. Use the
-            checker to see the problem; install Altify to fix it without
-            manual work.
+            checker to see the problem; install Altify to fix it without manual
+            work.
             <a
-              href="https://apps.shopify.com/altify-1"
+              href="https://apps.shopify.com/alt-text-optimizer"
               target="_blank"
               rel="noopener noreferrer"
               data-altify-placement="faq_what_is"
@@ -1340,7 +1337,14 @@
           );
         }
 
-        function renderList(containerId, btnId, items, badgeHtml, emptyMsg, emptyGood) {
+        function renderList(
+          containerId,
+          btnId,
+          items,
+          badgeHtml,
+          emptyMsg,
+          emptyGood,
+        ) {
           const container = document.getElementById(containerId);
           const btn = document.getElementById(btnId);
           if (!items.length) {
@@ -1381,12 +1385,12 @@
           document.getElementById("stat-ok").textContent = data.ok.length;
           document.getElementById("stat-missing").textContent =
             data.missing.length;
-          document.getElementById("stat-empty").textContent =
-            data.empty.length;
+          document.getElementById("stat-empty").textContent = data.empty.length;
 
-          const pct = data.total === 0
-            ? 0
-            : Math.round((data.ok.length / data.total) * 100);
+          const pct =
+            data.total === 0
+              ? 0
+              : Math.round((data.ok.length / data.total) * 100);
           document.getElementById("score-pct").textContent = pct + "%";
           document.getElementById("score-fill").style.width = pct + "%";
 
@@ -1414,15 +1418,14 @@
           const ctaSub = document.getElementById("cta-sub");
           if (ctaHeadline && ctaSub) {
             if (missingCount === 0 && data.total > 0) {
-              ctaHeadline.textContent =
-                "Keep it that way — automatically.";
+              ctaHeadline.textContent = "Keep it that way — automatically.";
               ctaSub.innerHTML =
                 'Every new product you add risks missing alt text. <strong style="color:#fff;font-weight:500;">Altify</strong> watches your Shopify store and fills alt text for new images as you add them. Set it once.';
             } else if (missingCount > 0) {
               ctaHeadline.textContent =
                 "Fix all " + missingCount + " in one click.";
               ctaSub.innerHTML =
-                'Editing alt text for ' +
+                "Editing alt text for " +
                 missingCount +
                 ' images by hand is brutal. <strong style="color:#fff;font-weight:500;">Altify</strong> scans your Shopify store and auto-generates SEO-friendly alt text for every image — bulk, automatic, undoable.';
             }
@@ -1436,7 +1439,7 @@
             data.total === 0
               ? "No images detected on this page."
               : "Nothing missing — all images have an alt attribute.",
-            true
+            true,
           );
           document.getElementById("missing-count").textContent =
             "(" + (data.missing.length + data.empty.length) + ")";
@@ -1447,7 +1450,7 @@
             data.ok,
             '<span class="img-badge b-ok">OK</span>',
             "No images with descriptive alt text yet.",
-            false
+            false,
           );
           document.getElementById("ok-count").textContent =
             "(" + data.ok.length + ")";
@@ -1460,10 +1463,15 @@
             return "https://corsproxy.io/?url=" + encodeURIComponent(u);
           },
           function (u) {
-            return "https://api.codetabs.com/v1/proxy/?quest=" + encodeURIComponent(u);
+            return (
+              "https://api.codetabs.com/v1/proxy/?quest=" +
+              encodeURIComponent(u)
+            );
           },
           function (u) {
-            return "https://api.allorigins.win/raw?url=" + encodeURIComponent(u);
+            return (
+              "https://api.allorigins.win/raw?url=" + encodeURIComponent(u)
+            );
           },
           function (u) {
             return "https://thingproxy.freeboard.io/fetch/" + u;
@@ -1475,10 +1483,12 @@
           const id = setTimeout(function () {
             controller.abort();
           }, ms);
-          return fetch(resource, { method: "GET", signal: controller.signal })
-            .finally(function () {
-              clearTimeout(id);
-            });
+          return fetch(resource, {
+            method: "GET",
+            signal: controller.signal,
+          }).finally(function () {
+            clearTimeout(id);
+          });
         }
 
         async function fetchViaProxies(url) {
@@ -1511,7 +1521,7 @@
             "loading",
             '<span class="spinner"></span> Fetching ' +
               escapeHtml(url) +
-              " — this can take 5–15 seconds."
+              " — this can take 5–15 seconds.",
           );
           resultsEl.classList.remove("is-visible");
 
@@ -1533,7 +1543,7 @@
           } catch (err) {
             setStatus(
               "error",
-              "Couldn't fetch that URL. The site may be blocking automated requests, behind login, or temporarily unavailable. Try a different URL or try again in a minute."
+              "Couldn't fetch that URL. The site may be blocking automated requests, behind login, or temporarily unavailable. Try a different URL or try again in a minute.",
             );
             if (typeof window.gfsTrack === "function") {
               window.gfsTrack("alt_check_error", {

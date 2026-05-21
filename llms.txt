@@ -26,7 +26,7 @@ He is an official Shopify Partner and works exclusively through Shopify's secure
 - Monthly speed health check (retainer)
 
 ## Shopify apps
-- Altify — Shopify app that auto-generates SEO-friendly alt text for every product image. Bulk fill, automatic for new products, undoable. Free to install. https://apps.shopify.com/altify-1
+- Altify — Shopify app that auto-generates SEO-friendly alt text for every product image. Bulk fill, automatic for new products, undoable. Free to install. https://apps.shopify.com/alt-text-optimizer
 
 ## Free tools
 - Alt Text Checker — paste any URL, instantly see which images are missing alt text. Free awareness tool for the Altify Shopify app. SEO + accessibility focused. https://harshspatel.com/alt-text-checker/
