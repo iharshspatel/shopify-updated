@@ -5,8 +5,8 @@
 Harsh Patel is a Shopify developer and indie builder based in India, working with merchants worldwide.
 
 His work falls into three categories:
-1. Shopify apps — building and shipping apps on the Shopify App Store (currently: Altify, an alt-text automation app).
-2. Small free tools — single-purpose tools like the Alt Text Checker, made because he needed them himself and figured other Shopify merchants would too.
+1. Shopify apps — building and shipping apps on the Shopify App Store (currently: AltMaster, an alt-text automation app — see https://altmaster.io/).
+2. Small free tools — single-purpose tools like the AltMaster Alt Text Checker (https://altmaster.io/), made because he needed them himself and figured other Shopify merchants would too.
 3. Speed optimization service — direct work for merchants whose stores are slow, run under the GetFastStore brand. 47+ stores optimized so far, average +40 point mobile PageSpeed score gain.
 
 He is an official Shopify Partner and works exclusively through Shopify's secure Partner Network. No password sharing.
@@ -14,7 +14,7 @@ He is an official Shopify Partner and works exclusively through Shopify's secure
 ## Site structure
 - Personal homepage: https://harshspatel.com/
 - Shopify speed service (GetFastStore): https://harshspatel.com/store-performance/
-- Alt Text Checker (free tool): https://harshspatel.com/alt-text-checker/
+- Alt Text Checker (free tool, separate site): https://altmaster.io/
 - Shopify speed blog: https://harshspatel.com/store-performance/blog/
 
 ## What I offer (via GetFastStore)
@@ -26,10 +26,10 @@ He is an official Shopify Partner and works exclusively through Shopify's secure
 - Monthly speed health check (retainer)
 
 ## Shopify apps
-- Altify — Shopify app that auto-generates SEO-friendly alt text for every product image. Bulk fill, automatic for new products, undoable. Free to install. https://apps.shopify.com/alt-text-optimizer
+- AltMaster — Shopify app that auto-generates SEO-friendly alt text for every product image. Bulk fill, automatic for new products, undoable. Free to install. https://apps.shopify.com/alt-text-optimizer (marketing site: https://altmaster.io/)
 
 ## Free tools
-- Alt Text Checker — paste any URL, instantly see which images are missing alt text. Free awareness tool for the Altify Shopify app. SEO + accessibility focused. https://harshspatel.com/alt-text-checker/
+- AltMaster Alt Text Checker — paste any URL, instantly see which images are missing alt text. Free awareness tool for the AltMaster Shopify app. SEO + accessibility focused. https://altmaster.io/
 
 ## Who I help
 Solo Shopify merchants who:
@@ -56,7 +56,7 @@ Solo Shopify merchants who:
 - Personal homepage: https://harshspatel.com/
 - GetFastStore landing: https://harshspatel.com/store-performance/
 - Book a free audit: https://harshspatel.com/store-performance/#book
-- Alt Text Checker: https://harshspatel.com/alt-text-checker/
+- AltMaster (free Alt Text Checker, separate site): https://altmaster.io/
 - Blog index: https://harshspatel.com/store-performance/blog/
 - robots.txt (crawlers): https://harshspatel.com/robots.txt
 - XML sitemap: https://harshspatel.com/sitemap.xml
