@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+
+    <!-- ── PRIMARY SEO ── -->
+    <title>Which App Is Slowing Down My Shopify Store? (How to Find It)</title>
+    <meta
+      name="description"
+      content="Your store got slow and you suspect an app, but which one? Here's the exact method I use to catch the app costing you load time, including a way to test it without uninstalling anything."
+    />
+    <meta name="author" content="Harsh Patel" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/"
+    />
+
+    <!-- ── OPEN GRAPH ── -->
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:url"
+      content="https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/"
+    />
+    <meta
+      property="og:title"
+      content="Which App Is Slowing Down My Shopify Store?"
+    />
+    <meta
+      property="og:description"
+      content="You suspect an app, but which one? The exact method I use to catch the culprit, including how to test it without uninstalling anything."
+    />
+    <meta
+      property="og:image"
+      content="https://harshspatel.com/og-blog-which-app.jpg"
+    />
+    <meta property="og:site_name" content="GetFastStore" />
+    <meta property="article:author" content="Harsh Patel" />
+    <meta property="article:published_time" content="2026-06-10" />
+
+    <!-- ── TWITTER CARD ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Which App Is Slowing Down My Shopify Store?"
+    />
+    <meta
+      name="twitter:description"
+      content="You suspect an app, but which one? The exact method I use to catch the culprit."
+    />
+    <meta
+      name="twitter:image"
+      content="https://harshspatel.com/og-blog-which-app.jpg"
+    />
+    <meta name="twitter:creator" content="@iharshspatel" />
+
+    <!-- ── JSON-LD SCHEMA ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/",
+            "headline": "Which App Is Slowing Down My Shopify Store? How to Find the Culprit",
+            "description": "Your store got slow and you suspect an app. Here's the exact method I use to find the one costing you load time, including how to test it without uninstalling anything.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://harshspatel.com/og-blog-which-app.jpg",
+              "width": 1200,
+              "height": 630
+            },
+            "author": { "@id": "https://harshspatel.com/#harsh" },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GetFastStore",
+              "url": "https://harshspatel.com/store-performance/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://harshspatel.com/favicon.svg"
+              }
+            },
+            "datePublished": "2026-06-10",
+            "dateModified": "2026-06-10",
+            "wordCount": 1700,
+            "inLanguage": "en-US",
+            "isPartOf": { "@id": "https://harshspatel.com/#website" },
+            "mainEntityOfPage": "https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/",
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": ["h1", "h2", ".article-summary", ".key-fact"]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/#breadcrumb",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://harshspatel.com/" },
+              { "@type": "ListItem", "position": 2, "name": "GetFastStore", "item": "https://harshspatel.com/store-performance/" },
+              { "@type": "ListItem", "position": 3, "name": "Blog", "item": "https://harshspatel.com/store-performance/blog/" },
+              { "@type": "ListItem", "position": 4, "name": "Which App Is Slowing Down My Store?", "item": "https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/" }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do I find which app is slowing down my Shopify store?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Run your store through Google PageSpeed Insights and read the 'reduce the impact of third-party code' table, which lists each external script by size and main-thread cost. To confirm a suspect, use your browser's request blocking to block that app's script and reload the page, or disable the app in a duplicated theme and re-test the same URL. Compare the median of three throttled mobile runs before and after."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "My Shopify store got slow after installing an app. What should I do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Test that exact app first. Block its script in your browser's network panel and reload, or disable it in a theme copy, then re-run PageSpeed on the same page. If the score jumps back up, you've found it. Check the app's settings for an option to load only on the pages it's needed before deciding to remove it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why is my store still slow after I uninstalled the app?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Uninstalling an app does not always remove the code it added to your theme. Snippets and script tags can stay behind and keep loading. You usually have to find and delete that leftover code in the theme files by hand."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+    <link rel="stylesheet" href="../../css/shared.css" />
+  </head>
+  <body class="page-article">
+    <nav class="site-nav site-nav--inner">
+      <a href="../../index.html" class="nav-logo">GetFast<span>Store</span></a>
+      <a href="../index.html" class="nav-back"> All articles </a>
+      <a
+        href="../../index.html#book"
+        class="nav-cta"
+        data-gfs-audit-placement="nav"
+        >Free audit</a
+      >
+    </nav>
+
+    <div class="page-wrap">
+      <article>
+        <span class="article-category">Shopify Speed</span>
+        <h1>Which App Is Slowing Down My Shopify Store?</h1>
+
+        <div class="article-meta">
+          <div class="meta-author">
+            <div class="author-avatar">H</div>
+            Harsh Patel
+          </div>
+          <span>·</span>
+          <span>June 10, 2026</span>
+          <span>·</span>
+          <span>8 min read</span>
+        </div>
+
+        <div class="article-summary">
+          <p>
+            <strong>Short answer:</strong> stop guessing and measure. Open Google
+            PageSpeed Insights and read the third-party code table to see which
+            scripts cost the most. Then prove it by blocking that one app's
+            script in your browser and reloading, or by disabling it in a theme
+            copy and re-testing the same page. The culprit is almost never a
+            mystery once you actually measure it. It's usually one or two apps
+            doing most of the damage.
+          </p>
+        </div>
+
+        <div class="article-body">
+          <p>
+            "I think one of my apps is slowing my store down, but I don't know
+            which one." I hear some version of this on most of my audit calls.
+            Sometimes it's a store that got noticeably slower after a recent
+            install. Sometimes it's a store that's been getting heavier for two
+            years and nobody can point to the moment it went wrong.
+          </p>
+
+          <p>
+            Either way, the usual advice you'll find online is useless here.
+            "You have too many apps" doesn't help when you need to know which
+            specific app to deal with. So let me show you how I actually find it,
+            because it's more straightforward than most people expect, and you
+            can do the first part without any code at all.
+          </p>
+
+          <h2 id="read-the-table">Step one: let PageSpeed name the culprit for you</h2>
+
+          <p>
+            Run your store's homepage and a product page through
+            <a
+              href="https://pagespeed.web.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google PageSpeed Insights</a
+            >. Ignore the big number at the top for now. Scroll down to the
+            diagnostics and find the entry called "reduce the impact of
+            third-party code." Expand it.
+          </p>
+
+          <p>
+            That table is the whole game. It lists every external script running
+            on your page, grouped by source, with two columns that matter: the
+            transfer size and the main-thread blocking time. Your apps show up
+            here by name or by their script domain. A review app, a chat widget,
+            a popup tool, each one is a row. Sort by blocking time and look at the
+            top.
+          </p>
+
+          <p>
+            Most of the time the answer is sitting right there. One or two rows
+            are dramatically bigger than everything else. That's your suspect. I
+            rarely find a store where the slowdown is spread evenly across ten
+            apps. It's almost always concentrated.
+          </p>
+
+          <div class="key-fact" id="key-fact-suspect">
+            <div class="key-fact-icon">🔍</div>
+            <div class="key-fact-text">
+              <strong>What a heavy app looks like in the table</strong>
+              If one source is loading 300KB or more, or blocking the main thread
+              for several hundred milliseconds, that's not normal background
+              noise. That's an app holding your page hostage while it loads. Note
+              the name and move to step two.
+            </div>
+          </div>
+
+          <h2 id="prove-it">Step two: prove it without uninstalling anything</h2>
+
+          <p>
+            Here's the part most people don't know about. You don't have to
+            uninstall an app to find out what your store would feel like without
+            it. Your browser can pretend the app isn't there.
+          </p>
+
+          <p>
+            Open your store in Chrome, right click, choose Inspect, and go to the
+            Network tab. Reload the page and you'll see every file your store
+            loads. Find the requests coming from your suspect app's domain. Right
+            click one and choose "Block request domain." Now reload again. The app
+            is still installed, but its script is gone for this test, and you can
+            see and feel the difference immediately.
+          </p>
+
+          <p>
+            If the page suddenly renders faster and the layout stops jumping
+            around, you've confirmed it. If nothing really changes, that app
+            wasn't your problem and you move on to the next suspect. This is the
+            same logic a doctor uses with an elimination diet. Remove one thing,
+            watch what happens, put it back, try the next.
+          </p>
+
+          <h2 id="measure-properly">Step three: measure it properly</h2>
+
+          <p>
+            Feeling faster is a good signal, but you want a number. The mistake I
+            see people make is running PageSpeed once before and once after, then
+            treating a 4-point difference as proof. Scores bounce. The same page
+            tested three times in a row can swing by 5 to 10 points for reasons
+            that have nothing to do with your store.
+          </p>
+
+          <p>
+            So do it like this if you want a result you can trust:
+          </p>
+
+          <ol class="prose-list">
+            <li>
+              Pick one page and stick with it. The homepage or a busy product
+              page is fine. Test the same URL throughout.
+            </li>
+            <li>
+              Test on mobile, throttled, in an incognito window so your browser
+              extensions don't interfere.
+            </li>
+            <li>
+              Run it three times and take the middle result, not the best one.
+            </li>
+            <li>
+              Disable the suspect app, in a duplicated theme so your live store
+              is untouched, and repeat the same three runs on the same page.
+            </li>
+            <li>
+              Compare the medians. A real culprit moves the score by a clear
+              margin, often 8 to 15 points on its own, not by 2 or 3.
+            </li>
+          </ol>
+
+          <p>
+            Working in a theme copy is the safe way to do step four. You
+            duplicate the theme, disable the app there, test against the preview,
+            and your live store never changes while you experiment. If you're not
+            comfortable doing that, the browser blocking trick in step two gets
+            you most of the confidence without any risk at all.
+          </p>
+
+          <div class="inline-cta">
+            <div class="inline-cta-text">
+              <h4>Don't want to do the detective work?</h4>
+              <p>
+                I'll run the whole diagnosis for you and tell you exactly which
+                app is the problem. Free audit, before we even talk.
+              </p>
+            </div>
+            <a
+              href="../../index.html#book"
+              class="inline-cta-btn"
+              data-gfs-audit-placement="inline"
+              >Get a free speed audit →</a
+            >
+          </div>
+
+          <h2 id="ghost-code">The app you already removed might still be there</h2>
+
+          <p>
+            There's one case that trips up almost everyone. You test, you find
+            the app, you uninstall it, you re-run PageSpeed, and the score barely
+            moves. So you assume you were wrong. You weren't.
+          </p>
+
+          <p>
+            When you uninstall a Shopify app, Shopify removes the app from your
+            account, but it does not always remove the code that app injected into
+            your theme. Script tags, Liquid snippets, leftover asset files, they
+            can all stay behind and keep loading as if nothing happened. I open
+            theme files on audits and regularly find code from three or four apps
+            the merchant swears they removed months ago.
+          </p>
+
+          <p>
+            This is why a store can stay slow after a clean-looking uninstall.
+            The app count in your admin went down. The actual code running in your
+            customer's browser did not. Finding and removing that leftover code is
+            the part that usually needs theme access and a bit of care, because
+            you have to be sure you're deleting the right lines.
+          </p>
+
+          <h2 id="what-next">Once you've found it</h2>
+
+          <p>
+            Finding the app is the win. What you do next depends on whether you
+            need it. If it's an app you genuinely use, the fix is usually
+            configuration, not deletion. Check its settings for an option to load
+            only on the pages where it's actually used. Plenty of apps can do this
+            and ship with it turned off, which is how a reviews app ends up
+            loading on your blog.
+          </p>
+
+          <p>
+            If it's an app you forgot you had, remove it, then check the theme for
+            the code it left behind. And if you've done the detective work and
+            you're staring at leftover scripts you're not confident enough to
+            touch, that's exactly the point where it makes sense to hand it over.
+            I do this all day, in a preview theme, with a before-and-after report
+            so you can see precisely what changed and what it did to your score.
+          </p>
+
+          <div class="inline-cta">
+            <div class="inline-cta-text">
+              <h4>Let me find the culprit for you</h4>
+              <p>
+                A free 20-minute call. I audit your store first and come in
+                already knowing which app is costing you.
+              </p>
+            </div>
+            <a
+              href="../../index.html#book"
+              class="inline-cta-btn"
+              data-gfs-audit-placement="inline"
+              >Book free audit →</a
+            >
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h4>In this article</h4>
+          <ul class="toc-list">
+            <li><a href="#read-the-table"><span class="toc-num">01</span> Let PageSpeed name it</a></li>
+            <li><a href="#prove-it"><span class="toc-num">02</span> Prove it without uninstalling</a></li>
+            <li><a href="#measure-properly"><span class="toc-num">03</span> Measure it properly</a></li>
+            <li><a href="#ghost-code"><span class="toc-num">04</span> Leftover app code</a></li>
+            <li><a href="#what-next"><span class="toc-num">05</span> Once you've found it</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card sidebar-author">
+          <div class="sidebar-avatar">H</div>
+          <h4>Harsh Patel</h4>
+          <p>Shopify performance engineer. 47+ stores optimized. Average +40 pts mobile score improvement. Shopify Partner.</p>
+          <a
+            href="../../index.html#book"
+            class="sidebar-cta"
+            data-gfs-audit-placement="sidebar"
+            >Get a free audit →</a
+          >
+        </div>
+
+        <div class="sidebar-card">
+          <h4>Related reading</h4>
+          <ul class="toc-list">
+            <li><a href="../why-is-my-shopify-store-slow/"><span class="toc-num">→</span> Why is my Shopify store so slow?</a></li>
+            <li><a href="../how-many-shopify-apps-is-too-many/"><span class="toc-num">→</span> How many apps is too many?</a></li>
+            <li><a href="../shopify-speed-score-not-improving/"><span class="toc-num">→</span> Why your speed score won't go up</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div class="footer-brand">GetFast<span>Store</span></div>
+      <div class="footer-copy">© 2026 Harsh Patel · Shopify Partner · harshspatel.com</div>
+    </footer>
+    <script src="../../js/analytics.js"></script>
+    <script>
+      (function () {
+        function boot() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "G-KTK1PL4F76");
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-KTK1PL4F76";
+          document.head.appendChild(s);
+        }
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(boot, { timeout: 4000 });
+        } else {
+          window.addEventListener("load", function () {
+            setTimeout(boot, 0);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

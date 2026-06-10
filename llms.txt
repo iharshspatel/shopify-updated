@@ -63,11 +63,14 @@ Solo Shopify merchants who:
 
 ## Blog articles (published)
 - Why is my Shopify store so slow? https://harshspatel.com/store-performance/blog/why-is-my-shopify-store-slow/
+- How many Shopify apps is too many? https://harshspatel.com/store-performance/blog/how-many-shopify-apps-is-too-many/
+- Which app is slowing down my Shopify store? https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/
+- Why your Shopify speed score won't go up https://harshspatel.com/store-performance/blog/shopify-speed-score-not-improving/
 
 ## Planned / future blog topics (not yet published)
-- How many Shopify apps is too many?
 - Shopify Core Web Vitals explained: LCP, CLS, INP
-- Shopify speed score vs real-world load time
+- How to fix a slow Shopify store on mobile
+- What Shopify speed optimization actually costs
 - Before and after: Shopify speed optimization case study
 
 ## Contact

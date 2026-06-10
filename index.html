@@ -46,28 +46,70 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://harshspatel.com/#harsh",
-        "name": "Harsh Patel",
-        "url": "https://harshspatel.com/",
-        "jobTitle": "Shopify Developer",
-        "description": "Shopify developer based in India. Builds Shopify apps, ships small SEO and performance tools, and takes on speed optimization work for merchants.",
-        "sameAs": [
-          "https://twitter.com/iharshspatel",
-          "https://www.linkedin.com/in/harsh-patel-38a8b7171"
-        ],
-        "knowsAbout": [
-          "Shopify",
-          "Web performance",
-          "Core Web Vitals",
-          "SEO",
-          "Ecommerce"
-        ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "GetFastStore",
-          "url": "https://harshspatel.com/store-performance/"
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://harshspatel.com/#website",
+            "url": "https://harshspatel.com/",
+            "name": "Harsh Patel",
+            "description": "Shopify developer based in India. Builds Shopify apps, ships small tools, and fixes slow stores.",
+            "publisher": { "@id": "https://harshspatel.com/#harsh" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://harshspatel.com/#profilepage",
+            "url": "https://harshspatel.com/",
+            "name": "Harsh Patel — Shopify Developer",
+            "isPartOf": { "@id": "https://harshspatel.com/#website" },
+            "about": { "@id": "https://harshspatel.com/#harsh" },
+            "mainEntity": { "@id": "https://harshspatel.com/#harsh" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://harshspatel.com/#harsh",
+            "name": "Harsh Patel",
+            "url": "https://harshspatel.com/",
+            "image": "https://harshspatel.com/og-image.jpg",
+            "email": "harsh.1722.patel@gmail.com",
+            "jobTitle": "Shopify Developer",
+            "description": "Shopify developer based in India. Builds Shopify apps, ships small SEO and performance tools, and takes on speed optimization work for merchants.",
+            "sameAs": [
+              "https://twitter.com/iharshspatel",
+              "https://www.linkedin.com/in/harsh-patel-38a8b7171",
+              "https://apps.shopify.com/alt-text-optimizer"
+            ],
+            "knowsAbout": [
+              "Shopify",
+              "Shopify App Development",
+              "Web performance",
+              "Core Web Vitals",
+              "SEO",
+              "Ecommerce"
+            ],
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Shopify Developer",
+              "occupationLocation": { "@type": "Country", "name": "India" }
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "GetFastStore",
+              "url": "https://harshspatel.com/store-performance/"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://apps.shopify.com/alt-text-optimizer#app",
+            "name": "AltMaster: Alt Text Optimizer",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Shopify",
+            "url": "https://apps.shopify.com/alt-text-optimizer",
+            "description": "Shopify app that auto-generates SEO-friendly alt text for product images. Bulk fill the backlog, automatic for new products. Free to install.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "creator": { "@id": "https://harshspatel.com/#harsh" }
+          }
+        ]
       }
     </script>
 
@@ -487,10 +529,11 @@
           padding: 40px 0;
         }
         .nav-links {
-          gap: 18px;
+          gap: 14px;
         }
         .nav-links a {
           font-size: 13px;
+          padding: 8px 4px;
         }
         .contact-grid {
           grid-template-columns: 1fr;
@@ -547,11 +590,21 @@
     <section class="about wrap" id="about">
       <h2 class="section-h">About</h2>
       <p>
-        Most of my work falls into three categories:
+        I'm a Shopify developer and Shopify Partner based in India, working
+        with merchants worldwide. Most of my work falls into three categories:
         <strong>apps</strong> for the Shopify App Store,
         <strong>small free tools</strong> when I notice a gap worth filling, and
         <strong>speed optimization</strong> for merchants whose stores are
         slowing them down.
+      </p>
+      <p>
+        The speed work runs under <a href="/store-performance/">GetFastStore</a>.
+        I've personally audited and optimized <strong>47+ Shopify stores</strong>,
+        with an average mobile PageSpeed gain of <strong>+40 points</strong> —
+        real before/after numbers like 19 → 81 and 22 → 77, all in about a week
+        with zero downtime. If your store feels slow,
+        <a href="/store-performance/">book a free audit</a> and I'll tell you
+        exactly what's wrong before you spend anything.
       </p>
       <p>
         I lean toward shipping over talking. The work below is what I'm
@@ -647,6 +700,33 @@
       <h2 class="section-h">Recent writing</h2>
       <div class="writing-list">
         <a
+          href="/store-performance/blog/which-app-is-slowing-my-shopify-store/"
+          class="writing-row"
+        >
+          <span class="writing-title">
+            Which app is slowing down my Shopify store?
+          </span>
+          <span class="writing-date">Jun 2026</span>
+        </a>
+        <a
+          href="/store-performance/blog/how-many-shopify-apps-is-too-many/"
+          class="writing-row"
+        >
+          <span class="writing-title">
+            How many Shopify apps is too many?
+          </span>
+          <span class="writing-date">Jun 2026</span>
+        </a>
+        <a
+          href="/store-performance/blog/shopify-speed-score-not-improving/"
+          class="writing-row"
+        >
+          <span class="writing-title">
+            Why your Shopify speed score won't go up
+          </span>
+          <span class="writing-date">Jun 2026</span>
+        </a>
+        <a
           href="/store-performance/blog/why-is-my-shopify-store-slow/"
           class="writing-row"
         >
@@ -655,18 +735,6 @@
           </span>
           <span class="writing-date">Apr 2026</span>
         </a>
-        <div class="writing-row writing-soon">
-          <span class="writing-title">
-            How many Shopify apps is too many?
-          </span>
-          <span class="writing-date">Soon</span>
-        </div>
-        <div class="writing-row writing-soon">
-          <span class="writing-title">
-            Shopify Core Web Vitals: LCP, CLS, INP explained
-          </span>
-          <span class="writing-date">Soon</span>
-        </div>
       </div>
       <a href="/store-performance/blog/" class="writing-all">All articles →</a>
     </section>

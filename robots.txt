@@ -2,4 +2,26 @@
 User-agent: *
 Allow: /
 
+# AI search & answer crawlers — explicitly welcome (citations drive referral traffic)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://harshspatel.com/sitemap.xml

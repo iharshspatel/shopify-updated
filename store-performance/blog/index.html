@@ -19,8 +19,64 @@
       property="og:description"
       content="Free articles on fixing slow Shopify stores, app audits, and Core Web Vitals."
     />
-    <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta property="og:image" content="https://harshspatel.com/og-getfaststore.jpg" />
     <meta property="og:site_name" content="GetFastStore" />
+
+    <!-- ── JSON-LD SCHEMA ── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Blog",
+            "@id": "https://harshspatel.com/store-performance/blog/#blog",
+            "url": "https://harshspatel.com/store-performance/blog/",
+            "name": "GetFastStore Blog — Shopify Speed & Performance",
+            "description": "Practical guides on Shopify speed, Core Web Vitals, app bloat, and storefront performance, by a Shopify Partner who has optimized 47+ stores.",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://harshspatel.com/#harsh" },
+            "blogPost": [
+              {
+                "@type": "BlogPosting",
+                "headline": "Why is my Shopify store so slow? 7 real causes explained",
+                "url": "https://harshspatel.com/store-performance/blog/why-is-my-shopify-store-slow/",
+                "datePublished": "2026-04-03",
+                "author": { "@id": "https://harshspatel.com/#harsh" }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "How many Shopify apps is too many?",
+                "url": "https://harshspatel.com/store-performance/blog/how-many-shopify-apps-is-too-many/",
+                "datePublished": "2026-06-10",
+                "author": { "@id": "https://harshspatel.com/#harsh" }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Which app is slowing down my Shopify store?",
+                "url": "https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/",
+                "datePublished": "2026-06-10",
+                "author": { "@id": "https://harshspatel.com/#harsh" }
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Why your Shopify speed score won't go up",
+                "url": "https://harshspatel.com/store-performance/blog/shopify-speed-score-not-improving/",
+                "datePublished": "2026-06-10",
+                "author": { "@id": "https://harshspatel.com/#harsh" }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://harshspatel.com/" },
+              { "@type": "ListItem", "position": 2, "name": "GetFastStore", "item": "https://harshspatel.com/store-performance/" },
+              { "@type": "ListItem", "position": 3, "name": "Blog", "item": "https://harshspatel.com/store-performance/blog/" }
+            ]
+          }
+        ]
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -77,36 +133,66 @@
           </div>
         </a>
 
-        <div class="blog-card blog-card-soon">
-          <div class="blog-card-tag">Coming soon</div>
+        <a
+          href="how-many-shopify-apps-is-too-many/"
+          class="blog-card"
+          data-gfs-blog-dest="article_app_count"
+        >
+          <div class="blog-card-tag">Shopify Speed</div>
           <h2 class="blog-card-title">How many Shopify apps is too many?</h2>
           <p class="blog-card-excerpt">
-            There's a number. Most merchants cross it without realising. After
-            auditing 47+ stores, here's what the data actually shows about app
-            count and performance.
-          </p>
-          <div class="blog-card-meta">
-            <span>Harsh Patel</span>
-            <span>·</span>
-            <span>6 min read</span>
-          </div>
-        </div>
-
-        <div class="blog-card blog-card-soon">
-          <div class="blog-card-tag">Coming soon</div>
-          <h2 class="blog-card-title">
-            Shopify Core Web Vitals: what they are and why they cost you sales
-          </h2>
-          <p class="blog-card-excerpt">
-            Google uses LCP, CLS, and INP to rank your store.
-            Most Shopify merchants have no idea they're failing all three.
+            There's no magic number, but there is a tipping point. What 47+
+            audits show about app count, and why two or three apps usually do
+            most of the damage.
           </p>
           <div class="blog-card-meta">
             <span>Harsh Patel</span>
             <span>·</span>
             <span>7 min read</span>
           </div>
-        </div>
+        </a>
+
+        <a
+          href="which-app-is-slowing-my-shopify-store/"
+          class="blog-card"
+          data-gfs-blog-dest="article_which_app"
+        >
+          <div class="blog-card-tag">Shopify Speed</div>
+          <h2 class="blog-card-title">
+            Which app is slowing down my Shopify store?
+          </h2>
+          <p class="blog-card-excerpt">
+            Stop guessing. Here's the exact method I use to catch the app
+            costing you load time, including a way to test it without
+            uninstalling anything.
+          </p>
+          <div class="blog-card-meta">
+            <span>Harsh Patel</span>
+            <span>·</span>
+            <span>8 min read</span>
+          </div>
+        </a>
+
+        <a
+          href="shopify-speed-score-not-improving/"
+          class="blog-card"
+          data-gfs-blog-dest="article_speed_score"
+        >
+          <div class="blog-card-tag">Shopify Speed</div>
+          <h2 class="blog-card-title">
+            Why your Shopify speed score won't go up
+          </h2>
+          <p class="blog-card-excerpt">
+            Did the work and the score barely moved? What the admin score really
+            measures, why it plateaus, and whether it affects your Google
+            ranking at all.
+          </p>
+          <div class="blog-card-meta">
+            <span>Harsh Patel</span>
+            <span>·</span>
+            <span>7 min read</span>
+          </div>
+        </a>
       </div>
     </div>
 
