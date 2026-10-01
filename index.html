@@ -3,46 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
-    <!-- ── PRIMARY SEO ── -->
-    <title>Harsh Patel — Shopify Developer</title>
+    <title>Harsh Patel</title>
     <meta
       name="description"
-      content="Shopify developer based in India. I build Shopify apps, ship small tools, and fix slow stores. Currently shipping AltMaster and running GetFastStore."
+      content="Harsh Patel is a senior software engineer at PagePilot AI and the builder of AltMaster, a free Shopify app. He writes interactive deep dives on Shopify engineering."
     />
-    <meta
-      name="keywords"
-      content="harsh patel, shopify developer, shopify partner, shopify app developer, indie maker, altmaster, getfaststore"
-    />
-    <meta name="author" content="Harsh Patel" />
-    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://harshspatel.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#1a1a1a" />
 
-    <!-- ── OPEN GRAPH ── -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Harsh Patel" />
     <meta property="og:url" content="https://harshspatel.com/" />
-    <meta property="og:title" content="Harsh Patel — Shopify Developer" />
+    <meta property="og:title" content="Harsh Patel" />
     <meta
       property="og:description"
-      content="Shopify developer. I build apps, ship small tools, and fix slow stores. Currently shipping AltMaster and running GetFastStore."
+      content="Senior software engineer at PagePilot AI. Builder of AltMaster. Writing interactive deep dives on Shopify engineering."
     />
     <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
-    <meta property="og:site_name" content="Harsh Patel" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- ── TWITTER CARD ── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://harshspatel.com/" />
-    <meta name="twitter:title" content="Harsh Patel — Shopify Developer" />
-    <meta
-      name="twitter:description"
-      content="Shopify developer. I build apps, ship small tools, and fix slow stores."
-    />
-    <meta name="twitter:image" content="https://harshspatel.com/og-image.jpg" />
-    <meta name="twitter:creator" content="@iharshspatel" />
+    <meta name="twitter:site" content="@iharshspatel" />
 
-    <!-- ── JSON-LD SCHEMA ── -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -52,61 +33,43 @@
             "@id": "https://harshspatel.com/#website",
             "url": "https://harshspatel.com/",
             "name": "Harsh Patel",
-            "description": "Shopify developer based in India. Builds Shopify apps, ships small tools, and fixes slow stores.",
             "publisher": { "@id": "https://harshspatel.com/#harsh" },
             "inLanguage": "en"
-          },
-          {
-            "@type": "ProfilePage",
-            "@id": "https://harshspatel.com/#profilepage",
-            "url": "https://harshspatel.com/",
-            "name": "Harsh Patel — Shopify Developer",
-            "isPartOf": { "@id": "https://harshspatel.com/#website" },
-            "about": { "@id": "https://harshspatel.com/#harsh" },
-            "mainEntity": { "@id": "https://harshspatel.com/#harsh" }
           },
           {
             "@type": "Person",
             "@id": "https://harshspatel.com/#harsh",
             "name": "Harsh Patel",
             "url": "https://harshspatel.com/",
-            "image": "https://harshspatel.com/og-image.jpg",
-            "email": "harsh.1722.patel@gmail.com",
-            "jobTitle": "Shopify Developer",
-            "description": "Shopify developer based in India. Builds Shopify apps, ships small SEO and performance tools, and takes on speed optimization work for merchants.",
+            "jobTitle": "Senior Software Engineer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "PagePilot AI",
+              "url": "https://pagepilot.ai/"
+            },
             "sameAs": [
               "https://twitter.com/iharshspatel",
               "https://www.linkedin.com/in/harsh-patel-38a8b7171",
               "https://apps.shopify.com/alt-text-optimizer"
             ],
             "knowsAbout": [
-              "Shopify",
               "Shopify App Development",
-              "Web performance",
-              "Core Web Vitals",
-              "SEO",
-              "Ecommerce"
-            ],
-            "hasOccupation": {
-              "@type": "Occupation",
-              "name": "Shopify Developer",
-              "occupationLocation": { "@type": "Country", "name": "India" }
-            },
-            "worksFor": {
-              "@type": "Organization",
-              "name": "GetFastStore",
-              "url": "https://harshspatel.com/store-performance/"
-            }
+              "Shopify Themes",
+              "Shopify APIs",
+              "Shopify Extensions"
+            ]
           },
           {
             "@type": "SoftwareApplication",
-            "@id": "https://apps.shopify.com/alt-text-optimizer#app",
             "name": "AltMaster: Alt Text Optimizer",
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Shopify",
             "url": "https://apps.shopify.com/alt-text-optimizer",
-            "description": "Shopify app that auto-generates SEO-friendly alt text for product images. Bulk fill the backlog, automatic for new products. Free to install.",
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
             "creator": { "@id": "https://harshspatel.com/#harsh" }
           }
         ]
@@ -116,730 +79,469 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400..750&display=swap"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      />
-    </noscript>
-
-    <style>
-      :root {
-        --ink: #111315;
-        --ink-2: #3a3d42;
-        --ink-3: #6d7175;
-        --bg: #fafafa;
-        --bg-2: #f1f1f2;
-        --line: #e4e6e8;
-        --accent: #008060;
-        --accent-light: #e3f1ed;
-        --accent-dark: #006e52;
-        --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: var(--font);
-        background: var(--bg);
-        color: var(--ink);
-        font-size: 16px;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-      a:hover {
-        color: var(--accent-dark);
-      }
-
-      .wrap {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
-
-      /* NAV */
-      nav.top {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(250, 250, 250, 0.85);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--line);
-      }
-      nav.top .wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 18px;
-        padding-bottom: 18px;
-      }
-      .brand {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--ink);
-        letter-spacing: -0.01em;
-      }
-      .brand-dot {
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        background: var(--accent);
-        border-radius: 50%;
-        margin-right: 10px;
-        vertical-align: 1px;
-      }
-      .nav-links {
-        display: flex;
-        gap: 28px;
-      }
-      .nav-links a {
-        font-size: 14px;
-        color: var(--ink-2);
-        font-weight: 500;
-      }
-      .nav-links a:hover {
-        color: var(--accent);
-      }
-
-      /* HERO */
-      section.hero {
-        padding: 96px 0 64px;
-      }
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--accent);
-        background: var(--accent-light);
-        padding: 6px 14px;
-        border-radius: 99px;
-        margin-bottom: 20px;
-      }
-      .eyebrow .live-dot {
-        width: 7px;
-        height: 7px;
-        background: var(--accent);
-        border-radius: 50%;
-        animation: pulse 2s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-      }
-      h1 {
-        font-size: clamp(34px, 5vw, 52px);
-        font-weight: 600;
-        line-height: 1.1;
-        letter-spacing: -0.025em;
-        color: var(--ink);
-        margin-bottom: 24px;
-      }
-      h1 em {
-        font-style: normal;
-        color: var(--accent);
-      }
-      .lead {
-        font-size: 18px;
-        line-height: 1.6;
-        color: var(--ink-2);
-        margin-bottom: 32px;
-        max-width: 580px;
-      }
-      .lead a {
-        border-bottom: 1px solid var(--accent);
-        padding-bottom: 1px;
-      }
-      .meta-row {
-        display: flex;
-        gap: 24px;
-        flex-wrap: wrap;
-        font-size: 14px;
-        color: var(--ink-3);
-      }
-      .meta-row .dot {
-        width: 4px;
-        height: 4px;
-        background: var(--ink-3);
-        border-radius: 50%;
-        display: inline-block;
-        margin: 0 6px;
-        vertical-align: 3px;
-      }
-
-      /* SECTIONS */
-      section {
-        padding: 56px 0;
-      }
-      h2.section-h {
-        font-size: 13px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--ink-3);
-        margin-bottom: 24px;
-      }
-
-      /* ABOUT */
-      .about p {
-        font-size: 17px;
-        line-height: 1.75;
-        color: var(--ink-2);
-        margin-bottom: 16px;
-      }
-      .about p:last-child {
-        margin-bottom: 0;
-      }
-      .about strong {
-        color: var(--ink);
-        font-weight: 500;
-      }
-
-      /* WORK */
-      .work-list {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      .work-card {
-        display: block;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 24px 26px;
-        transition:
-          border-color 0.2s,
-          transform 0.15s,
-          box-shadow 0.2s;
-        color: var(--ink);
-      }
-      .work-card:hover {
-        border-color: var(--accent);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-        color: var(--ink);
-      }
-      .work-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 8px;
-      }
-      .work-title {
-        font-size: 17px;
-        font-weight: 600;
-        color: var(--ink);
-        letter-spacing: -0.01em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .work-tag {
-        font-size: 11px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--accent);
-        background: var(--accent-light);
-        padding: 3px 10px;
-        border-radius: 99px;
-      }
-      .work-arrow {
-        font-size: 16px;
-        color: var(--ink-3);
-        transition:
-          transform 0.2s,
-          color 0.2s;
-      }
-      .work-card:hover .work-arrow {
-        color: var(--accent);
-        transform: translateX(3px);
-      }
-      .work-desc {
-        font-size: 14px;
-        color: var(--ink-3);
-        line-height: 1.6;
-        margin-bottom: 10px;
-      }
-      .work-stats {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        font-size: 13px;
-        color: var(--ink-3);
-      }
-      .work-stats strong {
-        color: var(--ink-2);
-        font-weight: 500;
-      }
-
-      /* WRITING */
-      .writing-list {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .writing-row {
-        display: flex;
-        align-items: baseline;
-        gap: 16px;
-        padding: 14px 0;
-        border-bottom: 1px solid var(--line);
-        color: var(--ink);
-      }
-      .writing-row:last-child {
-        border-bottom: none;
-      }
-      .writing-title {
-        flex: 1;
-        font-size: 15px;
-        color: var(--ink);
-        font-weight: 500;
-      }
-      .writing-row:hover .writing-title {
-        color: var(--accent);
-      }
-      .writing-date {
-        font-size: 13px;
-        color: var(--ink-3);
-        white-space: nowrap;
-        font-variant-numeric: tabular-nums;
-      }
-      .writing-soon {
-        opacity: 0.55;
-      }
-      .writing-soon:hover .writing-title {
-        color: var(--ink);
-      }
-      .writing-all {
-        display: inline-block;
-        margin-top: 20px;
-        font-size: 14px;
-        color: var(--accent);
-        font-weight: 500;
-      }
-      .writing-all:hover {
-        color: var(--accent-dark);
-      }
-
-      /* CONTACT */
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-      }
-      .contact-card {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 18px;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        color: var(--ink);
-        transition:
-          border-color 0.2s,
-          transform 0.15s;
-      }
-      .contact-card:hover {
-        border-color: var(--accent);
-        transform: translateY(-2px);
-        color: var(--ink);
-      }
-      .contact-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: var(--accent-light);
-        color: var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .contact-meta {
-        min-width: 0;
-        flex: 1;
-      }
-      .contact-label {
-        font-size: 12px;
-        color: var(--ink-3);
-        margin-bottom: 2px;
-      }
-      .contact-handle {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--ink);
-        word-break: break-all;
-      }
-      .contact-card:hover .contact-handle {
-        color: var(--accent);
-      }
-
-      /* FOOTER */
-      footer {
-        border-top: 1px solid var(--line);
-        padding: 32px 0 48px;
-        font-size: 13px;
-        color: var(--ink-3);
-      }
-      footer .wrap {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 640px) {
-        .wrap {
-          padding: 0 20px;
-        }
-        section.hero {
-          padding: 56px 0 40px;
-        }
-        section {
-          padding: 40px 0;
-        }
-        .nav-links {
-          gap: 14px;
-        }
-        .nav-links a {
-          font-size: 13px;
-          padding: 8px 4px;
-        }
-        .contact-grid {
-          grid-template-columns: 1fr;
-        }
-        .work-head {
-          flex-wrap: wrap;
-        }
-      }
-    </style>
+    <script>
+      try {
+        if (localStorage.getItem("nav") === "collapsed")
+          document.documentElement.classList.add("nav-collapsed");
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/assets/polaris.css" />
   </head>
   <body>
-    <nav class="top">
-      <div class="wrap">
-        <a href="#" class="brand"><span class="brand-dot"></span>Harsh Patel</a>
-        <div class="nav-links">
-          <a href="#work">Work</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact">Contact</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="mobile-bar">
+      <button
+        class="nav-icon-btn nav-menu"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        >
+          <path d="M3.5 5.5h13M3.5 10h13M3.5 14.5h13" />
+        </svg>
+      </button>
+      <a class="brand" href="/"><span class="brand-mark">H</span>Harsh Patel</a>
+    </header>
+
+    <nav class="nav" aria-label="Main">
+      <div class="nav-top">
+        <a class="brand" href="/" aria-label="Harsh Patel, home"
+          ><span class="brand-mark">H</span></a
+        >
+        <button
+          class="nav-icon-btn nav-collapse"
+          type="button"
+          aria-label="Collapse sidebar"
+          aria-pressed="false"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3.5" width="14" height="13" rx="3" />
+            <path d="M8 3.5v13" />
+          </svg>
+        </button>
+      </div>
+
+      <button
+        class="nav-icon-btn nav-search-btn"
+        type="button"
+        aria-label="Search"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+        >
+          <circle cx="8.5" cy="8.5" r="5.5" />
+          <path d="m13 13 4 4" />
+        </svg>
+      </button>
+      <div class="nav-search" role="search">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 20 20"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
+          <circle cx="8.5" cy="8.5" r="5.5" />
+          <path d="m13 13 4 4" />
+        </svg>
+        <label class="visually-hidden" for="site-search">Search</label>
+        <input
+          id="site-search"
+          type="search"
+          placeholder="Search"
+          autocomplete="off"
+        />
+        <kbd>/</kbd>
+        <ul id="search-results" class="search-results" hidden></ul>
+      </div>
+
+      <ul>
+        <li>
+          <a class="nav-item" href="/" data-nav="home" aria-current="page">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M3.5 8.8 10 3.5l6.5 5.3V15a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 15z"
+              />
+              <path d="M8 16.5v-4h4v4" />
+            </svg>
+            <span class="nav-label">Home</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" href="/writing/" data-nav="writing">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+            >
+              <path
+                d="M5.5 3.5h6l3 3v8.5a1.5 1.5 0 0 1-1.5 1.5h-7.5A1.5 1.5 0 0 1 4 15V5a1.5 1.5 0 0 1 1.5-1.5zM11.5 3.5v3h3M7 10.5h6M7 13.5h4"
+              />
+            </svg>
+            <span class="nav-label">Writing</span>
+            <span class="count">1</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="nav-heading">Projects</p>
+      <ul>
+        <li>
+          <a
+            class="nav-item"
+            href="https://apps.shopify.com/alt-text-optimizer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            >
+              <rect x="3.5" y="4.5" width="13" height="11" rx="2" />
+              <circle cx="7.5" cy="8.5" r="1.3" />
+              <path d="m4 14 3.5-3 2.5 2 2.5-2.5 3.5 3" />
+            </svg>
+            <span class="nav-label">AltMaster</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="nav-heading">Elsewhere</p>
+      <ul>
+        <li>
+          <a
+            class="nav-item"
+            href="https://twitter.com/iharshspatel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M14.6 3.5h2.3l-5 5.7 5.9 7.3h-4.6l-3.6-4.4-4.1 4.4H3.2l5.4-6.1-5.6-6.9h4.7l3.2 4zm-.8 11.7h1.3L6.3 4.7H4.9z"
+              />
+            </svg>
+            <span class="nav-label">X / Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-item"
+            href="https://www.linkedin.com/in/harsh-patel-38a8b7171"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M4 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3M2.7 7.8h2.6v8.7H2.7zm4.3 0h2.5V9c.4-.7 1.2-1.4 2.6-1.4 2.7 0 3.2 1.8 3.2 4.1v4.8h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.7 1.1-1.7 2.2v4.4H7z"
+              />
+            </svg>
+            <span class="nav-label">LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-bottom">
+        <a class="nav-item" href="mailto:harsh@altmaster.io">
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="4.5" width="14" height="11" rx="2.5" />
+            <path d="m3.5 6 6.5 4.5L16.5 6" />
+          </svg>
+          <span class="nav-label">Email me</span>
+        </a>
+        <div class="nav-account">
+          <a class="nav-item" href="/"
+            ><span class="avatar">HP</span
+            ><span class="nav-label">Harsh Patel</span></a
+          >
         </div>
       </div>
     </nav>
-
-    <section class="hero">
-      <div class="wrap">
-        <div class="eyebrow">
-          <span class="live-dot"></span> Building &amp; shipping on Shopify
+    <div class="nav-scrim"></div>
+    <div class="frame-edge" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page">
+        <div class="page-header">
+          <div class="page-title-wrap">
+            <h1 class="page-title">
+              Harsh Patel 👋
+              <span class="badge badge-success badge-dot">Writing</span>
+            </h1>
+            <p class="page-subtitle">
+              Senior Software Engineer at PagePilot AI
+            </p>
+          </div>
+          <div class="page-actions">
+            <a class="btn hide-sm" href="mailto:harsh@altmaster.io">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4.5" width="14" height="11" rx="2.5" />
+                <path d="m3.5 6 6.5 4.5L16.5 6" />
+              </svg>
+              Email me
+            </a>
+            <a class="btn btn-primary" href="/writing/">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M10 6c-1.6-1.3-3.6-2-6.5-2v11c2.9 0 4.9.7 6.5 2 1.6-1.3 3.6-2 6.5-2V4c-2.9 0-4.9.7-6.5 2zM10 6v11"
+                />
+              </svg>
+              Read writing
+            </a>
+          </div>
         </div>
-        <h1>
-          I'm Harsh. <br />
-          <em>Shopify developer.</em>
-        </h1>
-        <p class="lead">
-          I build Shopify apps, fix slow stores, and ship small tools when I see
-          a gap. Currently shipping
-          <a
-            href="https://altmaster.io/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >AltMaster</a
-          >
-          and running <a href="/store-performance/">GetFastStore</a> for
-          merchants who need their store made fast.
-        </p>
-        <div class="meta-row">
-          <span>Shopify Partner</span>
-          <span class="dot"></span>
-          <span>Indie builder</span>
-          <span class="dot"></span>
-          <span>India · Open to projects</span>
+
+        <div class="layout">
+          <div class="stack">
+            <section class="section" aria-labelledby="about-title">
+              <div class="section-header">
+                <h2 class="section-heading" id="about-title">About</h2>
+              </div>
+              <div class="card">
+                <div class="card-section">
+                  <div
+                    class="stack"
+                    style="gap: 10px; font-size: 14px; line-height: 22px"
+                  >
+                    <p>
+                      I'm a senior software engineer at
+                      <a
+                        href="https://pagepilot.ai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >PagePilot AI</a
+                      >, and I've spent 5+ years building (and breaking) things
+                      in the Shopify ecosystem.
+                    </p>
+                    <p>
+                      I build tools that take work off merchants' plates: less
+                      headache, more sales, less stress.
+                      <a
+                        href="https://apps.shopify.com/alt-text-optimizer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >AltMaster</a
+                      >
+                      is one of them, a free app that writes alt text for
+                      product images so merchants don't have to.
+                    </p>
+                    <p>
+                      PagePilot has 190+ reviews, and running at that scale
+                      teaches you things the docs don't. Here I share the
+                      stories behind what we build and break, from an
+                      engineering point of view.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section" aria-labelledby="writing-title">
+              <div class="section-header">
+                <h2 class="section-heading" id="writing-title">
+                  Latest writing
+                </h2>
+                <a class="btn btn-plain" href="/writing/">View all</a>
+              </div>
+              <div class="card">
+                <div class="card-section">
+                  <ul class="resource-list">
+                    <li>
+                      <a
+                        class="resource-item"
+                        href="/writing/shopify-graphql-rate-limits/"
+                      >
+                        <span class="resource-thumb" aria-hidden="true">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M4 4.5h12l-2 11.5H6z" />
+                            <path d="M10 16v2" stroke-linecap="round" />
+                          </svg>
+                        </span>
+                        <span class="resource-item-body">
+                          <span class="resource-item-title"
+                            >Shopify's GraphQL rate limit is a leaky
+                            bucket</span
+                          ><br />
+                          <span class="resource-item-meta"
+                            >Query cost, restore rates, and how to stop getting
+                            throttled. With a simulator you can break.</span
+                          >
+                        </span>
+                        <span class="badge badge-magic">Interactive</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="stack">
+            <section class="section" aria-labelledby="now-title">
+              <div class="section-header">
+                <h2 class="section-heading" id="now-title">Currently</h2>
+              </div>
+              <div class="card">
+                <div class="card-section">
+                  <dl class="details">
+                    <dt>Role</dt>
+                    <dd>Senior Software Engineer</dd>
+                    <dt>Company</dt>
+                    <dd>
+                      <a
+                        href="https://pagepilot.ai/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >PagePilot AI</a
+                      >
+                    </dd>
+                    <dt>Based in</dt>
+                    <dd>India</dd>
+                  </dl>
+                </div>
+                <div class="card-section">
+                  <p class="card-title" style="margin-bottom: 10px">
+                    Shopify focus
+                  </p>
+                  <div class="chip-groups">
+                    <div class="chip-group">
+                      <span class="chip-label">Build</span>
+                      <ul class="chips">
+                        <li class="chip">Public &amp; custom apps</li>
+                        <li class="chip">Themes &amp; Liquid</li>
+                        <li class="chip">Online Store 2.0</li>
+                        <li class="chip">Hydrogen</li>
+                      </ul>
+                    </div>
+                    <div class="chip-group">
+                      <span class="chip-label">Extend</span>
+                      <ul class="chips">
+                        <li class="chip">Checkout extensions</li>
+                        <li class="chip">Admin extensions</li>
+                        <li class="chip">Theme app extensions</li>
+                        <li class="chip">Shopify Functions</li>
+                      </ul>
+                    </div>
+                    <div class="chip-group">
+                      <span class="chip-label">Integrate</span>
+                      <ul class="chips">
+                        <li class="chip">Admin GraphQL API</li>
+                        <li class="chip">Storefront API</li>
+                        <li class="chip">Webhooks</li>
+                        <li class="chip">Bulk operations</li>
+                        <li class="chip">Metafields &amp; metaobjects</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="section" aria-labelledby="projects-title">
+              <div class="section-header">
+                <h2 class="section-heading" id="projects-title">Projects</h2>
+              </div>
+              <div class="card">
+                <div class="card-section">
+                  <ul class="resource-list">
+                    <li>
+                      <a
+                        class="resource-item"
+                        href="https://apps.shopify.com/alt-text-optimizer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span
+                          class="resource-thumb"
+                          aria-hidden="true"
+                          style="font-weight: 750; color: var(--p-text)"
+                          >Alt</span
+                        >
+                        <span class="resource-item-body">
+                          <span class="resource-item-title">AltMaster</span
+                          ><br />
+                          <span class="resource-item-meta"
+                            >Alt text for Shopify product images</span
+                          >
+                        </span>
+                        <span class="badge badge-success">Free</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </div>
-    </section>
+    </main>
 
-    <section class="about wrap" id="about">
-      <h2 class="section-h">About</h2>
-      <p>
-        I'm a Shopify developer and Shopify Partner based in India, working
-        with merchants worldwide. Most of my work falls into three categories:
-        <strong>apps</strong> for the Shopify App Store,
-        <strong>small free tools</strong> when I notice a gap worth filling, and
-        <strong>speed optimization</strong> for merchants whose stores are
-        slowing them down.
-      </p>
-      <p>
-        The speed work runs under <a href="/store-performance/">GetFastStore</a>.
-        I've personally audited and optimized <strong>47+ Shopify stores</strong>,
-        with an average mobile PageSpeed gain of <strong>+40 points</strong> —
-        real before/after numbers like 19 → 81 and 22 → 77, all in about a week
-        with zero downtime. If your store feels slow,
-        <a href="/store-performance/">book a free audit</a> and I'll tell you
-        exactly what's wrong before you spend anything.
-      </p>
-      <p>
-        I lean toward shipping over talking. The work below is what I'm
-        currently running or building. If something looks useful, the contact
-        section has the usual ways to reach me.
-      </p>
-    </section>
-
-    <section class="work wrap" id="work">
-      <h2 class="section-h">What I'm building</h2>
-      <div class="work-list">
-        <a
-          href="https://apps.shopify.com/alt-text-optimizer"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="work-card"
-        >
-          <div class="work-head">
-            <div class="work-title">
-              AltMaster
-              <span class="work-tag">Shopify app</span>
-            </div>
-            <span class="work-arrow">↗</span>
-          </div>
-          <p class="work-desc">
-            Shopify app that writes alt text for your product images. Bulk fill
-            the backlog, automatic for new products. Free on the App Store.
-          </p>
-          <div class="work-stats">
-            <span><strong>Live</strong> on Shopify App Store</span>
-            <span><strong>Free</strong> to install</span>
-          </div>
-        </a>
-
-        <a href="/store-performance/" class="work-card">
-          <div class="work-head">
-            <div class="work-title">
-              GetFastStore
-              <span class="work-tag">Service</span>
-            </div>
-            <span class="work-arrow">→</span>
-          </div>
-          <p class="work-desc">
-            Speed optimization for slow Shopify stores. App audit, image
-            compression, Core Web Vitals. 7 days, zero downtime.
-          </p>
-          <div class="work-stats">
-            <span><strong>47+</strong> stores optimized</span>
-            <span><strong>+40 pts</strong> avg score gain</span>
-          </div>
-        </a>
-
-        <a
-          href="https://altmaster.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="work-card"
-        >
-          <div class="work-head">
-            <div class="work-title">
-              AltMaster Checker
-              <span class="work-tag">Free tool</span>
-            </div>
-            <span class="work-arrow">↗</span>
-          </div>
-          <p class="work-desc">
-            Paste any URL, see exactly which images are missing alt text. Free,
-            no sign-up. Pairs with the AltMaster Shopify app.
-          </p>
-          <div class="work-stats">
-            <span><strong>Free</strong> &amp; instant</span>
-            <span><strong>SEO + a11y</strong></span>
-          </div>
-        </a>
-
-        <a href="/store-performance/blog/" class="work-card">
-          <div class="work-head">
-            <div class="work-title">
-              Notes
-              <span class="work-tag">Writing</span>
-            </div>
-            <span class="work-arrow">→</span>
-          </div>
-          <p class="work-desc">
-            What I learn from real Shopify audits. App bloat, Core Web Vitals,
-            image strategy. Practical, no fluff.
-          </p>
-        </a>
-      </div>
-    </section>
-
-    <section class="writing wrap" id="writing">
-      <h2 class="section-h">Recent writing</h2>
-      <div class="writing-list">
-        <a
-          href="/store-performance/blog/which-app-is-slowing-my-shopify-store/"
-          class="writing-row"
-        >
-          <span class="writing-title">
-            Which app is slowing down my Shopify store?
-          </span>
-          <span class="writing-date">Jun 2026</span>
-        </a>
-        <a
-          href="/store-performance/blog/how-many-shopify-apps-is-too-many/"
-          class="writing-row"
-        >
-          <span class="writing-title">
-            How many Shopify apps is too many?
-          </span>
-          <span class="writing-date">Jun 2026</span>
-        </a>
-        <a
-          href="/store-performance/blog/shopify-speed-score-not-improving/"
-          class="writing-row"
-        >
-          <span class="writing-title">
-            Why your Shopify speed score won't go up
-          </span>
-          <span class="writing-date">Jun 2026</span>
-        </a>
-        <a
-          href="/store-performance/blog/why-is-my-shopify-store-slow/"
-          class="writing-row"
-        >
-          <span class="writing-title">
-            Why is my Shopify store so slow? 7 real causes explained
-          </span>
-          <span class="writing-date">Apr 2026</span>
-        </a>
-      </div>
-      <a href="/store-performance/blog/" class="writing-all">All articles →</a>
-    </section>
-
-    <section class="contact wrap" id="contact">
-      <h2 class="section-h">Reach me</h2>
-      <div class="contact-grid">
-        <a
-          href="https://calendly.com/harsh-1722-patel/new-meeting"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-card"
-        >
-          <span class="contact-icon" aria-hidden="true">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-          </span>
-          <div class="contact-meta">
-            <div class="contact-label">Book a call</div>
-            <div class="contact-handle">Calendly · 20 min</div>
-          </div>
-        </a>
-
-        <a
-          href="https://twitter.com/iharshspatel"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-card"
-        >
-          <span class="contact-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
-          </span>
-          <div class="contact-meta">
-            <div class="contact-label">X / Twitter</div>
-            <div class="contact-handle">@iharshspatel</div>
-          </div>
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/harsh-patel-38a8b7171"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact-card"
-        >
-          <span class="contact-icon" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              />
-            </svg>
-          </span>
-          <div class="contact-meta">
-            <div class="contact-label">LinkedIn</div>
-            <div class="contact-handle">Harsh Patel</div>
-          </div>
-        </a>
-
-        <a href="mailto:harsh.1722.patel@gmail.com" class="contact-card">
-          <span class="contact-icon" aria-hidden="true">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-          </span>
-          <div class="contact-meta">
-            <div class="contact-label">Email</div>
-            <div class="contact-handle">harsh.1722.patel@gmail.com</div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <footer>
-      <div class="wrap">
-        <div>© 2026 Harsh Patel · Shopify Partner</div>
-        <div>harshspatel.com</div>
-      </div>
-    </footer>
+    <script src="/assets/site.js" defer></script>
   </body>
 </html>

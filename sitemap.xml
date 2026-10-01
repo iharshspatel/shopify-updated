@@ -2,30 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://harshspatel.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
-    <loc>https://harshspatel.com/store-performance/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://harshspatel.com/writing/</loc>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
-    <loc>https://harshspatel.com/store-performance/blog/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  <url>
-    <loc>https://harshspatel.com/store-performance/blog/why-is-my-shopify-store-slow/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  <url>
-    <loc>https://harshspatel.com/store-performance/blog/how-many-shopify-apps-is-too-many/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  <url>
-    <loc>https://harshspatel.com/store-performance/blog/which-app-is-slowing-my-shopify-store/</loc>
-    <lastmod>2026-06-10</lastmod>
-  </url>
-  <url>
-    <loc>https://harshspatel.com/store-performance/blog/shopify-speed-score-not-improving/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <loc>https://harshspatel.com/writing/shopify-graphql-rate-limits/</loc>
+    <lastmod>2026-10-01</lastmod>
   </url>
 </urlset>

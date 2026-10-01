@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopify's GraphQL rate limit is a leaky bucket · Harsh Patel</title>
+    <meta
+      name="description"
+      content="An interactive look at how the Shopify GraphQL Admin API rate limit works: query cost, the leaky bucket, restore rates per plan, and how to write a client that never gets throttled."
+    />
+    <link rel="canonical" href="https://harshspatel.com/writing/shopify-graphql-rate-limits/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Harsh Patel" />
+    <meta property="og:url" content="https://harshspatel.com/writing/shopify-graphql-rate-limits/" />
+    <meta property="og:title" content="Shopify's GraphQL rate limit is a leaky bucket" />
+    <meta
+      property="og:description"
+      content="Query cost, restore rates, and how to stop getting throttled. With a simulator you can break."
+    />
+    <meta property="og:image" content="https://harshspatel.com/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@iharshspatel" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Shopify's GraphQL rate limit is a leaky bucket",
+        "datePublished": "2026-10-01",
+        "author": { "@type": "Person", "name": "Harsh Patel", "url": "https://harshspatel.com/" },
+        "mainEntityOfPage": "https://harshspatel.com/writing/shopify-graphql-rate-limits/"
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400..750&display=swap"
+    />
+    <script>try{if(localStorage.getItem("nav")==="collapsed")document.documentElement.classList.add("nav-collapsed")}catch(e){}</script>
+    <link rel="stylesheet" href="/assets/polaris.css" />
+    <style>
+      .article {
+        padding-top: 8px;
+      }
+      .article .figure .card {
+        box-shadow: 0 0 0 1px var(--p-border);
+      }
+
+      /* Figure 1: the bucket */
+      .bucket-fig {
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr);
+        gap: 20px;
+        align-items: stretch;
+      }
+      .bucket {
+        position: relative;
+        height: 210px;
+        border: 2px solid #4a4a4a;
+        border-top: 0;
+        border-radius: 0 0 14px 14px;
+        background: var(--p-surface-2);
+        overflow: hidden;
+      }
+      .bucket-fill {
+        position: absolute;
+        inset: auto 0 0 0;
+        background: #91d0ff;
+        border-top: 2px solid #0094d5;
+      }
+      .bucket-fill.low {
+        background: #fed1d7;
+        border-top-color: #e51c00;
+      }
+      .bucket-label {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+      .bucket-label strong {
+        display: block;
+        font-size: 24px;
+        line-height: 28px;
+      }
+      .bucket-drip {
+        margin-top: 6px;
+        color: var(--p-text-2);
+        text-align: center;
+        font-size: 12px;
+      }
+      .response {
+        margin: 0;
+        padding: 12px 14px;
+        min-height: 210px;
+        border-radius: var(--p-radius-2);
+        background: #1a1a1a;
+        color: #e3e3e3;
+        font-size: 12px;
+        line-height: 18px;
+        overflow-x: auto;
+        white-space: pre;
+      }
+      .response .hl {
+        color: #fff;
+        background: #303030;
+        border-radius: 3px;
+      }
+      .response .bad {
+        color: #ffb7c0;
+      }
+      @media (max-width: 560px) {
+        .bucket-fig {
+          grid-template-columns: 1fr;
+        }
+        .bucket {
+          height: 150px;
+        }
+        .response {
+          min-height: 0;
+        }
+      }
+
+      /* Figure 2: the simulator */
+      .sim-controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 14px 20px;
+      }
+      .sim-chart {
+        display: block;
+        width: 100%;
+        height: 180px;
+      }
+      .sim-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .stat-label {
+        color: var(--p-text-2);
+        font-size: 12px;
+      }
+      .stat-value {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+      .stat-value.bad {
+        color: var(--p-critical);
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        color: var(--p-text-2);
+        font-size: 12px;
+      }
+      .legend i {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+        border-radius: 2px;
+        vertical-align: -1px;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="mobile-bar">
+      <button class="nav-icon-btn nav-menu" type="button" aria-label="Open navigation" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 5.5h13M3.5 10h13M3.5 14.5h13" /></svg>
+      </button>
+      <a class="brand" href="/"><span class="brand-mark">H</span>Harsh Patel</a>
+    </header>
+
+    <nav class="nav" aria-label="Main">
+      <div class="nav-top">
+        <a class="brand" href="/" aria-label="Harsh Patel, home"><span class="brand-mark">H</span></a>
+        <button class="nav-icon-btn nav-collapse" type="button" aria-label="Collapse sidebar" aria-pressed="false">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="3.5" width="14" height="13" rx="3" /><path d="M8 3.5v13" /></svg>
+        </button>
+      </div>
+
+      <button class="nav-icon-btn nav-search-btn" type="button" aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
+      </button>
+      <div class="nav-search" role="search">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
+        <label class="visually-hidden" for="site-search">Search</label>
+        <input id="site-search" type="search" placeholder="Search" autocomplete="off" />
+        <kbd>/</kbd>
+        <ul id="search-results" class="search-results" hidden></ul>
+      </div>
+
+      <ul>
+        <li>
+          <a class="nav-item" href="/" data-nav="home">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M3.5 8.8 10 3.5l6.5 5.3V15a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 15z" /><path d="M8 16.5v-4h4v4" /></svg>
+            <span class="nav-label">Home</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" href="/writing/" data-nav="writing" aria-current="page">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M5.5 3.5h6l3 3v8.5a1.5 1.5 0 0 1-1.5 1.5h-7.5A1.5 1.5 0 0 1 4 15V5a1.5 1.5 0 0 1 1.5-1.5zM11.5 3.5v3h3M7 10.5h6M7 13.5h4" /></svg>
+            <span class="nav-label">Writing</span>
+            <span class="count">1</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="nav-heading">Projects</p>
+      <ul>
+        <li>
+          <a class="nav-item" href="https://apps.shopify.com/alt-text-optimizer" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3.5" y="4.5" width="13" height="11" rx="2" /><circle cx="7.5" cy="8.5" r="1.3" /><path d="m4 14 3.5-3 2.5 2 2.5-2.5 3.5 3" /></svg>
+            <span class="nav-label">AltMaster</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="nav-heading">Elsewhere</p>
+      <ul>
+        <li>
+          <a class="nav-item" href="https://twitter.com/iharshspatel" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M14.6 3.5h2.3l-5 5.7 5.9 7.3h-4.6l-3.6-4.4-4.1 4.4H3.2l5.4-6.1-5.6-6.9h4.7l3.2 4zm-.8 11.7h1.3L6.3 4.7H4.9z" /></svg>
+            <span class="nav-label">X / Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" href="https://www.linkedin.com/in/harsh-patel-38a8b7171" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M4 3.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3M2.7 7.8h2.6v8.7H2.7zm4.3 0h2.5V9c.4-.7 1.2-1.4 2.6-1.4 2.7 0 3.2 1.8 3.2 4.1v4.8h-2.6v-4.3c0-1 0-2.3-1.4-2.3s-1.7 1.1-1.7 2.2v4.4H7z" /></svg>
+            <span class="nav-label">LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-bottom">
+        <a class="nav-item" href="mailto:harsh@altmaster.io">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="11" rx="2.5" /><path d="m3.5 6 6.5 4.5L16.5 6" /></svg>
+          <span class="nav-label">Email me</span>
+        </a>
+        <div class="nav-account">
+          <a class="nav-item" href="/"><span class="avatar">HP</span><span class="nav-label">Harsh Patel</span></a>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-scrim"></div>
+    <div class="frame-edge" aria-hidden="true"></div>
+    <main class="main" id="main" tabindex="-1">
+      <div class="page page-narrow">
+        <div class="page-header">
+          <a class="page-header-back" href="/writing/" aria-label="Back to writing">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10H4m5-5-5 5 5 5" /></svg>
+          </a>
+          <div class="page-title-wrap">
+            <h1 class="page-title">Shopify's GraphQL rate limit is a leaky bucket</h1>
+            <div class="post-meta" style="margin-top: 4px">
+              <span class="badge badge-magic">Interactive</span>
+              <span class="badge">Admin API</span>
+              <span>Harsh Patel · 1 Oct 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <article class="article">
+          <div class="prose">
+            <p>
+              Here's a pattern I've watched happen more than once. Someone
+              writes a script that loops over every product in a store and
+              updates it. It runs fine on a dev store with 30 products. Then it
+              meets a real store with 40,000 products and starts failing
+              with <code>Throttled</code> errors. They add more workers, and
+              that makes it worse.
+            </p>
+            <p>
+              To understand why, you need to know how Shopify meters the
+              GraphQL Admin API. It doesn't count requests. It counts
+              <em>points</em>, and it keeps them in a bucket.
+            </p>
+
+            <h2>Points, not requests</h2>
+            <p>
+              Every GraphQL query has a <strong>cost</strong>, calculated from
+              the fields you ask for. Shopify's
+              <a href="https://shopify.dev/docs/apps/build/apis/graphql-admin/rate-limits">rate limit docs</a>
+              give the rules:
+            </p>
+            <ul>
+              <li>Scalar and enum fields (a title, a status) cost <strong>0</strong>.</li>
+              <li>Objects (a product, an image) cost <strong>1</strong>.</li>
+              <li>Connections cost more the more you ask for. They're sized by their <code>first</code> or <code>last</code> argument.</li>
+              <li>Mutations cost <strong>10</strong>.</li>
+            </ul>
+            <p>
+              So <code>products(first: 5)</code> is cheap and
+              <code>products(first: 250)</code> with nested variants is not.
+              A single query can't cost more than <strong>1,000</strong>
+              points, whatever plan the store is on.
+            </p>
+
+            <h2>The bucket</h2>
+            <p>
+              Your app gets a bucket of points for each store. Every query
+              takes its cost out of the bucket. The bucket also refills at a
+              steady rate, called the <strong>restore rate</strong>. If a
+              query costs more than what's left in the bucket, Shopify
+              rejects it.
+            </p>
+            <p>Try it. Send a few queries and watch the response change.</p>
+
+            <figure class="figure" id="fig-bucket">
+              <div class="card">
+                <div class="card-section">
+                  <div class="bucket-fig">
+                    <div>
+                      <div class="bucket" aria-hidden="true">
+                        <div class="bucket-fill" style="height: 100%"></div>
+                        <div class="bucket-label"><span><strong data-avail>1000</strong>points left</span></div>
+                      </div>
+                      <p class="bucket-drip">refills at 100 points/s</p>
+                    </div>
+                    <pre class="response" data-response aria-live="polite"></pre>
+                  </div>
+                </div>
+                <div class="card-section subdued">
+                  <div class="btn-group">
+                    <button class="btn" data-cost="50">Query costing 50</button>
+                    <button class="btn" data-cost="200">Query costing 200</button>
+                    <button class="btn btn-primary" data-cost="500">Query costing 500</button>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="figure-caption">
+                A 1,000-point bucket refilling at the Standard plan's 100 points/s. Click fast and you'll get throttled.
+              </figcaption>
+            </figure>
+
+            <p>
+              Two numbers in that response matter more than the rest.
+              <code>currentlyAvailable</code> tells you how full the bucket is
+              right now. <code>restoreRate</code> tells you how fast it
+              refills. Every successful response includes both, so your client
+              always knows where it stands. Most clients ignore them.
+            </p>
+            <p>
+              The restore rate depends on the merchant's plan:
+            </p>
+
+            <div class="card" style="box-shadow: 0 0 0 1px var(--p-border)">
+              <table class="index-table" style="font-size: 14px">
+                <thead><tr><th>Plan</th><th class="num">Restore rate</th></tr></thead>
+                <tbody style="cursor: default">
+                  <tr><td>Standard</td><td class="num">100 points/s</td></tr>
+                  <tr><td>Advanced</td><td class="num">200 points/s</td></tr>
+                  <tr><td>Shopify Plus</td><td class="num">1,000 points/s</td></tr>
+                  <tr><td>Enterprise</td><td class="num">2,000 points/s</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              The same app gets ten times the throughput on a Plus store as on a
+              Standard one. If you only ever test on one kind of store, you'll
+              tune for the wrong number.
+            </p>
+
+            <h3>Requested cost vs actual cost</h3>
+            <p>
+              You'll notice the response has two costs.
+              <code>requestedQueryCost</code> is the worst case, worked out from
+              your query before it runs. <code>actualQueryCost</code> is what
+              the query really cost once it ran. It can be lower, for example
+              when you ask for <code>first: 100</code> and only 12 products
+              exist. Shopify checks the requested cost against your bucket
+              before running the query, so asking for far more than you need
+              can get you throttled even if the result is small.
+            </p>
+
+            <h2>Running a real job</h2>
+            <p>
+              One query at a time is easy to reason about. Real jobs run
+              several workers in parallel, each sending a query, waiting for
+              the response, and sending the next. This simulator runs that
+              loop. Each request takes about 300ms round trip.
+            </p>
+            <p>
+              Start with the default settings, which just fire queries as fast
+              as the workers can. Then switch the strategy to
+              <strong>Wait for points</strong>.
+            </p>
+
+            <figure class="figure" id="fig-sim">
+              <div class="card">
+                <div class="card-section">
+                  <div class="sim-controls">
+                    <div class="field">
+                      <label for="sim-plan">Plan</label>
+                      <select class="select" id="sim-plan">
+                        <option value="100" selected>Standard (100/s)</option>
+                        <option value="200">Advanced (200/s)</option>
+                        <option value="1000">Plus (1,000/s)</option>
+                        <option value="2000">Enterprise (2,000/s)</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="sim-cost">Cost per query <output id="sim-cost-out">200</output></label>
+                      <input type="range" id="sim-cost" min="10" max="1000" step="10" value="200" />
+                    </div>
+                    <div class="field">
+                      <label for="sim-workers">Parallel workers <output id="sim-workers-out">4</output></label>
+                      <input type="range" id="sim-workers" min="1" max="10" step="1" value="4" />
+                    </div>
+                  </div>
+                  <div class="field" style="margin-top: 14px">
+                    <span class="label">Strategy</span>
+                    <div class="btn-group" role="group" aria-label="Strategy">
+                      <button class="btn" data-mode="fire" aria-pressed="true">Fire as fast as possible</button>
+                      <button class="btn" data-mode="wait" aria-pressed="false">Wait for points</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-section">
+                  <canvas class="sim-chart" aria-label="Points available over the last 30 seconds"></canvas>
+                  <div class="legend" style="margin-top: 6px">
+                    <span><i style="background: #0094d5"></i>Points available</span>
+                    <span><i style="background: #e51c00"></i>Throttled request</span>
+                  </div>
+                </div>
+                <div class="card-section subdued">
+                  <div class="sim-stats">
+                    <div><div class="stat-label">Succeeded</div><div class="stat-value" data-stat="ok">0</div></div>
+                    <div><div class="stat-label">Throttled</div><div class="stat-value" data-stat="throttled">0</div></div>
+                    <div><div class="stat-label">Points/s used (10s)</div><div class="stat-value" data-stat="rate">0</div></div>
+                  </div>
+                  <div style="margin-top: 12px; display: flex; justify-content: flex-end">
+                    <button class="btn" data-reset>Reset</button>
+                  </div>
+                </div>
+              </div>
+              <figcaption class="figure-caption">
+                A simulated sync job. Bucket size is 1,000 points. Try adding workers in each mode.
+              </figcaption>
+            </figure>
+
+            <p>A few things worth noticing:</p>
+            <ul>
+              <li>
+                In <strong>fire</strong> mode, the bucket drains in the first
+                second, and after that most requests get throttled.
+              </li>
+              <li>
+                Throughput levels off at the restore rate either way. Once the
+                bucket is empty, the restore rate is your speed limit, and no
+                number of workers changes that.
+              </li>
+              <li>
+                Adding workers in fire mode only adds throttled requests. Each
+                one is wasted network time, and a real client usually backs off
+                after errors, so it ends up slower than this simulation.
+              </li>
+              <li>
+                In <strong>wait</strong> mode, you get the same throughput with
+                zero throttles. The work gets done at the same speed, without
+                burning requests.
+              </li>
+            </ul>
+
+            <h2>A client that waits</h2>
+            <p>
+              The fix is small. Keep a local copy of the bucket, update it from
+              <code>throttleStatus</code> on every response, and sleep before
+              sending a query you can't afford yet.
+            </p>
+            <pre><code><span class="c">// One bucket per shop. Updated from every response.</span>
+const bucket = { available: 1000, max: 1000, rate: 100, seenAt: Date.now() };
+
+function pointsNow() {
+  const refilled = ((Date.now() - bucket.seenAt) / 1000) * bucket.rate;
+  return Math.min(bucket.max, bucket.available + refilled);
+}
+
+async function shopifyQuery(query, variables, expectedCost) {
+  const missing = expectedCost - pointsNow();
+  if (missing &gt; 0) {
+    await sleep((missing / bucket.rate) * 1000);
+  }
+
+  const res = await fetch(ADMIN_GRAPHQL_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Shopify-Access-Token": token },
+    body: JSON.stringify({ query, variables }),
+  });
+  const json = await res.json();
+
+  const status = json.extensions?.cost?.throttleStatus;
+  if (status) {
+    bucket.available = status.currentlyAvailable;
+    bucket.max = status.maximumAvailable;
+    bucket.rate = status.restoreRate;
+    bucket.seenAt = Date.now();
+  }
+  return json;
+}</code></pre>
+            <p>
+              Notice that it reads <code>maximumAvailable</code> and
+              <code>restoreRate</code> from the response instead of hardcoding
+              them. The merchant's plan sets those numbers, and Shopify has
+              changed them before.
+            </p>
+            <p>
+              Two caveats. First, <code>expectedCost</code> should be the
+              requested cost, since that's what Shopify checks. The first
+              response for a given query tells you what it is. Second, this
+              bucket lives in one process. If you have several processes or
+              servers hitting the same shop, the bucket has to live somewhere
+              they all share, such as Redis. Otherwise each process thinks it
+              has the whole bucket to itself.
+            </p>
+
+            <h2>When to stop fighting it</h2>
+            <p>
+              If the job is really "read every product in the store", don't
+              page through it at all. Use a
+              <a href="https://shopify.dev/docs/api/usage/bulk-operations/queries">bulk operation</a>.
+              You submit one query, Shopify runs it in the background, and
+              you download the results as a JSONL file. Bulk operations don't
+              have the per-query cost limit or the rate limit that normal
+              queries have.
+            </p>
+            <p>
+              The bucket is for the requests a person is waiting on: loading a
+              page in your app's admin, or saving a form. Large background
+              jobs should go through bulk operations.
+            </p>
+
+            <hr />
+            <p class="text-subdued" style="font-size: 14px">
+              Numbers in this post come from Shopify's
+              <a href="https://shopify.dev/docs/apps/build/apis/graphql-admin/rate-limits">GraphQL Admin API rate limit docs</a>
+              as of October 2026. The simulator is a simplified model: it
+              charges requested cost and ignores network jitter.
+            </p>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <script src="/assets/site.js" defer></script>
+    <script>
+      (function () {
+        // ---------- Figure 1: bucket clicker ----------
+        var fig = document.getElementById("fig-bucket");
+        var MAX = 1000;
+        var RATE = 100;
+        var avail = MAX;
+        var last = performance.now();
+        var fill = fig.querySelector(".bucket-fill");
+        var availEl = fig.querySelector("[data-avail]");
+        var resp = fig.querySelector("[data-response]");
+
+        function esc(s) {
+          return s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+        }
+
+        function showResponse(cost, ok, before) {
+          var actual = ok ? Math.round(cost * (0.4 + Math.random() * 0.6)) : null;
+          // Shopify charges the actual cost; give back the unused part.
+          if (ok) avail = Math.min(MAX, before - actual);
+          var body = ok
+            ? { data: { "…": "…" } }
+            : { errors: [{ message: "Throttled", extensions: { code: "THROTTLED" } }] };
+          body.extensions = {
+            cost: {
+              requestedQueryCost: cost,
+              actualQueryCost: actual,
+              throttleStatus: {
+                maximumAvailable: MAX,
+                currentlyAvailable: Math.floor(avail),
+                restoreRate: RATE,
+              },
+            },
+          };
+          var text = esc(JSON.stringify(body, null, 2))
+            .replace(/("currentlyAvailable": \d+)/, '<span class="hl">$1</span>')
+            .replace(/("restoreRate": \d+)/, '<span class="hl">$1</span>');
+          if (!ok) text = text.replace(/("message": "Throttled")/, '<span class="bad">$1</span>');
+          resp.innerHTML = text;
+        }
+
+        resp.textContent = "// Send a query to see Shopify's response";
+
+        fig.querySelectorAll("[data-cost]").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var cost = Number(b.getAttribute("data-cost"));
+            var before = avail;
+            showResponse(cost, before >= cost, before);
+          });
+        });
+
+        function tickBucket(now) {
+          var dt = Math.max(0, Math.min(0.1, (now - last) / 1000));
+          last = now;
+          avail = Math.min(MAX, avail + RATE * dt);
+          fill.style.height = (avail / MAX) * 100 + "%";
+          fill.classList.toggle("low", avail < 200);
+          availEl.textContent = Math.floor(avail);
+          requestAnimationFrame(tickBucket);
+        }
+        requestAnimationFrame(tickBucket);
+
+        // ---------- Figure 2: job simulator ----------
+        var sim = document.getElementById("fig-sim");
+        var canvas = sim.querySelector("canvas");
+        var ctx = canvas.getContext("2d");
+        var planEl = document.getElementById("sim-plan");
+        var costEl = document.getElementById("sim-cost");
+        var workersEl = document.getElementById("sim-workers");
+        var stats = {
+          ok: sim.querySelector('[data-stat="ok"]'),
+          throttled: sim.querySelector('[data-stat="throttled"]'),
+          rate: sim.querySelector('[data-stat="rate"]'),
+        };
+        var WINDOW = 30;
+        var LATENCY = 0.3;
+        var S;
+
+        function reset() {
+          S = {
+            t: 0,
+            avail: MAX,
+            mode: S ? S.mode : "fire",
+            workers: [],
+            ok: 0,
+            throttled: 0,
+            history: [],
+            throttles: [],
+            spent: [],
+          };
+        }
+        reset();
+
+        function syncWorkers() {
+          var n = Number(workersEl.value);
+          while (S.workers.length < n) S.workers.push({ busyUntil: S.t + Math.random() * LATENCY });
+          S.workers.length = n;
+        }
+
+        costEl.addEventListener("input", function () {
+          document.getElementById("sim-cost-out").textContent = costEl.value;
+        });
+        workersEl.addEventListener("input", function () {
+          document.getElementById("sim-workers-out").textContent = workersEl.value;
+        });
+        sim.querySelectorAll("[data-mode]").forEach(function (b) {
+          b.addEventListener("click", function () {
+            S.mode = b.getAttribute("data-mode");
+            sim.querySelectorAll("[data-mode]").forEach(function (o) {
+              o.setAttribute("aria-pressed", String(o === b));
+            });
+          });
+        });
+        sim.querySelector("[data-reset]").addEventListener("click", reset);
+
+        function step(dt) {
+          var rate = Number(planEl.value);
+          var cost = Number(costEl.value);
+          syncWorkers();
+          S.t += dt;
+          S.avail = Math.min(MAX, S.avail + rate * dt);
+
+          S.workers.forEach(function (w) {
+            if (S.t < w.busyUntil) return;
+            if (S.mode === "wait" && S.avail < cost) return; // client knows it can't afford it yet
+            if (S.avail >= cost) {
+              S.avail -= cost;
+              S.ok++;
+              S.spent.push({ t: S.t, pts: cost });
+            } else {
+              S.throttled++;
+              S.throttles.push(S.t);
+            }
+            w.busyUntil = S.t + LATENCY * (0.8 + Math.random() * 0.4);
+          });
+
+          S.history.push({ t: S.t, v: S.avail });
+          var cutoff = S.t - WINDOW;
+          while (S.history.length && S.history[0].t < cutoff) S.history.shift();
+          while (S.throttles.length && S.throttles[0] < cutoff) S.throttles.shift();
+          while (S.spent.length && S.spent[0].t < S.t - 10) S.spent.shift();
+        }
+
+        function draw() {
+          var dpr = window.devicePixelRatio || 1;
+          var w = canvas.clientWidth;
+          var h = canvas.clientHeight;
+          if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+          }
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.clearRect(0, 0, w, h);
+
+          var padL = 36, padB = 18, padT = 6;
+          var plotW = w - padL;
+          var plotH = h - padB - padT;
+          var t0 = Math.max(0, S.t - WINDOW);
+          function x(t) { return padL + ((t - t0) / WINDOW) * plotW; }
+          function y(v) { return padT + plotH - (v / MAX) * plotH; }
+
+          ctx.font = "11px Inter, system-ui, sans-serif";
+          ctx.fillStyle = "#8a8a8a";
+          ctx.strokeStyle = "#ebebeb";
+          ctx.lineWidth = 1;
+          [0, 500, 1000].forEach(function (v) {
+            ctx.beginPath();
+            ctx.moveTo(padL, Math.round(y(v)) + 0.5);
+            ctx.lineTo(w, Math.round(y(v)) + 0.5);
+            ctx.stroke();
+            ctx.textAlign = "right";
+            ctx.textBaseline = "middle";
+            ctx.fillText(String(v), padL - 6, y(v));
+          });
+          ctx.textAlign = "left";
+          ctx.textBaseline = "alphabetic";
+          ctx.fillText(Math.floor(S.t) + "s", padL, h - 3);
+
+          ctx.fillStyle = "#e51c00";
+          S.throttles.forEach(function (t) {
+            ctx.fillRect(x(t) - 1, padT + plotH - 10, 2, 10);
+          });
+
+          if (S.history.length > 1) {
+            ctx.beginPath();
+            S.history.forEach(function (p, i) {
+              if (i === 0) ctx.moveTo(x(p.t), y(p.v));
+              else ctx.lineTo(x(p.t), y(p.v));
+            });
+            ctx.strokeStyle = "#0094d5";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+          }
+
+          stats.ok.textContent = S.ok.toLocaleString();
+          stats.throttled.textContent = S.throttled.toLocaleString();
+          stats.throttled.classList.toggle("bad", S.throttled > 0);
+          var window10 = Math.max(2, Math.min(10, S.t));
+          var pts = S.spent.reduce(function (a, s) { return a + s.pts; }, 0);
+          stats.rate.textContent = Math.round(pts / window10).toLocaleString();
+        }
+
+        var visible = true;
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            visible = entries[0].isIntersecting;
+          }).observe(sim);
+        }
+
+        var prev = performance.now();
+        function loop(now) {
+          var dt = Math.max(0, Math.min(0.1, (now - prev) / 1000));
+          prev = now;
+          if (visible) {
+            // Sub-step so fast plans stay accurate at low frame rates.
+            for (var i = 0; i < 4; i++) step(dt / 4);
+            draw();
+          }
+          requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+      })();
+    </script>
+  </body>
+</html>
